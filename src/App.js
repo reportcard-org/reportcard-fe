@@ -21,5 +21,8 @@ function App() {
     </div>
   );
 }
+export const Hello = () => {
+  return "hello"
+}
 
 export default App;
