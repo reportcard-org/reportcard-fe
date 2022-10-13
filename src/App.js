@@ -25,4 +25,8 @@ export const Hello = () => {
   return "hello"
 }
 
+export const Hello = () => {
+  return 'hello'
+}
+
 export default App;
