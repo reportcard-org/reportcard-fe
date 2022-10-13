@@ -1,3 +1,4 @@
+import React from 'react';
 import { render, screen } from '@testing-library/react';
 import App from './App';
 
@@ -7,7 +8,15 @@ test('renders learn react link', () => {
   expect(linkElement).toBeInTheDocument();
 });
 
+test('renders the word Edie', () => {
+  render(<App />);
+  expect(screen.getByText(/Edit/i)).toBeInTheDocument();
+});
 
-// test('Hello', () => {
-//   expect (Hello()).toEqual("hello")
-// })
+test('renders learn react link', () => {
+  render(<App />);
+  expect(screen.getByText(/Hello world/i)).toBeInTheDocument();
+});
+
+
+
