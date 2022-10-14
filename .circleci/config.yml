@@ -3,7 +3,31 @@ version: 2.1
 orbs:
   node: circleci/node@4.7
   heroku: circleci/heroku@1.2.6 # Use the Heroku orb in your config
+  cypress: cypress-io/cypress@2.2.0
   # react: thefrontside/react@dev:alpha
+
+workflows:
+  # test_my_app:
+  #   jobs:
+  #     - build_and_test
+  #     - deploy:
+  #         requires:
+  #           - build_and_test # only deploy if the build_and_test job has completed
+  #         filters:
+  #           branches:
+  #             only: main
+  build:
+    jobs:
+      - cypress/install:
+          build: 'npm run build' # run a custom app build step
+      - cypress/run:
+          requires:
+            - cypress/install
+          record: false # record results on Cypress Dashboard
+          parallel: true # split all specs across machines
+          parallelism: 4 # use 4 CircleCI machines to finish quickly
+          group: 'all tests' # name this group "all tests" on the dashboard
+          start: 'npm start'
 
 jobs:
   build_and_test:
@@ -30,13 +54,5 @@ jobs:
       - heroku/deploy-via-git:
           force: true # force push when pushing to the heroku remote, see: https://devcenter.heroku.com/articles/git
 
-workflows:
-  test_my_app:
-    jobs:
-      - build_and_test
-      - deploy:
-          requires:
-            - build_and_test # only deploy if the build_and_test job has completed
-          filters:
-            branches:
-              only: main
+
+                 
