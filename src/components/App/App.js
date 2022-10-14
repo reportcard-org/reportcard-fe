@@ -1,33 +1,19 @@
-import logo from './logo.svg';
+import React, {useState} from 'react';
 import './App.css';
+import DistrictInfoPage from '../DistrictInfoPage/DistrictInfoPage';
+import SearchPage from '../SearchPage/SearchPage';
+import UserLoginPage from '../UserLoginPage/UserLoginPage';
+import FavoriteDistrictsPage from '../FavoriteDistrictsPage/FavoriteDistrictsPage';
 
-function App() {
+const App = () => {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-          Hello World
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+     {/* <DistrictInfoPage /> */}
+     {/* <SearchPage /> */}
+     {/* <UserLoginPage /> */}
+     {/* <FavoriteDistrictsPage /> */}
     </div>
   );
-}
-export const Hello = () => {
-  return "hello"
-}
-
-export const jello = () => {
-  return 'hello'
 }
 
 export default App;
