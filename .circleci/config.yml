@@ -7,6 +7,15 @@ orbs:
   # react: thefrontside/react@dev:alpha
 
 workflows:
+  test_my_app:
+    jobs:
+      - build_and_test
+      - deploy:
+          requires:
+            - build_and_test # only deploy if the build_and_test job has completed
+          filters:
+            branches:
+              only: main
   build:
     jobs:
       - cypress/install:
@@ -20,17 +29,6 @@ workflows:
           group: 'all tests' # name this group "all tests" on the dashboard
           start: 'npm start'
 
-workflows:
-  test_my_app:
-    jobs:
-      - build_and_test
-      - deploy:
-          requires:
-            - build_and_test # only deploy if the build_and_test job has completed
-          filters:
-            branches:
-              only: main
-              
 jobs:
   build_and_test:
     executor: node/default
