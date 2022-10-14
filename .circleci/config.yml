@@ -1,21 +1,21 @@
 version: 2.1
 
 orbs:
-  # node: circleci/node@4.7
+  node: circleci/node@4.7
   heroku: circleci/heroku@1.2.6 # Use the Heroku orb in your config
   cypress: cypress-io/cypress@2.2.0
   # react: thefrontside/react@dev:alpha
 
 workflows:
-  test_my_app:
-    jobs:
-      - build_and_test
-      - deploy:
-          requires:
-            - build_and_test # only deploy if the build_and_test job has completed
-          filters:
-            branches:
-              only: main
+  # test_my_app:
+  #   jobs:
+  #     - build_and_test
+  #     - deploy:
+  #         requires:
+  #           - build_and_test # only deploy if the build_and_test job has completed
+  #         filters:
+  #           branches:
+  #             only: main
   build:
     jobs:
       - cypress/install:
