@@ -1,10 +1,14 @@
 import React from 'react';
 import './ReportCard.css';
 
-const ReportCard = () => {
+const ReportCard = ({ studentTeacherRatio, perStudentExpenditure, teacherSalaryInfo, studentPopulationSize,          numberOfSchoolsInDistrict }) => {
     return (
         <div className='report-card'>
-            ReportCard WILL EXIST HERE
+            {studentTeacherRatio}
+            {perStudentExpenditure}
+            {teacherSalaryInfo}
+            {studentPopulationSize}
+            {numberOfSchoolsInDistrict}
         </div>
     )
 }
