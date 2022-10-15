@@ -7,7 +7,7 @@ import FavoriteDistrictsPage from '../FavoriteDistrictsPage/FavoriteDistrictsPag
 
 const App = () => {
 
-  const [districtData, setDistrictData] = useState(
+ const [districtData, setDistrictData] = useState(
     {
     data: {
       id: 1,
@@ -21,7 +21,7 @@ const App = () => {
       ]
     }
   });
-  const [userData, setUserData] = useState('');
+ // const [userData, setUserData] = useState('');
 
   return (
     <div className="App">
