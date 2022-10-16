@@ -1,57 +1,63 @@
-import React, {useState} from "react";
-import {v4 as uuidV4} from "uuid"
+import React, { useState } from 'react';
+import './SearchForm.css';
 
-const SearchForm = (props) => {
-    const [title, setTitle] = useState("")
-    const [description, setDescription] = useState("")
+const SearchForm = ({searchForAddress}) => {
+
+    const [city, setCity] = useState('');
+    const [street, setStreet] = useState('');
+    const [stateAddress, setStateAddress] = useState('');
     
-    
-const handleTitleChange = (event) => {
-    setTitle(event.target.value) 
-}
-
-const handleDescriptionChange = (event) => {
-    setDescription(event.target.value)
-}
-
-const submitIdea = (event) => {
-    event.preventDefault()
-    let newIdea = {
-        id: uuidV4(),
-        title,
-        description
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        
+        const newAddressQuery = {
+            city: city,
+            street: street,
+            state: stateAddress
+        }
+        console.log(newAddressQuery)
+        
+        // console.log(searchForAddress())
+        searchForAddress()
+        clearInputs()
     }
-    props.addIdea(newIdea)
-    clearInputs()
-}
 
-const clearInputs  = () => {
-    setTitle("")
-    setDescription("")
-}
-    
-    return(
-        <SearchForm>
+    const clearInputs = () =>{
+        setCity('');
+        setStreet('');
+        setStateAddress('');
+    }
+
+    return (
+        <form className='search-form' onSubmit={(event) => handleSubmit(event)}>
             <input 
-                type="text"
-                name="title"
-                placeholder="Title"
-                value={title}
-                required
-                onChange={handleTitleChange}
+                className='search-input-city'
+                type='text'
+                name='city'
+                placeholder='City'
+                value={city}
+                onChange={(event) => setCity(event.target.value)}
             />
             <input 
-                type="text"
-                name="description"
-                placeholder="Description"
-                value={description}
-                required
-                onChange={handleDescriptionChange}
+                className='search-input-street'
+                type='text'
+                name='street'
+                placeholder='Street'
+                value={street}
+                onChange={(event) => setStreet(event.target.value)}
             />
-            <button onClick={(event) => submitIdea(event)}>Submit</button>
-        </SearchForm>
-    )
+              <input 
+                className='search-input-state-address'
+                type='text'
+                name='stateAddress'
+                placeholder='State'
+                value={stateAddress}
+                onChange={(event) => setStateAddress(event.target.value)}
+            />
 
+            <button className='search-button' type='submit' disabled={!city || !street || !stateAddress }>Search</button>
+        </form>
+    );
 }
 
-export default SearchForm
+export default SearchForm;
