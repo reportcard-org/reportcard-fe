@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import {v4 as uuidV4} from "uuid"
 
-const LoginForm = (props) => {
+const UserLoginForm = (props) => {
     const [title, setTitle] = useState("")
     const [description, setDescription] = useState("")
     
@@ -31,7 +31,7 @@ const clearInputs  = () => {
 }
     
     return(
-        <LoginForm>
+        <UserLoginForm className='user-login-form'>
             <input 
                 type="text"
                 name="title"
@@ -49,9 +49,9 @@ const clearInputs  = () => {
                 onChange={handleDescriptionChange}
             />
             <button onClick={(event) => submitIdea(event)}>Submit</button>
-        </LoginForm>
+        </UserLoginForm>
     )
 
 }
 
-export default LoginForm
+export default UserLoginForm
