@@ -31,5 +31,5 @@ export default DistrictInfoPage;
 
 DistrictInfoPage.propTypes = {
         districtData: PropTypes.object
-    } 
+} 
     

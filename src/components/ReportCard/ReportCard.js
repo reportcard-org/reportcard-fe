@@ -1,7 +1,8 @@
 import React from 'react';
 import './ReportCard.css';
+import PropTypes from 'prop-types'
 
-const ReportCard = ({ studentTeacherRatio, perStudentExpenditure, teacherSalaryInfo, studentPopulationSize,          numberOfSchoolsInDistrict }) => {
+const ReportCard = ({ studentTeacherRatio, perStudentExpenditure, teacherSalaryInfo, studentPopulationSize, numberOfSchoolsInDistrict }) => {
     return (
         <div className='report-card'>
             {studentTeacherRatio}
@@ -14,3 +15,11 @@ const ReportCard = ({ studentTeacherRatio, perStudentExpenditure, teacherSalaryI
 }
 
 export default ReportCard;
+
+ReportCard.propTypes = {
+    studentTeacherRatio: PropTypes.number,
+    perStudentExpenditure: PropTypes.number,
+    teacherSalaryInfo: PropTypes.number,
+    studentPopulationSize: PropTypes.number,
+    numberOfSchoolsInDistrict: PropTypes.number
+} 
