@@ -1,5 +1,7 @@
 import React from 'react';
 import './FavoriteDistrictsPage.css';
+// import PropTypes from 'prop-types'
+
 
 const FavoriteDistrictsPage = () => {
     return (
@@ -10,3 +12,7 @@ const FavoriteDistrictsPage = () => {
 }
 
 export default FavoriteDistrictsPage;
+
+// FavoriteDistrictsPage.propTypes = {
+//      favoritedDistricts: PropTypes.array
+// } 

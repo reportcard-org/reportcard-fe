@@ -1,6 +1,8 @@
 import React from 'react';
 import ReportCard from '../ReportCard/ReportCard'
 import './DistrictInfoPage.css';
+import PropTypes from 'prop-types'
+
 import {v4 as uuidV4} from "uuid"
 
 const DistrictInfoPage = ( {districtData} ) => {
@@ -26,3 +28,8 @@ const DistrictInfoPage = ( {districtData} ) => {
 }
 
 export default DistrictInfoPage;
+
+DistrictInfoPage.propTypes = {
+        districtData: PropTypes.object
+} 
+    
