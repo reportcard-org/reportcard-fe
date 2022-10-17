@@ -7,7 +7,8 @@ import FavoriteDistrictsPage from '../FavoriteDistrictsPage/FavoriteDistrictsPag
 
 const App = () => {
 
- const [districtData, setDistrictData] = useState(
+  //this will need a second param of setDistrictData once we get the form hooked up to search
+ const [districtData] = useState(
     {
     data: {
       id: 1,
@@ -21,13 +22,23 @@ const App = () => {
       ]
     }
   });
+
  // const [userData, setUserData] = useState('');
 
+  const searchForAddress = (newAddressQuery) => {
+    //this is where we will send information to the back.  I've only ever made searched with API calls and not GraphQl so am curious if this is a wuery or mutation?  or if we use an api call?  
+
+  }
+
+  
   return (
     <div className="App">
       <UserLoginPage /> 
-      <SearchPage /> 
+
+      <SearchPage searchForAddress={searchForAddress} /> 
+
       <DistrictInfoPage districtData={districtData} /> 
+
       <FavoriteDistrictsPage /> 
     </div>
   );

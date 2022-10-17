@@ -1,10 +1,11 @@
 import React from 'react';
 import './SearchPage.css';
+import SearchForm from '../SearchForm/SearchForm';
 
-const SearchPage = () => {
+const SearchPage = ({searchForAddress}) => {
     return (
         <div className='search-form-container'>
-            SearchPage WILL EXIST HERE
+            <SearchForm searchForAddress={searchForAddress} />
         </div>
     )
 }
