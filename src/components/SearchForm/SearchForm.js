@@ -16,7 +16,6 @@ const SearchForm = ({ searchForAddress }) => {
             street: street,
             state: stateAddress
         }
-        
         searchForAddress(newAddressQuery)
         clearInputs()
     }
