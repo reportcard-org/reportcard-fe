@@ -1,11 +1,15 @@
 import React, { useState } from 'react';
 import './App.css';
 import DistrictInfoPage from '../DistrictInfoPage/DistrictInfoPage';
+import NavBar from '../ NavBar/NavBar';
 import SearchPage from '../SearchPage/SearchPage';
 import UserLoginPage from '../UserLoginPage/UserLoginPage';
 import FavoriteDistrictsPage from '../FavoriteDistrictsPage/FavoriteDistrictsPage';
+import { Routes, Route, useNavigate } from 'react-router-dom';
+
 
 const App = () => {
+  const navigate = useNavigate()
 
   //this will need a second param of setDistrictData once we get the form hooked up to search
  const [districtData] = useState(
@@ -30,16 +34,36 @@ const App = () => {
 
   }
 
-
   return (
     <div className="App">
-      <UserLoginPage /> 
+      <NavBar />
 
-      <SearchPage searchForAddress={searchForAddress} /> 
+      <Routes>
+        <Route exact path='/' element={
+          <UserLoginPage /> 
+        }/>  
 
-      <DistrictInfoPage districtData={districtData} /> 
+        <Route path='/home' element={
+          <SearchPage searchForAddress={searchForAddress} /> 
+        }
+        />
+  
+        <Route path='/district-info' element={
+          <DistrictInfoPage districtData={districtData} /> 
+        } />
 
-      <FavoriteDistrictsPage /> 
+        <Route path='/favorite-districts' element={
+          <FavoriteDistrictsPage /> 
+        } />
+
+        <Route path='*' element={
+          <div>
+            <h1 className='not-found'>404: Not found</h1>
+            <button className='search-page' onClick={ () => navigate('/home') } >Back to Search Page</button>
+          </div>
+        } />  
+
+      </Routes>
     </div>
   );
 }
