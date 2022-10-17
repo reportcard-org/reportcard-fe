@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types'
 import './SearchForm.css';
 
-const SearchForm = ({searchForAddress}) => {
+const SearchForm = ({ searchForAddress }) => {
 
     const [city, setCity] = useState('');
     const [street, setStreet] = useState('');
@@ -15,10 +16,8 @@ const SearchForm = ({searchForAddress}) => {
             street: street,
             state: stateAddress
         }
-        console.log(newAddressQuery)
         
-        // console.log(searchForAddress())
-        searchForAddress()
+        searchForAddress(newAddressQuery)
         clearInputs()
     }
 
@@ -61,3 +60,7 @@ const SearchForm = ({searchForAddress}) => {
 }
 
 export default SearchForm;
+
+SearchForm.propTypes = {
+    searchForAddress: PropTypes.func
+}
