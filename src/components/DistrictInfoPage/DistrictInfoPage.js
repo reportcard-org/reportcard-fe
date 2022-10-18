@@ -6,8 +6,8 @@ import PropTypes from 'prop-types'
 import {v4 as uuidV4} from "uuid"
 
 const DistrictInfoPage = ( {districtData} ) => {
-    console.log("districtData", districtData)
     const newReportCard = districtData.data.attributes.map(attribute => {
+        console.log("districtData", districtData)
         return (
             <ReportCard 
                 id = {districtData.data.id}
@@ -23,6 +23,7 @@ const DistrictInfoPage = ( {districtData} ) => {
     
     return (
         <div className='district-info-container'>
+            This is the new ReportCard section!
             {newReportCard}
         </div>
     )

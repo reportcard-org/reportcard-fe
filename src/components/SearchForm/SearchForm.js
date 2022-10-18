@@ -7,10 +7,10 @@ const SearchForm = ({ searchForAddress }) => {
     const [city, setCity] = useState('');
     const [street, setStreet] = useState('');
     const [stateAddress, setStateAddress] = useState('');
-    
-    const handleSubmit = (event) => {
+
+    const handleSubmit = event => {
         event.preventDefault();
-        
+
         const newAddressQuery = {
             city: city,
             street: street,
@@ -20,15 +20,15 @@ const SearchForm = ({ searchForAddress }) => {
         clearInputs()
     }
 
-    const clearInputs = () =>{
+    const clearInputs = () => {
         setCity('');
         setStreet('');
         setStateAddress('');
     }
 
     return (
-        <form className='search-form' onSubmit={(event) => handleSubmit(event)}>
-            <input 
+        <form className='search-form' method="post" onSubmit={(event) => handleSubmit(event)}>
+            <input
                 className='search-input-city'
                 type='text'
                 name='city'
@@ -36,7 +36,7 @@ const SearchForm = ({ searchForAddress }) => {
                 value={city}
                 onChange={(event) => setCity(event.target.value)}
             />
-            <input 
+            <input
                 className='search-input-street'
                 type='text'
                 name='street'
@@ -44,7 +44,7 @@ const SearchForm = ({ searchForAddress }) => {
                 value={street}
                 onChange={(event) => setStreet(event.target.value)}
             />
-              <input 
+            <input
                 className='search-input-state-address'
                 type='text'
                 name='stateAddress'
@@ -53,7 +53,7 @@ const SearchForm = ({ searchForAddress }) => {
                 onChange={(event) => setStateAddress(event.target.value)}
             />
 
-            <button className='search-button' type='submit' disabled={!city || !street || !stateAddress }>Search</button>
+            <button className='search-button' type='submit' disabled={!city || !street || !stateAddress}>Search</button>
         </form>
     );
 }
