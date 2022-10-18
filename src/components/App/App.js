@@ -7,61 +7,65 @@ import UserLoginPage from '../UserLoginPage/UserLoginPage';
 import FavoriteDistrictsPage from '../FavoriteDistrictsPage/FavoriteDistrictsPage';
 import { Routes, Route, useNavigate } from 'react-router-dom';
 
-
 const App = () => {
   const navigate = useNavigate()
 
-  //this will need a second param of setDistrictData once we get the form hooked up to search
- const [districtData] = useState(
-    {
-    data: {
-      id: 1,
-      type: 'school district',
-      attributes: [
-        {student_teacher_ratio: .05},
-        {per_student_expenditure: 2000},
-        {teacher_salary_info: 60000},
-        {student_population_size: 50000},
-        {number_of_schools_in_district: 138}
-      ]
-    }
-  });
+  const [districtData, setDistrictData] = useState({})
+  const [userCredentials, setUserCredentials] = useState({})
 
- // const [userData, setUserData] = useState('');
-
-  const searchForAddress = (newAddressQuery) => {
-    //this is where we will send information to the back.  I've only ever made searched with API calls and not GraphQl so am curious if this is a wuery or mutation?  or if we use an api call?  
-
+  const submitLogin = (userLoginCredentials) => {
+    setUserCredentials(userCredentials)
+    navigate('/home')
   }
 
+  const searchForAddress = (newAddressQuery) => {
+    getDistrict(newAddressQuery)
+    navigate('/district-info')
+  }
+
+  const getDistrict = (addressObject) => {
+    console.log('ADDRESS OBJECT', addressObject)
+    fetch(`https://reportcard-rails.herokuapp.com/api/v1/district_data`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(addressObject)
+    })
+    .then(response => response.json())
+    .then(result => 
+      { console.log('RESULT', result) 
+      setDistrictData(result) })
+  }
+  
   return (
     <div className="App">
       <NavBar />
 
       <Routes>
         <Route exact path='/' element={
-          <UserLoginPage /> 
-        }/>  
+          <UserLoginPage submitLogin={submitLogin}/>
+        } />
 
         <Route path='/home' element={
-          <SearchPage searchForAddress={searchForAddress} /> 
+          <SearchPage searchForAddress={searchForAddress} />
         }
         />
-  
+
         <Route path='/district-info' element={
-          <DistrictInfoPage districtData={districtData} /> 
+          <DistrictInfoPage districtData={districtData} />
         } />
 
         <Route path='/favorite-districts' element={
-          <FavoriteDistrictsPage /> 
+          <FavoriteDistrictsPage />
         } />
 
         <Route path='*' element={
           <div>
             <h1 className='not-found'>404: Not found</h1>
-            <button className='search-page' onClick={ () => navigate('/home') } >Back to Search Page</button>
+            <button className='search-page' onClick={() => navigate('/home')} >Back to Search Page</button>
           </div>
-        } />  
+        } />
 
       </Routes>
     </div>

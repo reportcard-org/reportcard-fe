@@ -1,57 +1,55 @@
 import React, {useState} from "react";
 import {v4 as uuidV4} from "uuid"
 
-const LoginForm = (props) => {
-    const [title, setTitle] = useState("")
-    const [description, setDescription] = useState("")
+const UserLoginForm = ({ userLogin }) => {
+    const [userName, setUserName] = useState("")
+    const [password, setPassword] = useState("")
     
     
-const handleTitleChange = (event) => {
-    setTitle(event.target.value) 
+const handleUserNameChange = (event) => {
+    setUserName(event.target.value) 
 }
 
-const handleDescriptionChange = (event) => {
-    setDescription(event.target.value)
+const handlePasswordChange = event => {
+    setPassword(event.target.value)
 }
 
-const submitIdea = (event) => {
+const handleSubmit = event => {
     event.preventDefault()
-    let newIdea = {
+    let userLoginCredentials = {
         id: uuidV4(),
-        title,
-        description
+        userName,
+        password
     }
-    props.addIdea(newIdea)
+    userLogin.submitLogin(userLoginCredentials)
     clearInputs()
 }
 
 const clearInputs  = () => {
-    setTitle("")
-    setDescription("")
+    setUserName('')
+    setPassword('')
 }
     
     return(
-        <LoginForm>
+        <UserLoginForm className= 'user-login-form' onSubmit={(event) => handleSubmit(event)}>
             <input 
                 type="text"
-                name="title"
-                placeholder="Title"
-                value={title}
-                required
-                onChange={handleTitleChange}
+                name="userName"
+                placeholder="Enter your username"
+                value={userName}
+                onChange={(event) => handleUserNameChange(event.target.value)}
             />
             <input 
                 type="text"
-                name="description"
-                placeholder="Description"
-                value={description}
-                required
-                onChange={handleDescriptionChange}
+                name="password"
+                placeholder="Enter your password"
+                value={password}
+                onChange={(event) => handlePasswordChange(event.target.value)}
             />
-            <button onClick={(event) => submitIdea(event)}>Submit</button>
-        </LoginForm>
+            <button className='search-button' type='submit' disabled={!userName || !password }>Submit</button>
+        </UserLoginForm>
     )
 
 }
 
-export default LoginForm
+export default UserLoginForm;
