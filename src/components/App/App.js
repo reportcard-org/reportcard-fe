@@ -11,12 +11,12 @@ const App = () => {
   const navigate = useNavigate()
 
   const [districtData, setDistrictData] = useState({})
-  // const [userCredentials, setUserCredentials] = useState({})
+  const [userCredentials, setUserCredentials] = useState({})
 
-  // const submitLogin = (userLoginCredentials) => {
-  //   setUserCredentials(userCredentials)
-  //   navigate('/home')
-  // }
+  const submitLogin = () => {
+    setUserCredentials(userCredentials)
+    // navigate('/home')
+  }
 
   const searchForAddress = (newAddressQuery) => {
     getDistrict(newAddressQuery)
@@ -46,7 +46,7 @@ const App = () => {
 
       <Routes>
         <Route exact path='/' element={
-          <UserLoginPage />
+          <UserLoginPage submitLogin={submitLogin}/>
         } />
 
         <Route path='/home' element={

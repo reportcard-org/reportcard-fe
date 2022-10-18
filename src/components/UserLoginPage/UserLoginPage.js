@@ -1,15 +1,14 @@
 import React from 'react';
 import './UserLoginPage.css';
-// import UserLoginForm from '../UserLoginForm/UserLoginForm';
+import UserLoginForm from '../UserLoginForm/UserLoginForm';
 import {  useNavigate } from 'react-router-dom';
 
-const UserLoginPage = () => {
+const UserLoginPage = ({ submitLogin }) => {
     const navigate = useNavigate()
 
     return (
         <div className='user-login-form-container'>
-            {/* <UserLoginForm submitLogin={submitLogin}/> */}
-            This is login page
+            <UserLoginForm submitLogin={submitLogin}/>
             <button className='search-page' onClick={ () => navigate('/home') }>Continue as Guest</button>
         </div>
     )
