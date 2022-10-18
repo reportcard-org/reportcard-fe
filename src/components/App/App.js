@@ -11,18 +11,17 @@ const App = () => {
   const navigate = useNavigate()
 
   const [districtData, setDistrictData] = useState({})
-  const [userCredentials, setUserCredentials] = useState({})
+  // const [userCredentials, setUserCredentials] = useState({})
 
-  const submitLogin = (userLoginCredentials) => {
-    setUserCredentials(userCredentials)
-    navigate('/home')
-  }
+  // const submitLogin = (userLoginCredentials) => {
+  //   setUserCredentials(userCredentials)
+  //   navigate('/home')
+  // }
 
   const searchForAddress = (newAddressQuery) => {
     getDistrict(newAddressQuery)
-    navigate('/district-info')
   }
-
+  
   const getDistrict = (addressObject) => {
     console.log('ADDRESS OBJECT', addressObject)
     fetch(`https://reportcard-rails.herokuapp.com/api/v1/district_data`, {
@@ -33,9 +32,12 @@ const App = () => {
       body: JSON.stringify(addressObject)
     })
     .then(response => response.json())
-    .then(result => 
-      { console.log('RESULT', result) 
-      setDistrictData(result) })
+    .then(result => {
+      console.log('RESULT', result)
+      setDistrictData(result)
+      navigate('/district-info')
+    })
+
   }
   
   return (
@@ -44,7 +46,7 @@ const App = () => {
 
       <Routes>
         <Route exact path='/' element={
-          <UserLoginPage submitLogin={submitLogin}/>
+          <UserLoginPage />
         } />
 
         <Route path='/home' element={
