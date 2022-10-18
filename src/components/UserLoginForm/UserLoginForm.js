@@ -1,55 +1,54 @@
-// import React, {useState} from "react";
-// import {v4 as uuidV4} from "uuid"
+import React, {useState} from "react";
+import {v4 as uuidV4} from "uuid"
 
-// const UserLoginForm = ({ userLogin }) => {
-//     const [userName, setUserName] = useState("")
-//     const [password, setPassword] = useState("")
+const UserLoginForm = ({ userLogin }) => {
+    const [userName, setUserName] = useState("")
+    const [password, setPassword] = useState("")
+        
+    const handleUserNameChange = (event) => {
+        setUserName(event.target.value) 
+    }
+
+    const handlePasswordChange = event => {
+        setPassword(event.target.value)
+    }
+
+    const handleSubmit = event => {
+        event.preventDefault()
+        let userLoginCredentials = {
+            id: uuidV4(),
+            userName,
+            password
+        }
+        userLogin(userLoginCredentials)
+        clearInputs()
+    }
+
+    const clearInputs  = () => {
+        setUserName('')
+        setPassword('')
+    }
     
-    
-// const handleUserNameChange = (event) => {
-//     setUserName(event.target.value) 
-// }
+    return(
+        <form className= 'user-login-form' onSubmit={(event) => handleSubmit(event)}>
+            <input 
+                type="text"
+                name="userName"
+                placeholder="Enter your username"
+                value={userName}
+                onChange={(event) => handleUserNameChange(event.target.value)}
+            />
+            <input 
+                type="text"
+                name="password"
+                placeholder="Enter your password"
+                value={password}
+                onChange={(event) => handlePasswordChange(event.target.value)}
+            />
+            <button className='search-button' type='submit' disabled={!userName || !password }>Submit</button>
+        </form>
+    )
 
-// const handlePasswordChange = event => {
-//     setPassword(event.target.value)
-// }
+}
 
-// const handleSubmit = event => {
-//     event.preventDefault()
-//     let userLoginCredentials = {
-//         id: uuidV4(),
-//         userName,
-//         password
-//     }
-//     userLogin.submitLogin(userLoginCredentials)
-//     clearInputs()
-// }
-
-// const clearInputs  = () => {
-//     setUserName('')
-//     setPassword('')
-// }
-    
-//     return(
-//         <UserLoginForm className= 'user-login-form' onSubmit={(event) => handleSubmit(event)}>
-//             <input 
-//                 type="text"
-//                 name="userName"
-//                 placeholder="Enter your username"
-//                 value={userName}
-//                 onChange={(event) => handleUserNameChange(event.target.value)}
-//             />
-//             <input 
-//                 type="text"
-//                 name="password"
-//                 placeholder="Enter your password"
-//                 value={password}
-//                 onChange={(event) => handlePasswordChange(event.target.value)}
-//             />
-//             <button className='search-button' type='submit' disabled={!userName || !password }>Submit</button>
-//         </UserLoginForm>
-//     )
-
-// }
-
-// export default UserLoginForm;
+export default UserLoginForm;
