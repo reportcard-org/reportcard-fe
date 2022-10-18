@@ -14,6 +14,7 @@ const App = () => {
   const [userCredentials, setUserCredentials] = useState({})
 
   const submitLogin = (userLoginCredentials) => {
+    setUserCredentials(userCredentials)
     navigate('/home')
   }
 
