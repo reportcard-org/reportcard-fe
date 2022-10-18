@@ -16,8 +16,8 @@ const App = () => {
 
   const searchForAddress = (newAddressQuery) => {
     //this is where we will send information to the back.  I've only ever made searched with API calls and not GraphQl so am curious if this is a wuery or mutation?  or if we use an api call?  
-    navigate('/district-info')
     getDistrict(newAddressQuery)
+    navigate('/district-info')
   }
 
   const getDistrict = (addressObject) => {
