@@ -12,10 +12,9 @@ const App = () => {
 
   const [districtData, setDistrictData] = useState({})
   const [userCredentials, setUserCredentials] = useState({})
-
+  
   const submitLogin = () => {
     setUserCredentials(userCredentials)
-    // navigate('/home')
   }
 
   const searchForAddress = (newAddressQuery) => {
