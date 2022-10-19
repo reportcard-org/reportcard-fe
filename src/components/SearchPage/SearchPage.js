@@ -1,5 +1,5 @@
 import React from 'react';
-import './SearchPage.scss';
+// import './SearchPage.scss';
 import PropTypes from 'prop-types'
 
 import SearchForm from '../SearchForm/SearchForm';
