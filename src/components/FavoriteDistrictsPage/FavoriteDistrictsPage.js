@@ -1,5 +1,5 @@
 import React from 'react';
-import './FavoriteDistrictsPage.css';
+import './FavoriteDistrictsPage.scss';
 // import PropTypes from 'prop-types'
 // import FavoriteReportCard from '../FavoritedReportCard/FavoriteReportCard';
 import {  useNavigate } from 'react-router-dom';
