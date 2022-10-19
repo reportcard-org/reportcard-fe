@@ -46,7 +46,7 @@ const UserLoginForm = ({ userLogin }) => {
                 value={password}
                 onChange={(event) => handlePasswordChange(event.target.value)}
             />
-            <button className='search-button' type='submit' disabled={!userName || !password }>Submit</button>
+            <button className='login-button' type='submit' disabled={!userName || !password }>Login</button>
         </form>
     )
 

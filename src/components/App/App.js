@@ -15,7 +15,6 @@ const App = () => {
 
   const submitLogin = () => {
     setUserCredentials(userCredentials)
-    // navigate('/home')
   }
 
   const searchForAddress = (newAddressQuery) => {
