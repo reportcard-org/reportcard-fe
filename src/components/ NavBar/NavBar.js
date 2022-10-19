@@ -10,13 +10,15 @@ const NavBar = () => {
 
     return (
         <div className='nav-bar'>
-            <div className='logo'>
-            ReportCard
-            </div>
+            <div className='logo-and-buttons'>
+                <div className='logo'>
+                    ReportCard ✅
+                </div>
             <div className='nav-button-container'>
                 <button className='search-page' onClick={ () => navigate('/home') }>Search Page</button>
                 <button className='favorite-page' onClick={ () => navigate('/favorite-districts') }>Favorites</button>
                 <button className='search-page' onClick={ () => navigate('/') }>Logout</button> 
+            </div>
             </div>
         </div>
     )

@@ -1,4 +1,26 @@
-.nav-bar {
+* {
+    border: 1px solid purple;
+}
+  
+.logo-and-buttons {
     display: flex;
+    flex-direction: row;
     justify-content: center;
+}
+
+.logo {
+    display: flex;
+    align-items: flex-end;
+    font-weight: bolder;
+    width: 8em;
+    font-size: 35pt;
+}
+
+.nav-button-container {
+    display: flex;
+    height: 2em;
+    width: 75em;
+    align-self: flex-end;
+    justify-content: space-between;
+    padding: 0.5em;
 }
