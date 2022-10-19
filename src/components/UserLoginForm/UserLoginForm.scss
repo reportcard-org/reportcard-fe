@@ -1,10 +1,23 @@
-/* .user-login-form {
-    margin: auto;
+.user-login-form {
+    display: flex;
+    flex-direction: column;
+    // justify-content: space-evenly;
+    align-items: center;
+    border-radius: 9.14px;
 }
 
-input, select, button {
-    margin: 5px;
-    width: 30%;
-    border: 1px solid slateblue;
+input {
+    padding: .5em;
+    margin: .5em;
+    height: 1.5em;
+    width: 18em;
+    border-radius: 9.14px;
+}
+
+.login-button {
+    margin: 1em;
+    width: 17em;
+    height: 2.5em;
+    border-radius: 9.14px;
     font-size: 18px;
-} */
+}

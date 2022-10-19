@@ -6,13 +6,13 @@ const UserLoginForm = ({ userLogin }) => {
     const [userName, setUserName] = useState("")
     const [password, setPassword] = useState("")
         
-    const handleUserNameChange = (event) => {
-        setUserName(event.target.value) 
-    }
+    // const handleUserNameChange = (event) => {
+    //     setUserName(event.target.value) 
+    // }
 
-    const handlePasswordChange = event => {
-        setPassword(event.target.value)
-    }
+    // const handlePasswordChange = event => {
+    //     setPassword(event.target.value)
+    // }
 
     const handleSubmit = event => {
         event.preventDefault()
@@ -37,16 +37,16 @@ const UserLoginForm = ({ userLogin }) => {
                 name="userName"
                 placeholder="Enter your username"
                 value={userName}
-                onChange={(event) => handleUserNameChange(event.target.value)}
+                onChange={(event) => setUserName(event.target.value)}
             />
             <input 
                 type="text"
                 name="password"
                 placeholder="Enter your password"
                 value={password}
-                onChange={(event) => handlePasswordChange(event.target.value)}
+                onChange={(event) => setPassword(event.target.value)}
             />
-            <button className='search-button' type='submit' disabled={!userName || !password }>Submit</button>
+            <button className='login-button' type='submit' disabled={!userName || !password }>Login</button>
         </form>
     )
 
