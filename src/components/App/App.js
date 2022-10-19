@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import './App.scss';
-import {v4 as uuidV4} from "uuid";
 import DistrictInfoPage from '../DistrictInfoPage/DistrictInfoPage';
 import NavBar from '../ NavBar/NavBar';
 import SearchPage from '../SearchPage/SearchPage';
@@ -14,7 +13,7 @@ const App = () => {
   const [districtData, setDistrictData] = useState({})
   const [userCredentials, setUserCredentials] = useState({})
   
-  const submitLogin = (userCredentials) => {
+  const submitLogin = () => {
     setUserCredentials(userCredentials)
   }
 

@@ -5,10 +5,10 @@ import {  useNavigate } from 'react-router-dom';
 
 const UserLoginPage = ({ submitLogin }) => {
     const navigate = useNavigate()
-
+ 
     return (
         <div className='user-login-form-container'>
-            <UserLoginForm submitLogin={submitLogin}/>
+            <UserLoginForm submitLogin={submitLogin} />
             <button className='search-page' onClick={ () => navigate('/home') }>Continue as Guest</button>
         </div>
     )
