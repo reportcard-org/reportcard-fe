@@ -15,8 +15,8 @@ const NavBar = () => {
                     ReportCard ✅
                 </div>
             <div className='nav-button-container'>
-                <button className='favorite-page' onClick={ () => navigate('/favorite-districts') }>Favorites</button>
-                <button className='search-page' onClick={ () => navigate('/') }>Logout</button> 
+                <button className='go-to-favorites-page' onClick={ () => navigate('/favorite-districts') }>Favorites</button>
+                <button className='return-to-login-page-button' onClick={ () => navigate('/') }>Logout</button> 
             </div>
             </div>
         </div>
