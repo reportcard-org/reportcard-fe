@@ -29,10 +29,14 @@ const UserLoginForm = ({ userLogin }) => {
         setUserName('')
         setPassword('')
     }
-    
+        
     return(
         <form className= 'user-login-form' onSubmit={(event) => handleSubmit(event)}>
+            <div className="welcome-message">
+                Welcome to ReportCard!
+            </div>
             <input 
+                className='user-name-input'
                 type="text"
                 name="userName"
                 placeholder="Enter your username"
@@ -40,6 +44,7 @@ const UserLoginForm = ({ userLogin }) => {
                 onChange={(event) => setUserName(event.target.value)}
             />
             <input 
+                className='password-input'
                 type="text"
                 name="password"
                 placeholder="Enter your password"

@@ -9,7 +9,7 @@ const UserLoginPage = ({ submitLogin }) => {
     return (
         <div className='user-login-form-container'>
             <UserLoginForm submitLogin={submitLogin}/>
-            <button className='search-page' onClick={ () => navigate('/home') }>Continue as Guest</button>
+            <button className='guest-button' onClick={ () => navigate('/home') }>Continue as Guest</button>
         </div>
     )
 }
