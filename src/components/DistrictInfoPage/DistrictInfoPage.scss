@@ -1,6 +1,11 @@
 .district-info-container {
     padding: 20px;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(7, 1fr);
     grid-gap: 20px;
+}
+
+.add-district-to-favorites, .back-to-search {
+    height: 2em;
+    width: 2em;
 }
