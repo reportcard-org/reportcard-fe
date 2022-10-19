@@ -1,5 +1,5 @@
 import React from 'react';
-import './ReportCard.css';
+import './ReportCard.scss';
 import PropTypes from 'prop-types'
 
 const ReportCard = ({ studentTeacherRatio, perStudentExpenditure, teacherSalaryInfo, studentPopulationSize, numberOfSchoolsInDistrict }) => {

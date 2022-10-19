@@ -1,5 +1,5 @@
 import React from 'react';
-import './FavoriteReportCard.css';
+import './FavoriteReportCard.scss';
 import PropTypes from 'prop-types'
 
 //pass in function to delete a favorited report card
