@@ -11,6 +11,11 @@ const UserLoginForm = ({ submitLogin }) => {
     //     // setUserName(event.target.value) 
     //     // setPassword(`${userName}2022`)
     // }
+  
+    // const handleUserNameChange = (event) => {
+    //     setUserName(event.target.value) 
+    // }
+
 
     // const handlePasswordChange = event => {
     //     setPassword(event.target.value)
@@ -33,23 +38,32 @@ const UserLoginForm = ({ submitLogin }) => {
         setPassword('')
     }
 
-    return (
-        <form className='user-login-form' onSubmit={(event) => handleSubmit(event)}>
-            <input
+        
+    return(
+        <form className= 'user-login-form' onSubmit={(event) => handleSubmit(event)}>
+            <div className="welcome-message">
+                Welcome to ReportCard!
+            </div>
+            <input 
+                className='user-name-input'
                 type="text"
                 name="userName"
                 placeholder="Enter your username"
                 value={userName}
                 onChange={(event) => setUserName(event.target.value)}
             />
-            <input
+
+            <input 
+                className='password-input'
                 type="text"
                 name="password"
                 placeholder="Enter your password"
                 value={password}
                 onChange={(event) => setPassword(event.target.value)}
             />
-            <button className='login-button' type='submit' disabled={!userName || !password}>Login</button>
+
+            <button className='login-button' type='submit' disabled={!userName || !password }>Login</button>
+
         </form>
     )
 

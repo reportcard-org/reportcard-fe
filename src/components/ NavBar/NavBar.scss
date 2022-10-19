@@ -1,4 +1,27 @@
-.nav-bar {
+.logo-and-buttons {
     display: flex;
+    flex-direction: row;
     justify-content: center;
+}
+
+.logo {
+    display: flex;
+    align-items: flex-end;
+    font-weight: bolder;
+    border: solid black;
+    border-radius: 0.5em;
+    margin-top: 0.5em;
+    margin-left: 0.5em;
+    width: 8em;
+    font-size: 35pt;
+    padding: 0.1em;
+}
+
+.nav-button-container {
+    display: flex;
+    height: 2em;
+    width: 75em;
+    align-self: flex-end;
+    justify-content: space-evenly;
+    padding: 0.5em;
 }

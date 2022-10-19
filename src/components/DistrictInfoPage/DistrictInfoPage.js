@@ -4,8 +4,10 @@ import './DistrictInfoPage.scss';
 import PropTypes from 'prop-types'
 
 import {v4 as uuidV4} from "uuid"
+import {  useNavigate } from 'react-router-dom';
 
 const DistrictInfoPage = ({ districtData }) => {
+    const navigate = useNavigate()
     console.log('DISTRICT DATA', districtData)
     const newReportCard = districtData.data.attributes.map(attribute => {
         console.log("districtData", districtData)
@@ -24,8 +26,9 @@ const DistrictInfoPage = ({ districtData }) => {
     
     return (
         <div className='district-info-container'>
-            This is the new ReportCard section!
+            <p><button className='back-to-search' onClick={ () => navigate('/home') }>Back to Search</button></p>
             {newReportCard}
+            <p><button className='add-district-to-favorites' onClick={ () => navigate('/home') }>Add to Favorites!</button></p>
         </div>
     )
 }
