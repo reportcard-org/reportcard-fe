@@ -13,8 +13,8 @@ const App = () => {
   const [districtData, setDistrictData] = useState({})
   const [userCredentials, setUserCredentials] = useState({})
   
-  const submitLogin = () => {
-    setUserCredentials(userCredentials)
+  const submitLogin = (user) => {
+    setUserCredentials(user)
   }
 
   const searchForAddress = (newAddressQuery) => {
@@ -30,6 +30,7 @@ const App = () => {
       },
       body: JSON.stringify(addressObject)
     })
+
     .then(response => response.json())
     .then(result => {
       console.log('RESULT', result)

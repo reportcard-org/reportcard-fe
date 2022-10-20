@@ -1,14 +1,43 @@
-import React from 'react';
+import React, { useState } from 'react';
 import ReportCard from '../ReportCard/ReportCard'
 import './DistrictInfoPage.scss';
 import PropTypes from 'prop-types'
-
 import {v4 as uuidV4} from "uuid"
 import {  useNavigate } from 'react-router-dom';
+// import { useMutation, gql } from '@apollo/client';
+
+// const FAVORITE_DISTRICT = gql`
+//   mutation PostMutation(
+//     $distictID: String!
+//     $userID: String!
+//   ) {
+//     post(districtID: $districtID, userID: $userID) {
+//       userID
+//       districtID
+//     }
+//   }
+// `;
 
 const DistrictInfoPage = ({ districtData }) => {
+
+    const [favorites, setFavorites] = useState({
+      districtID: '',
+      userID: ''
+    });
+    
+    // const [createFavorite] = useMutation(FAVORITE_DISTRICT, {
+    //   variables: {
+    //       distictID: favorites.distictID,
+    //       userID: favorites.userID
+    //   }
+    // })
+
     const navigate = useNavigate()
+
+    
     console.log('DISTRICT DATA', districtData)
+
+
     const newReportCard = districtData.data.attributes.map(attribute => {
         console.log("districtData", districtData)
         return (
