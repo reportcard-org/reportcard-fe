@@ -3,7 +3,7 @@ import './UserLoginForm.scss'
 import { v4 as uuidV4 } from "uuid"
 
 const UserLoginForm = ({ submitLogin }) => {
-    console.log(submitLogin)
+    // console.log(submitLogin)
     const [userName, setUserName] = useState("")
     const [password, setPassword] = useState("")
 
@@ -29,7 +29,7 @@ const UserLoginForm = ({ submitLogin }) => {
             password: setPassword(`${this.userName}2022`)
         }
         submitLogin(userLoginCredentials)
-        console.log(this.userLoginCredentials.userName)
+        // console.log(this.userLoginCredentials.userName)
         clearInputs()
     }
 

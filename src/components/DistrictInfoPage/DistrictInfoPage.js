@@ -8,9 +8,9 @@ import {  useNavigate } from 'react-router-dom';
 
 const DistrictInfoPage = ({ districtData }) => {
     const navigate = useNavigate()
-    console.log('DISTRICT DATA', districtData)
+    // console.log('DISTRICT DATA', districtData)
     const newReportCard = districtData.data.attributes.map(attribute => {
-        console.log("attribute", attribute)
+        // console.log("attribute", attribute)
         return (
             <ReportCard 
                 id = {districtData.lea_id}

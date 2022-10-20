@@ -22,7 +22,7 @@ const App = () => {
   }
 
   const getDistrict = (addressObject) => {
-    console.log('ADDRESS OBJECT', addressObject)
+    // console.log('ADDRESS OBJECT', addressObject)
     return fetch(`https://reportcard-rails.herokuapp.com/api/v1/district_data`, {
       method: "POST",
       headers: {
@@ -32,7 +32,7 @@ const App = () => {
     })
     .then(response => response.json())
     .then(result => {
-      console.log('RESULT', result)
+      // console.log('RESULT', result)
       setDistrictData(result)
       navigate('/district-info')
     })
