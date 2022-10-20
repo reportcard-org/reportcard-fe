@@ -1,0 +1,29 @@
+.user-login-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 9.14px;
+  height: 25em;
+}
+
+input {
+  padding: 0.5em;
+  margin: 1em;
+  height: 1.5em;
+  width: 18em;
+  border-radius: 9.14px;
+}
+
+.welcome-message {
+  margin-top: 3em;
+  font-size: 35px;
+}
+
+.login-button {
+  margin: 1em;
+  width: 17em;
+  height: 2.5em;
+  border-radius: 9.14px;
+  font-size: 18px;
+}/*# sourceMappingURL=UserLoginForm.css.map */
