@@ -10,10 +10,10 @@ const DistrictInfoPage = ({ districtData }) => {
     const navigate = useNavigate()
     console.log('DISTRICT DATA', districtData)
     const newReportCard = districtData.data.attributes.map(attribute => {
-        console.log("districtData", districtData)
+        console.log("attribute", attribute)
         return (
             <ReportCard 
-                id = {districtData.data.id}
+                id = {districtData.lea_id}
                 key = {uuidV4()}
                 studentTeacherRatio = {attribute.student_teacher_ratio}
                 perStudentExpenditure={attribute.per_student_expenditure}
