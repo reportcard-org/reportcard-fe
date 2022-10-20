@@ -17,8 +17,6 @@ const DistrictInfoPage = ({ districtData }) => {
                 key = {uuidV4()}
                 studentTeacherRatio = {attribute.student_teacher_ratio}
                 perStudentExpenditure={attribute.per_student_expenditure}
-                teacherSalaryInfo={attribute.teacher_salary_info}
-                studentPopulationSize={attribute.student_population_size}
                 numberOfSchoolsInDistrict={attribute.number_of_schools_in_district}
             />
         )

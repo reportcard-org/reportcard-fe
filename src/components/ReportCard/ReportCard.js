@@ -7,8 +7,6 @@ const ReportCard = ({ studentTeacherRatio, perStudentExpenditure, teacherSalaryI
         <div className='report-card'>
             <p className='card-bubble'>{studentTeacherRatio}</p>
             <p className='card-bubble'>{perStudentExpenditure}</p>
-            <p className='card-bubble'>{teacherSalaryInfo}</p>
-            <p className='card-bubble'>{studentPopulationSize}</p>
             <p className='card-bubble'>{numberOfSchoolsInDistrict}</p>
         </div>
     )
