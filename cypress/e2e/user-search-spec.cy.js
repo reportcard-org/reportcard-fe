@@ -3,12 +3,11 @@ const postStub = {
     "street": "6805 S Webster Street",
     "state": "Colorado"
   }
-  
+
   describe('ReportCard login page', () => {
-  
     beforeEach(() => {
       cy.visit('http://localhost:3000/')
-      //gql stub??  
+      //gql stub??
     })
     
     it('user can continue as guest without logging in', () => {
@@ -21,7 +20,7 @@ const postStub = {
       .get('.guest-button').contains('Continue as Guest').click()
       .location('pathname').should('eq', '/home')
     });
-    
+
     it('can continue as guest and search for a district if user inputs a city, street, and state', () => {
       cy.get('.nav-bar').contains('ReportCard')
       .location('pathname').should('eq', '/')
@@ -39,7 +38,7 @@ const postStub = {
       .get('.search-button').should('not.be.disabled')
       .get('.search-button').contains('Search').click()
     });
-  
+
     it('can continue as guest but cannot search for district unless user enters city, street, and state', () => {
         cy.get('.nav-bar').contains('ReportCard')
         .location('pathname').should('eq', '/')
@@ -60,5 +59,4 @@ const postStub = {
         .get('.search-button').should('not.be.disabled')
         .get('.search-button').contains('Search').click()
     });
-  
   });

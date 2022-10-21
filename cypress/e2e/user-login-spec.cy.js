@@ -1,9 +1,3 @@
-const postStub = {
-  "city": "Littleton",
-  "street": "6805 S Webster Street",
-  "state": "Colorado"
-}
-
 describe('ReportCard login page', () => {
 
   beforeEach(() => {
@@ -17,8 +11,7 @@ describe('ReportCard login page', () => {
     .get('.nav-button-container').contains("Favorites")
     .get('.nav-button-container').contains("Logout")
     .get('.guest-button').contains("Continue as Guest")
-    .location('pathname').should('eq', '/')
-    
+    .location('pathname').should('eq', '/')    
   });
   
   it('user can continue as guest without logging in', () => {
@@ -31,8 +24,7 @@ describe('ReportCard login page', () => {
     .get('.guest-button').contains('Continue as Guest').click()
     .location('pathname').should('eq', '/home')
   });
-  
-  
+
   // it('can continue as guest but cannot search for district unless user enters city, street, and state', () => {
   //   cy.get('.nav-bar').contains('ReportCard')
   //   .location('pathname').should('eq', '/')
@@ -42,7 +34,6 @@ describe('ReportCard login page', () => {
   //   .get('.guest-button').contains("Continue as Guest")
   //   .get('.guest-button').contains('Continue as Guest').click()
   //   .location('pathname').should('eq', '/home')
-  //   // 
   // });
 
   // it('can login', () => {
@@ -55,5 +46,4 @@ describe('ReportCard login page', () => {
   //     .get('.guest-button').contains('Continue as Guest').click()
   //     .location('pathname').should('eq', '/home')
   // });
-
 });
