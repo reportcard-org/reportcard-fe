@@ -20,10 +20,10 @@ import {  useNavigate } from 'react-router-dom';
 
 const DistrictInfoPage = ({ districtData }) => {
 
-    const [favorites, setFavorites] = useState({
-      districtID: '',
-      userID: ''
-    });
+    // const [favorites, setFavorites] = useState({
+    //   districtID: '',
+    //   userID: ''
+    // });
     
     // const [createFavorite] = useMutation(FAVORITE_DISTRICT, {
     //   variables: {
@@ -34,7 +34,7 @@ const DistrictInfoPage = ({ districtData }) => {
 
     const navigate = useNavigate()
 
-    
+
     console.log('DISTRICT DATA', districtData)
 
 
