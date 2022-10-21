@@ -12,7 +12,7 @@ const App = () => {
   const navigate = useNavigate()
   const [userName, setUserName] = useState("")
   const [districtData, setDistrictData] = useState({})
-  const [userCredentials, setUserCredentials] = useState({})
+  // const [userCredentials, setUserCredentials] = useState({})
 
   // const { error, loading, data } = useQuery(USER_LOGIN_QUERY)
   
