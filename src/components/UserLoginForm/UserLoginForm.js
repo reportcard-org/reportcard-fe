@@ -45,7 +45,7 @@ const UserLoginForm = ({ submitLogin }) => {
         }
         `;
 
-        const [getEmail, {loading, data, error}] = useLazyQuery(USER_LOGIN_QUERY);
+        //const [getEmail, {loading, data, error}] = useLazyQuery(USER_LOGIN_QUERY);
 
         if (error) return <h1 className='error'>Technical difficulties, please visit us later.</h1>
 
