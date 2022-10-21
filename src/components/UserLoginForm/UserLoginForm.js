@@ -1,17 +1,21 @@
 import React, { useState } from "react";
-
 import './UserLoginForm.scss'
 // import { v4 as uuidV4 } from "uuid"
-// import { useQuery, gql } from '@apollo/client';
+import { useQuery, gql } from '@apollo/client';
 
-// const USER_LOGIN_QUERY = gql`
-//   {
-    
-//   }
-// `;
+const USER_LOGIN_QUERY = gql`
+  query {
+    user(email: "meagan@stark.org") {
+        name
+        email
+        id
+    }
+  }
+`;
 
 const UserLoginForm = ({ submitLogin }) => {
-
+    const { data } = useQuery(USER_LOGIN_QUERY)
+    console.log('DATA', data)
     const [userName, setUserName] = useState("")
 
     const handleSubmit = event => {
@@ -36,7 +40,7 @@ const UserLoginForm = ({ submitLogin }) => {
     //     // setUserName(event.target.value) 
     //     // setPassword(`${userName}2022`)
     // }
-  
+
     // const handleUserNameChange = (event) => {
     //     setUserName(event.target.value) 
     // }
@@ -47,12 +51,12 @@ const UserLoginForm = ({ submitLogin }) => {
     // }
 
 
-    return(
-        <form className= 'user-login-form' onSubmit={(event) => handleSubmit(event)}>
+    return (
+        <form className='user-login-form' onSubmit={(event) => handleSubmit(event)}>
             <div className="welcome-message">
                 Welcome to ReportCard!
             </div>
-            <input 
+            <input
                 className='user-name-input'
                 type="text"
                 name="userName"
@@ -60,7 +64,7 @@ const UserLoginForm = ({ submitLogin }) => {
                 value={userName}
                 onChange={(event) => setUserName(event.target.value)}
             />
-{/* 
+            {/* 
             <input 
                 className='password-input'
                 type="text"
