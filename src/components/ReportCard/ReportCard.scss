@@ -2,11 +2,17 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-top: 12em;
+}
+
+.card-bubble {
     box-sizing: border-box;
     border: 3px solid black;
     border-radius: 6em;
     padding: 1em;
     height: 5em;
     width: 5em;
-    margin-top: 12em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

@@ -5,11 +5,9 @@ import PropTypes from 'prop-types'
 const ReportCard = ({ studentTeacherRatio, perStudentExpenditure, teacherSalaryInfo, studentPopulationSize, numberOfSchoolsInDistrict }) => {
     return (
         <div className='report-card'>
-            {studentTeacherRatio}
-            {perStudentExpenditure}
-            {teacherSalaryInfo}
-            {studentPopulationSize}
-            {numberOfSchoolsInDistrict}
+            <p className='card-bubble'>{studentTeacherRatio}</p>
+            <p className='card-bubble'>{perStudentExpenditure}</p>
+            <p className='card-bubble'>{numberOfSchoolsInDistrict}</p>
         </div>
     )
 }
