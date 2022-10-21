@@ -1,40 +1,73 @@
 import React, { useState } from "react";
 import './UserLoginForm.scss'
 // import { v4 as uuidV4 } from "uuid"
-import { useQuery, gql } from '@apollo/client';
-
-const USER_LOGIN_QUERY = gql`
-  query {
-    user(email: "meagan@stark.org") {
-        name
-        email
-        id
-    }
-  }
-`;
+import { useLazyQuery, gql } from '@apollo/client';
+//import { useQuery, gql } from '@apollo/client';
 
 const UserLoginForm = ({ submitLogin }) => {
-    const { data } = useQuery(USER_LOGIN_QUERY)
-    console.log('DATA', data)
-    const [userName, setUserName] = useState("")
+    const [userCredentials, setUserCredentials] = useState("")
+    // const [password, setPassword] = useState("")
+    // const { data } = useQuery(USER_LOGIN_QUERY)
+   // console.log('DATA', data)
+   // const [userName, setUserName] = useState("")
 
-    const handleSubmit = event => {
-        event.preventDefault()
-        let userLoginCredentials = {
-            userName: userName,
-            // password: setPassword(`${this.userName}2022`)
+ 
+    // const { error, loading, data } = useQuery(USER_LOGIN_QUERY, {
+    //     getEmail() variables: {
+    //         email: email
+    //     }})
+        
+        
+        // console.log({error, loading, data})
+        // console.log(data)
+        // console.log(error)
+        // setUserName(data)
+
+        const USER_LOGIN_QUERY = gql`
+        query user($email: String!){
+            user(email: $email){
+                name
+                email
+                id
+            }
         }
-        submitLogin(userLoginCredentials)
+        `;
+
+        const [getEmail, {loading, data, error}] = useLazyQuery(USER_LOGIN_QUERY);
+
+        if (error) return <h1 className='error'>Technical difficulties, please visit us later.</h1>
+
+        if (loading) return <h2 className='loading'>LOADING...</h2>
+
+        
+        
+        
+        const handleSubmit = (event) => {
+            event.preventDefault()
+            
+            getEmail({
+                variables: {
+                    email: userCredentials
+                }
+            })
+
+        // let userLoginCredentials = {
+        //     userCredentials: userCredentials,
+        //     // password: setPassword(`${this.userName}2022`)
+        // }
+
+
+        //console.log("DATA", data)
+        submitLogin(data)
         clearInputs()
     }
 
     const clearInputs = () => {
-        setUserName('')
+        setUserCredentials('')
         // setPassword('')
     }
 
 
-    // const [password, setPassword] = useState("")
 
     // const handleLoginCredentials = event => {
     //     // setUserName(event.target.value) 
@@ -59,10 +92,10 @@ const UserLoginForm = ({ submitLogin }) => {
             <input
                 className='user-name-input'
                 type="text"
-                name="userName"
-                placeholder="Enter your username"
-                value={userName}
-                onChange={(event) => setUserName(event.target.value)}
+                name="userCredentials"
+                placeholder="Enter your email"
+                value={userCredentials}
+                onChange={(event) => setUserCredentials(event.target.value)}
             />
             {/* 
             <input 
@@ -74,9 +107,9 @@ const UserLoginForm = ({ submitLogin }) => {
                 onChange={(event) => setPassword(event.target.value)}
             /> */}
 
-            <button className='login-button' type='submit' disabled={!userName}>Login</button>
+            <button className='login-button' type='submit' disabled={!userCredentials}>Login</button>
 
-            {/* <button className='login-button' type='submit' disabled={!userName || !password }>Login</button> */}
+            {/* <button className='login-button' type='submit' disabled={!userCredentials || !password }>Login</button> */}
 
         </form>
     )
