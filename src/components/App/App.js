@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import './App.scss';
 import DistrictInfoPage from '../DistrictInfoPage/DistrictInfoPage';
-import NavBar from '../ NavBar/NavBar';
+import NavBar from '../NavBar/NavBar';
+import Overview from '../Overview/Overview';
 import SearchPage from '../SearchPage/SearchPage';
 import UserLoginPage from '../UserLoginPage/UserLoginPage';
 import FavoriteDistrictsPage from '../FavoriteDistrictsPage/FavoriteDistrictsPage';
@@ -61,12 +62,17 @@ const App = () => {
   return (
     <div className="App">
       <NavBar  userName={userName}/>
+        
 
       <Routes>
-        <Route exact path='/' element={
+        <Route exact path='/login' element={
           <UserLoginPage submitLogin={submitLogin}/>
         } />
-
+        
+        <Route path='/' element={
+          <Overview />
+        } />
+  
         <Route path='/home' element={
           <SearchPage searchForAddress={searchForAddress} />
         }
