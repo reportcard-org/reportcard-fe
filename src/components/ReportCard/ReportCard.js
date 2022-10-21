@@ -1,5 +1,5 @@
 import React from 'react';
-// import './ReportCard.scss';
+import './ReportCard.scss';
 import PropTypes from 'prop-types'
 
 

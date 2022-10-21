@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-// import './App.scss';
+import './App.scss';
 import DistrictInfoPage from '../DistrictInfoPage/DistrictInfoPage';
 import NavBar from '../ NavBar/NavBar';
 import SearchPage from '../SearchPage/SearchPage';
@@ -9,46 +9,43 @@ import { Routes, Route, useNavigate } from 'react-router-dom';
 
 const App = () => {
   const navigate = useNavigate()
-  const [districtData, setDistrictData] = useState({})
 
-  // const [userCredentials, setUserCredentials] = useState({})
+  const [districtData, setDistrictData] = useState({})
+  const [userCredentials, setUserCredentials] = useState({})
   
-  const submitLogin = (user) => {
-    // setUserCredentials(user)
+  const submitLogin = () => {
+    setUserCredentials(userCredentials)
   }
 
   const searchForAddress = (newAddressQuery) => {
     getDistrict(newAddressQuery)
   }
-
+  
   const getDistrict = (addressObject) => {
-    // console.log('ADDRESS OBJECT', addressObject)
-    return fetch(`https://reportcard-rails.herokuapp.com/api/v1/district_data`, {
+    console.log('ADDRESS OBJECT', addressObject)
+    fetch(`https://reportcard-rails.herokuapp.com/api/v1/district_data`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
       },
       body: JSON.stringify(addressObject)
     })
-
     .then(response => response.json())
     .then(result => {
-      // console.log('RESULT', result)
+      console.log('RESULT', result)
       setDistrictData(result)
       navigate('/district-info')
     })
-    .catch(function (error) {
-      console.log(error);
-    });
-  }
 
+  }
+  
   return (
     <div className="App">
       <NavBar />
 
       <Routes>
         <Route exact path='/' element={
-          <UserLoginPage submitLogin={submitLogin} />
+          <UserLoginPage submitLogin={submitLogin}/>
         } />
 
         <Route path='/home' element={
