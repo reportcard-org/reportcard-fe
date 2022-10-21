@@ -10,10 +10,9 @@ import { Routes, Route, useNavigate } from 'react-router-dom';
 
 const App = () => {
   const navigate = useNavigate()
-  const [districtData, setDistrictData] = useState({})
-
-
   const [userName, setUserName] = useState("")
+  const [districtData, setDistrictData] = useState({})
+  const [userCredentials, setUserCredentials] = useState({})
 
   // const { error, loading, data } = useQuery(USER_LOGIN_QUERY)
   
@@ -35,41 +34,37 @@ const App = () => {
     // if loading show loading
     //if data exists navigate to the search page.  show user name in nav bar, show favorites button in nav bar
     // setUserName(userCredentials)
-
-  }
+}
 
   const searchForAddress = (newAddressQuery) => {
     getDistrict(newAddressQuery)
   }
-
+  
   const getDistrict = (addressObject) => {
-    // console.log('ADDRESS OBJECT', addressObject)
-    return fetch(`https://reportcard-rails.herokuapp.com/api/v1/district_data`, {
+    console.log('ADDRESS OBJECT', addressObject)
+    fetch(`https://reportcard-rails.herokuapp.com/api/v1/district_data`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
       },
       body: JSON.stringify(addressObject)
     })
-
     .then(response => response.json())
     .then(result => {
-      // console.log('RESULT', result)
+      console.log('RESULT', result)
       setDistrictData(result)
       navigate('/district-info')
     })
-    .catch(function (error) {
-      console.log(error);
-    });
-  }
 
+  }
+  
   return (
     <div className="App">
       <NavBar  userName={userName}/>
 
       <Routes>
         <Route exact path='/' element={
-          <UserLoginPage submitLogin={submitLogin} />
+          <UserLoginPage submitLogin={submitLogin}/>
         } />
 
         <Route path='/home' element={

@@ -2,12 +2,26 @@ import React, { useState } from "react";
 import './UserLoginForm.scss'
 // import { v4 as uuidV4 } from "uuid"
 import { useLazyQuery, gql } from '@apollo/client';
-
-
+//import { useQuery, gql } from '@apollo/client';
 
 const UserLoginForm = ({ submitLogin }) => {
     const [userCredentials, setUserCredentials] = useState("")
     // const [password, setPassword] = useState("")
+
+const USER_LOGIN_QUERY = gql`
+  query {
+    user(email: "meagan@stark.org") {
+        name
+        email
+        id
+    }
+  }
+`;
+
+const UserLoginForm = ({ submitLogin }) => {
+    const { data } = useQuery(USER_LOGIN_QUERY)
+    console.log('DATA', data)
+    const [userName, setUserName] = useState("")
 
  
     // const { error, loading, data } = useQuery(USER_LOGIN_QUERY, {
@@ -71,7 +85,7 @@ const UserLoginForm = ({ submitLogin }) => {
     //     // setUserName(event.target.value) 
     //     // setPassword(`${userName}2022`)
     // }
-  
+
     // const handleUserNameChange = (event) => {
     //     setUserName(event.target.value) 
     // }
@@ -82,12 +96,12 @@ const UserLoginForm = ({ submitLogin }) => {
     // }
 
 
-    return(
-        <form className= 'user-login-form' onSubmit={(event) => handleSubmit(event)}>
+    return (
+        <form className='user-login-form' onSubmit={(event) => handleSubmit(event)}>
             <div className="welcome-message">
                 Welcome to ReportCard!
             </div>
-            <input 
+            <input
                 className='user-name-input'
                 type="text"
                 name="userCredentials"
@@ -95,7 +109,7 @@ const UserLoginForm = ({ submitLogin }) => {
                 value={userCredentials}
                 onChange={(event) => setUserCredentials(event.target.value)}
             />
-{/* 
+            {/* 
             <input 
                 className='password-input'
                 type="text"
