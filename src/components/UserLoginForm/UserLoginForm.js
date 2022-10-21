@@ -10,7 +10,7 @@ const UserLoginForm = ({ submitLogin }) => {
 
 const UserLoginForm = ({ submitLogin }) => {
     const { data } = useQuery(USER_LOGIN_QUERY)
-    console.log('DATA', data)
+   // console.log('DATA', data)
     const [userName, setUserName] = useState("")
 
  
@@ -35,7 +35,7 @@ const UserLoginForm = ({ submitLogin }) => {
         }
         `;
 
-        const [getEmail, {loading, data, error}] = useLazyQuery(USER_LOGIN_QUERY);
+        const [getEmail, {loading, error}] = useLazyQuery(USER_LOGIN_QUERY);
 
         if (error) return <h1 className='error'>Technical difficulties, please visit us later.</h1>
 
