@@ -1,0 +1,15 @@
+.user-login-form-container {
+  display: flex;
+  flex-direction: column;
+  padding: 1em;
+  align-items: center;
+  height: 39em;
+}
+
+.guest-button {
+  margin: 1em;
+  width: 17em;
+  height: 2.5em;
+  border-radius: 9.14px;
+  font-size: 14px;
+}/*# sourceMappingURL=UserLoginPage.css.map */
