@@ -8,16 +8,6 @@ const UserLoginForm = ({ submitLogin }) => {
     const [userCredentials, setUserCredentials] = useState("")
     // const [password, setPassword] = useState("")
 
-const USER_LOGIN_QUERY = gql`
-  query {
-    user(email: "meagan@stark.org") {
-        name
-        email
-        id
-    }
-  }
-`;
-
 const UserLoginForm = ({ submitLogin }) => {
     const { data } = useQuery(USER_LOGIN_QUERY)
     console.log('DATA', data)
@@ -45,7 +35,7 @@ const UserLoginForm = ({ submitLogin }) => {
         }
         `;
 
-        //const [getEmail, {loading, data, error}] = useLazyQuery(USER_LOGIN_QUERY);
+        const [getEmail, {loading, data, error}] = useLazyQuery(USER_LOGIN_QUERY);
 
         if (error) return <h1 className='error'>Technical difficulties, please visit us later.</h1>
 
@@ -69,7 +59,7 @@ const UserLoginForm = ({ submitLogin }) => {
         // }
 
 
-        console.log("DATA", data)
+        //console.log("DATA", data)
         submitLogin(data)
         clearInputs()
     }
