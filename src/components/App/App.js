@@ -13,9 +13,9 @@ const App = () => {
   const [districtData, setDistrictData] = useState({})
   // const [userCredentials, setUserCredentials] = useState({})
   
-  // const submitLogin = (user) => {
-  //   setUserCredentials(user)
-  // }
+  const submitLogin = (user) => {
+    // setUserCredentials(user)
+  }
 
   const searchForAddress = (newAddressQuery) => {
     getDistrict(newAddressQuery)
