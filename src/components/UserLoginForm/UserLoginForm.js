@@ -7,8 +7,6 @@ import { useLazyQuery, gql } from '@apollo/client';
 const UserLoginForm = ({ submitLogin }) => {
     const [userCredentials, setUserCredentials] = useState("")
     // const [password, setPassword] = useState("")
-
-const UserLoginForm = ({ submitLogin }) => {
     const { data } = useQuery(USER_LOGIN_QUERY)
    // console.log('DATA', data)
     const [userName, setUserName] = useState("")
