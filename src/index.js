@@ -1,17 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-// import './index.scss';
-import { ApolloClient, InMemoryCache, ApolloProvider, createHttpLink } from '@apollo/client';
+import './index.scss';
+import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client';
 import App from '../src/components/App/App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
 
-const httpLink = createHttpLink({ 
-    url: 'http://localhost:4000' 
-  });
-
 const client = new ApolloClient({
-  link: httpLink,
+  uri: "https://reportcard-rails.herokuapp.com/graphql", 
   cache: new InMemoryCache()
 }); 
 
