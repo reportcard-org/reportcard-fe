@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './App.scss';
+// import './App.scss';
 import DistrictInfoPage from '../DistrictInfoPage/DistrictInfoPage';
 import NavBar from '../ NavBar/NavBar';
 import SearchPage from '../SearchPage/SearchPage';
