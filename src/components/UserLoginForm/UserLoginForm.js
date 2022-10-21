@@ -9,7 +9,7 @@ const UserLoginForm = ({ submitLogin }) => {
     // const [password, setPassword] = useState("")
     // const { data } = useQuery(USER_LOGIN_QUERY)
    // console.log('DATA', data)
-    const [userName, setUserName] = useState("")
+   // const [userName, setUserName] = useState("")
 
  
     // const { error, loading, data } = useQuery(USER_LOGIN_QUERY, {
