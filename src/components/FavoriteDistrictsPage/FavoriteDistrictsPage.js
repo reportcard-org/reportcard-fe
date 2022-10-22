@@ -5,7 +5,8 @@ import './FavoriteDistrictsPage.scss';
 import {  useNavigate } from 'react-router-dom';
 
 
-const FavoriteDistrictsPage = () => {
+const FavoriteDistrictsPage = ({userID}) => {
+    console.log(userID)
     //will this need to hold state [] for the favorites or can we hold this in App?? 
     const navigate = useNavigate()
 
