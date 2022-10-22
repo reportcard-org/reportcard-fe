@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.scss';
 import DistrictInfoPage from '../DistrictInfoPage/DistrictInfoPage';
 import NavBar from '../ NavBar/NavBar';
@@ -12,14 +12,8 @@ const App = () => {
   const navigate = useNavigate()
   const [districtData, setDistrictData] = useState({})
   const [userLoginEmail, setUserLoginEmail] = useState("")
+  const [userID, setUserID] = useState("")
 
-  // const { error, loading, data } = useQuery(USER_LOGIN_QUERY)
-  
-  // console.log({error, loading, data})
-  // console.log(data)
-  // console.log(error)
-  // setUserName(data)
-  
   const submitLogin = (userEmail) => {
     setUserLoginEmail(userEmail)
 
@@ -30,6 +24,10 @@ const App = () => {
     //if data exists navigate to the search page.  show user name in nav bar, show favorites button in nav bar
     // setUserName(userCredentials)
 
+  }
+
+  const signedInUser = (id) => {
+    setUserID(id)
   }
 
   const searchForAddress = (newAddressQuery) => {
@@ -59,7 +57,10 @@ const App = () => {
 
   return (
     <div className="App">
-      <NavBar  userLoginEmail={userLoginEmail}/>
+      <NavBar  
+      signedInUser={signedInUser}
+      userLoginEmail={userLoginEmail}
+      />
 
       <Routes>
         <Route exact path='/' element={
@@ -76,7 +77,7 @@ const App = () => {
         } />
 
         <Route path='/favorite-districts' element={
-          <FavoriteDistrictsPage />
+          <FavoriteDistrictsPage userID={userID}/>
         } />
 
         <Route path='*' element={
