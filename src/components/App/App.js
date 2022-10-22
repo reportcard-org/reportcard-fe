@@ -11,9 +11,7 @@ import { Routes, Route, useNavigate } from 'react-router-dom';
 const App = () => {
   const navigate = useNavigate()
   const [districtData, setDistrictData] = useState({})
-
-
-  const [userName, setUserName] = useState("")
+  const [userLoginEmail, setUserLoginEmail] = useState("")
 
   // const { error, loading, data } = useQuery(USER_LOGIN_QUERY)
   
@@ -22,14 +20,10 @@ const App = () => {
   // console.log(error)
   // setUserName(data)
   
-  const submitLogin = (data) => {
-    console.log("DATA", data)
-
+  const submitLogin = (userEmail) => {
+    setUserLoginEmail(userEmail)
 
     // data && console.log(data)
-      setUserName(data)
-    
-
     //the 'userCredentials' needs to then update the USER_LOGIN_QUERY user(argument for id or email or whatver we end up doing) 
     // then if error invite user to log in as guest
     // if loading show loading
@@ -65,7 +59,7 @@ const App = () => {
 
   return (
     <div className="App">
-      <NavBar  userName={userName}/>
+      <NavBar  userLoginEmail={userLoginEmail}/>
 
       <Routes>
         <Route exact path='/' element={

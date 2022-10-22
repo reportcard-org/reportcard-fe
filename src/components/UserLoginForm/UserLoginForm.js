@@ -1,86 +1,48 @@
 import React, { useState } from "react";
 import './UserLoginForm.scss'
 // import { v4 as uuidV4 } from "uuid"
-import { useLazyQuery, gql } from '@apollo/client';
-
-
+// import { useLazyQuery, gql } from '@apollo/client';
 
 const UserLoginForm = ({ submitLogin }) => {
     const [userCredentials, setUserCredentials] = useState("")
     // const [password, setPassword] = useState("")
 
- 
     // const { error, loading, data } = useQuery(USER_LOGIN_QUERY, {
     //     getEmail() variables: {
     //         email: email
     //     }})
-        
-        
-        // console.log({error, loading, data})
-        // console.log(data)
-        // console.log(error)
-        // setUserName(data)
 
-        const USER_LOGIN_QUERY = gql`
-        query user($email: String!){
-            user(email: $email){
-                name
-                email
-                id
-            }
-        }
-        `;
-
-        const [getEmail, {loading, data, error}] = useLazyQuery(USER_LOGIN_QUERY);
-
-        if (error) return <h1 className='error'>Technical difficulties, please visit us later.</h1>
-
-        if (loading) return <h2 className='loading'>LOADING...</h2>
-
-        
-        
+        // const [getEmail, {loading, data, error}] = useLazyQuery(USER_LOGIN_QUERY);
         
         const handleSubmit = (event) => {
             event.preventDefault()
-            
-            getEmail({
-                variables: {
-                    email: userCredentials
-                }
-            })
-
-        // let userLoginCredentials = {
-        //     userCredentials: userCredentials,
-        //     // password: setPassword(`${this.userName}2022`)
-        // }
-
-
-        console.log("DATA", data)
-        submitLogin(data)
-        clearInputs()
+            // getEmail({
+            //     variables: {
+            //         email: userCredentials
+            //     }
+            // })
+            submitLogin(userCredentials)
+            clearInputs()
     }
+
+
+
 
     const clearInputs = () => {
         setUserCredentials('')
         // setPassword('')
     }
 
-
-
     // const handleLoginCredentials = event => {
     //     // setUserName(event.target.value) 
     //     // setPassword(`${userName}2022`)
     // }
-  
     // const handleUserNameChange = (event) => {
     //     setUserName(event.target.value) 
     // }
-
-
     // const handlePasswordChange = event => {
     //     setPassword(event.target.value)
     // }
-
 
     return(
         <form className= 'user-login-form' onSubmit={(event) => handleSubmit(event)}>
