@@ -1,10 +1,8 @@
-
 describe('overview', () => {
     it('should have correct navbar', () => {
         cy.visit('http://localhost:3000/')
         cy.get('.nav-bar > .logo-and-buttons').contains('ReportCard')
     })
-
 
     it('should have correct overview information', () => {
         cy.get('article').get('p').first().contains("The effect that a classroom teacher has on a student is second only to a parent.")
