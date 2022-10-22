@@ -77,7 +77,9 @@ const App = () => {
         } />
 
         <Route path='/favorite-districts' element={
-          <FavoriteDistrictsPage userID={userID}/>
+          <FavoriteDistrictsPage
+          userID={userID}
+          />
         } />
 
         <Route path='*' element={

@@ -24,7 +24,7 @@ const NavBar = ({userLoginEmail, signedInUser}) => {
 
             if(data) {
 
-                    signedInUser(data.user.id);
+                    signedInUser(data.user);
                
                 // navigate("/home")
                 return(
@@ -36,11 +36,25 @@ const NavBar = ({userLoginEmail, signedInUser}) => {
                     <div className='nav-button-container'>
                         <button className='go-to-favorites-page' onClick={ () => navigate('/favorite-districts') }>Favorites</button>
                         <button className='return-to-login-page-button' onClick={ () => navigate('/') }>Logout</button> 
+
                         <h3>{data.user.name}</h3>
                     </div>
                         </div>
                     </div>
-                )} else {
+                )} else if(!data){
+                    return(
+                        <div className='nav-bar'>
+                        <div className='logo-and-buttons'>
+                         <div className='logo'>
+                            ReportCard ✅ 
+                         </div>
+                         <div className='nav-button-container'>
+                         <button className='return-to-login-page-button' onClick={ () => navigate('/') }>Sign in</button> 
+                         </div>
+                        </div>
+                    </div>
+                    )
+                } else {
                     return(
                      <div className='nav-bar'>
                         <div className='logo-and-buttons'>
@@ -56,12 +70,7 @@ const NavBar = ({userLoginEmail, signedInUser}) => {
 
 
            
-         
-           
-
-
-    
-    
+        
     
     
 }
