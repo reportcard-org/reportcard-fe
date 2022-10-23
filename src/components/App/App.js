@@ -34,7 +34,6 @@ const App = () => {
     }
 `;
 
-  // const useAddFavorite = (queryData, districtData) => {
     
     let districtId;
     let userId;
@@ -56,13 +55,7 @@ const App = () => {
       }
     })
     console.log('54 Data: ', data)
-  //   return {
-  //     addFavorites,
-  //     error,
-  //     data,
-  //     loading
-  //   }
-  // }
+
 
   const submitLogin = (userEmail) => {
     setUserLoginEmail(userEmail)
