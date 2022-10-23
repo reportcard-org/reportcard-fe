@@ -6,23 +6,26 @@ import Overview from '../Overview/Overview';
 import SearchPage from '../SearchPage/SearchPage';
 import UserLoginPage from '../UserLoginPage/UserLoginPage';
 import FavoriteDistrictsPage from '../FavoriteDistrictsPage/FavoriteDistrictsPage';
+import { useGetFavorites } from '../../hooks/useGetFavorites';
 import { Routes, Route, useNavigate } from 'react-router-dom';
 import { useGetUsers } from '../../hooks/useGetUsers';
 import { useMutation, gql } from "@apollo/client";
+
 
 const App = () => {
   const navigate = useNavigate()
   const [districtData, setDistrictData] = useState({})
   const [userLoginEmail, setUserLoginEmail] = useState("")
   const { queryError, queryLoading, queryData } = useGetUsers(userLoginEmail)
+  
   // const { addFavorites, error, loading, data } = useAddFavorite(queryData, districtData)
   // console.log(addFavorites)
 
   const FAVORITE_DISTRICT = gql`
-mutation createUserDistrict($userId: Number!, $districtId: Number! ){
+mutation createUserDistrict($userId: Int!, $districtId: Int! ){
 createUserDistrict(input: {
     userId: $userId,
-    districtID: $districtId
+    districtId: $districtId
 }) {
     userdistrict {
         id
@@ -37,17 +40,22 @@ createUserDistrict(input: {
     let userId;
 
     if (districtData && queryData) {
-      let districtId = districtData
-      let userId = queryData
-      console.log('districtData: ', districtData.data.attributes[0].lea_id)
+      districtId = districtData?.data?.attributes?.[0].lea_id
+      userId = queryData?.user?.id
+      console.log('districtId: ',  districtId)
+      console.log('userId: ',  userId)
+      console.log('districtData: ', districtData)
     }
     
+  const { favError, favLoading, favData } = useGetFavorites(userId)
+
     const [addFavorites, { error, loading, data }] = useMutation(FAVORITE_DISTRICT, {
       variables: {
-        userId: userId,
-        districtId: districtId
+        userId: Number(userId),
+        districtId: Number(districtId?.charAt(1) === "0" ? districtId.substring(1) : districtId)
       }
     })
+    console.log('54 Data: ', data)
   //   return {
   //     addFavorites,
   //     error,
@@ -113,8 +121,7 @@ createUserDistrict(input: {
         } />
         <Route path='/favorite-districts' element={
           <FavoriteDistrictsPage
-            userData={queryData}
-            currentDistrictData={districtData}
+            favData={favData}
           />
         } />
         <Route path='*' element={
