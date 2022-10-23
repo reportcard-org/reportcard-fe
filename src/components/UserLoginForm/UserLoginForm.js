@@ -1,12 +1,16 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import './UserLoginForm.scss'
 
 const UserLoginForm = ({ submitLogin }) => {
+    const navigate = useNavigate()
+
     const [userCredentials, setUserCredentials] = useState("")
   
-        const handleSubmit = (event) => {
+    const handleSubmit = (event) => {
             event.preventDefault()
             submitLogin(userCredentials)
+            navigate("/home")
             clearInputs()
     }
 

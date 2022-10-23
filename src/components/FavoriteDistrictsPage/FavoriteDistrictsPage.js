@@ -1,20 +1,25 @@
 import React from 'react';
 import './FavoriteDistrictsPage.scss';
 // import PropTypes from 'prop-types'
-// import FavoriteReportCard from '../FavoritedReportCard/FavoriteReportCard';
+import FavoriteReportCard from '../FavoritedReportCard/FavoriteReportCard';
 import {  useNavigate } from 'react-router-dom';
+import { useAddFavorite } from '../../hooks/useAddFavorite';
 
 
-const FavoriteDistrictsPage = ({userID}) => {
-    console.log(userID)
-    //will this need to hold state [] for the favorites or can we hold this in App?? 
+
+const FavoriteDistrictsPage = ({currentDistrictData, userData}) => {
     const navigate = useNavigate()
+
+    let districtId = currentDistrictData.data.attributes[0].lea_id
+    let userId = userData.user.id
+    const { error, loading, data } = useAddFavorite(userId, districtId )
 
     return (
         <div className='favorites-container'>
-            FavoriteDistrictsPage WILL EXIST HERE
-            <button className='search-page' onClick={ () => navigate('/home') }>Back to Search Page</button>
-
+            <FavoriteReportCard
+                // data={data}
+            />            
+           <button className='search-page' onClick={ () => navigate('/home') }>Back to Search Page</button>
         </div>
     )
 }

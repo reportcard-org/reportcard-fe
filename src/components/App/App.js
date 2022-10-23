@@ -7,12 +7,23 @@ import SearchPage from '../SearchPage/SearchPage';
 import UserLoginPage from '../UserLoginPage/UserLoginPage';
 import FavoriteDistrictsPage from '../FavoriteDistrictsPage/FavoriteDistrictsPage';
 import { Routes, Route, useNavigate } from 'react-router-dom';
+import { useGetUsers } from '../../hooks/useGetUsers';
+
 
 
 const App = () => {
   const navigate = useNavigate()
   const [districtData, setDistrictData] = useState({})
   const [userLoginEmail, setUserLoginEmail] = useState("")
+  const {error, loading, data } = useGetUsers(userLoginEmail)
+
+  const submitLogin = (userEmail) => {
+    setUserLoginEmail(userEmail)
+  }
+
+  const signOut = () => {
+    navigate("/")
+
   const [userID, setUserID] = useState("")
 
   const submitLogin = (userEmail) => {
@@ -31,8 +42,8 @@ const App = () => {
   const searchForAddress = (newAddressQuery) => {
     getDistrict(newAddressQuery)
   }
+
   const getDistrict = (addressObject) => {
-    // console.log('ADDRESS OBJECT', addressObject)
     return fetch(`https://reportcard-rails.herokuapp.com/api/v1/district_data`, {
       method: "POST",
       headers: {
@@ -42,7 +53,6 @@ const App = () => {
     })
     .then(response => response.json())
     .then(result => {
-      // console.log('RESULT', result)
       setDistrictData(result)
       navigate('/district-info')
     })
@@ -54,15 +64,33 @@ const App = () => {
   return (
     <div className="App">
       <NavBar
+      signOut={signOut}
+      data={data}
+      />
         signedInUser={signedInUser}
         signedOutUser={signedOutUser}
         userLoginEmail={userLoginEmail}
       />
 
+
       <Routes>
         <Route exact path='/' element={
           <Overview />
         } />
+        <Route path='/login' element={
+        <UserLoginPage submitLogin={submitLogin} />
+        } />
+        <Route path='/home' element={
+          <SearchPage searchForAddress={searchForAddress} />
+        }
+        />
+        <Route path='/district-info' element={
+          <DistrictInfoPage districtData={districtData} />
+        } />
+        <Route path='/favorite-districts' element={
+          <FavoriteDistrictsPage
+          userData={data}
+          currentDistrictData={districtData}
         <Route exact path='/login' element={
           <UserLoginPage submitLogin={submitLogin} />
         } />
