@@ -3,16 +3,14 @@ import './FavoriteDistrictsPage.scss';
 // import PropTypes from 'prop-types'
 import FavoriteReportCard from '../FavoritedReportCard/FavoriteReportCard';
 import {  useNavigate } from 'react-router-dom';
-import { useAddFavorite } from '../../hooks/useAddFavorite';
-
-
+// import { useAddFavorite } from '../../hooks/useAddFavorite';
 
 const FavoriteDistrictsPage = ({currentDistrictData, userData}) => {
     const navigate = useNavigate()
 
-    let districtId = currentDistrictData.data.attributes[0].lea_id
-    let userId = userData.user.id
-    const { error, loading, data } = useAddFavorite(userId, districtId )
+    // let districtId = currentDistrictData.data.attributes[0].lea_id
+    // let userId = userData.user.id
+    // const { error, loading, data } = useAddFavorite(userId, districtId )
 
     return (
         <div className='favorites-container'>

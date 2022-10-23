@@ -12,15 +12,15 @@ query user($email: String!){
 
 
 export const useGetUsers = (userLoginEmail) => {
-    const { error, loading, data } = useQuery(USER_LOGIN_QUERY, {
+    const { error: queryError, loading: queryLoading, data: queryData } = useQuery(USER_LOGIN_QUERY, {
         variables: {
             email: userLoginEmail
         }
     })
 
     return {
-        error,
-        data,
-        loading
+        queryError,
+        queryData,
+        queryLoading
     }
 }

@@ -2,10 +2,10 @@ import React from 'react';
 import './NavBar.scss';
 import { useNavigate } from 'react-router-dom';
 
-const NavBar = ({signOut, data}) => {
+const NavBar = ({ signOut, data}) => {
     const navigate = useNavigate()
     
-    if(data) {
+    if (data) {
         return(
             <div className='nav-bar'>
                 <div className='logo-and-buttons'>
@@ -15,11 +15,12 @@ const NavBar = ({signOut, data}) => {
             <div className='nav-button-container'>
                 <button className='go-to-favorites-page' onClick={ () => navigate('/favorite-districts')}>Favorites</button>
                 <button className='return-to-login-page-button' onClick={ () => signOut() }>Logout</button>
-                <h3>{data.user.name}</h3>
+                        <h3>{data.user.name}</h3>
             </div>
                 </div>
             </div>
-        )} else if(!data){
+        )
+    } else if (!data){
             return(
                 <div className='nav-bar'>
                 <div className='logo-and-buttons'>

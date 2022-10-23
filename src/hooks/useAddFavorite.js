@@ -13,8 +13,12 @@ createUserDistrict(input: {
 }
 `;
 
-export const useAddFavorite = (userId, districtId) => {
-    const { error, loading, data } = useMutation(FAVORITE_DISTRICT, {
+const useAddFavorite = (queryData, districtData) => {
+console.log(districtData)
+    let districtId = districtData.data.attributes[0].lea_id
+    let userId = queryData.user.id
+
+    const [addFavorites, { error, loading, data }] = useMutation(FAVORITE_DISTRICT, {
         variables: {
             userId: userId,
             districtId: districtId
@@ -22,6 +26,7 @@ export const useAddFavorite = (userId, districtId) => {
       })
       
       return {
+        addFavorites,
         error,
         data,
         loading
