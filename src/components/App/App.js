@@ -7,7 +7,7 @@ import SearchPage from '../SearchPage/SearchPage';
 import UserLoginPage from '../UserLoginPage/UserLoginPage';
 import FavoriteDistrictsPage from '../FavoriteDistrictsPage/FavoriteDistrictsPage';
 import { Routes, Route, useNavigate } from 'react-router-dom';
-// import { useQuery, gql } from '@apollo/client';
+
 const App = () => {
   const navigate = useNavigate()
   const [districtData, setDistrictData] = useState({})
@@ -18,9 +18,9 @@ const App = () => {
     setUserLoginEmail(userEmail)
   }
 
-  const signedInUser = () => {
-    // setUserID(id)
-    // navigate("./home")
+  const signOut = () => {
+    navigate("/")
+    setUserLoginEmail("")
   }
 
   const searchForAddress = (newAddressQuery) => {
@@ -28,7 +28,6 @@ const App = () => {
   }
 
   const getDistrict = (addressObject) => {
-    // console.log('ADDRESS OBJECT', addressObject)
     return fetch(`https://reportcard-rails.herokuapp.com/api/v1/district_data`, {
       method: "POST",
       headers: {
@@ -38,7 +37,6 @@ const App = () => {
     })
     .then(response => response.json())
     .then(result => {
-      // console.log('RESULT', result)
       setDistrictData(result)
       navigate('/district-info')
     })
@@ -50,7 +48,7 @@ const App = () => {
   return (
     <div className="App">
       <NavBar
-      signedInUser={signedInUser}
+      signOut={signOut}
       userLoginEmail={userLoginEmail}
       />
       <Routes>

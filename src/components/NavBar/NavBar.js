@@ -1,10 +1,9 @@
 import React from 'react';
 import './NavBar.scss';
-import {  useNavigate } from 'react-router-dom';
+import { Routes, Route, useNavigate, Link } from 'react-router-dom';
 import { useQuery, gql } from '@apollo/client';
 
-
-const NavBar = ({userLoginEmail, signedInUser}) => {
+const NavBar = ({userLoginEmail, signOut}) => {
     const navigate = useNavigate()
 
     const USER_LOGIN_QUERY = gql`
@@ -22,17 +21,18 @@ const NavBar = ({userLoginEmail, signedInUser}) => {
             email: userLoginEmail
         }
       })
+ 
 
             if(data) {
                 return(
                     <div className='nav-bar'>
                         <div className='logo-and-buttons'>
-                         <div className='logo'>
-                            ReportCard ✅
-                        </div>
+                         <button onClick={ () => navigate('/home') }className='logo'>
+                                ReportCard ✅
+                        </button>
                     <div className='nav-button-container'>
                         <button className='go-to-favorites-page' onClick={ () => navigate('/favorite-districts') }>Favorites</button>
-                        <button className='return-to-login-page-button' onClick={ () => navigate('/') }>Logout</button>
+                        <button className='return-to-login-page-button' onClick={ () => signOut() }>Logout</button>
                         <h3>{data.user.name}</h3>
                     </div>
                         </div>
@@ -41,11 +41,11 @@ const NavBar = ({userLoginEmail, signedInUser}) => {
                     return(
                         <div className='nav-bar'>
                         <div className='logo-and-buttons'>
-                         <div className='logo'>
-                            ReportCard ✅
-                         </div>
+                         <button onClick={ () => navigate('/home') } className='logo'>
+                                ReportCard ✅
+                        </button>
                          <div className='nav-button-container'>
-                         <button className='return-to-login-page-button' onClick={ () => navigate('/') }>Sign in</button>
+                         <button className='return-to-login-page-button' onClick={ () => navigate('/login') }>Sign in</button>
                          </div>
                         </div>
                     </div>
@@ -55,9 +55,9 @@ const NavBar = ({userLoginEmail, signedInUser}) => {
                     return(
                      <div className='nav-bar'>
                         <div className='logo-and-buttons'>
-                         <div className='logo'>
-                            ReportCard ✅
-                         </div>
+                        <button onClick={ () => navigate('/home') }className='logo'>
+                                ReportCard ✅
+                        </button>
                          <div className='nav-button-container'>
                          </div>
                         </div>
