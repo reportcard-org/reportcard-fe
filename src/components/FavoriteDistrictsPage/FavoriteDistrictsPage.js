@@ -6,6 +6,7 @@ import {  useNavigate } from 'react-router-dom';
 import { useAddFavorite } from '../../hooks/useAddFavorite';
 
 
+
 const FavoriteDistrictsPage = ({currentDistrictData, userData}) => {
     const navigate = useNavigate()
 

@@ -9,6 +9,8 @@ import FavoriteDistrictsPage from '../FavoriteDistrictsPage/FavoriteDistrictsPag
 import { Routes, Route, useNavigate } from 'react-router-dom';
 import { useGetUsers } from '../../hooks/useGetUsers';
 
+
+
 const App = () => {
   const navigate = useNavigate()
   const [districtData, setDistrictData] = useState({})
@@ -21,6 +23,19 @@ const App = () => {
 
   const signOut = () => {
     navigate("/")
+
+  const [userID, setUserID] = useState("")
+
+  const submitLogin = (userEmail) => {
+    setUserLoginEmail(userEmail)
+    }
+
+  const signedInUser = (data) => {
+    setUserID(data.user.id)
+  }
+
+  const signedOutUser = () => {
+    setUserID("")
     setUserLoginEmail("")
   }
 
@@ -52,6 +67,12 @@ const App = () => {
       signOut={signOut}
       data={data}
       />
+        signedInUser={signedInUser}
+        signedOutUser={signedOutUser}
+        userLoginEmail={userLoginEmail}
+      />
+
+
       <Routes>
         <Route exact path='/' element={
           <Overview />
@@ -70,6 +91,19 @@ const App = () => {
           <FavoriteDistrictsPage
           userData={data}
           currentDistrictData={districtData}
+        <Route exact path='/login' element={
+          <UserLoginPage submitLogin={submitLogin} />
+        } />
+        <Route exact path='/home' element={
+          <SearchPage searchForAddress={searchForAddress} />
+        }
+        />
+        <Route exact path='/district-info' element={
+          <DistrictInfoPage districtData={districtData} />
+        } />
+        <Route exact path='/favorite-districts' element={
+          <FavoriteDistrictsPage
+          userID={userID}
           />
         } />
         <Route path='*' element={
@@ -82,5 +116,4 @@ const App = () => {
     </div>
   );
 }
-
 export default App;
