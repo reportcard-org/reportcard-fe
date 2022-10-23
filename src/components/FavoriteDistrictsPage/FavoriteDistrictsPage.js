@@ -5,7 +5,8 @@ import FavoriteReportCard from '../FavoritedReportCard/FavoriteReportCard';
 import {  useNavigate } from 'react-router-dom';
 // import { useAddFavorite } from '../../hooks/useAddFavorite';
 
-const FavoriteDistrictsPage = ({currentDistrictData, userData}) => {
+const FavoriteDistrictsPage = ({ favData}) => {
+    console.log('favData: ', favData)
     const navigate = useNavigate()
 
     // let districtId = currentDistrictData.data.attributes[0].lea_id
