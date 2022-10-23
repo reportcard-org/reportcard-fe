@@ -8,14 +8,53 @@ import UserLoginPage from '../UserLoginPage/UserLoginPage';
 import FavoriteDistrictsPage from '../FavoriteDistrictsPage/FavoriteDistrictsPage';
 import { Routes, Route, useNavigate } from 'react-router-dom';
 import { useGetUsers } from '../../hooks/useGetUsers';
-
-
+import { useMutation, gql } from "@apollo/client";
 
 const App = () => {
   const navigate = useNavigate()
   const [districtData, setDistrictData] = useState({})
   const [userLoginEmail, setUserLoginEmail] = useState("")
-  const {error, loading, data } = useGetUsers(userLoginEmail)
+  const { queryError, queryLoading, queryData } = useGetUsers(userLoginEmail)
+  // const { addFavorites, error, loading, data } = useAddFavorite(queryData, districtData)
+  // console.log(addFavorites)
+
+  const FAVORITE_DISTRICT = gql`
+mutation createUserDistrict($userId: Number!, $districtId: Number! ){
+createUserDistrict(input: {
+    userId: $userId,
+    districtID: $districtId
+}) {
+    userdistrict {
+        id
+    }
+}
+}
+`;
+
+  // const useAddFavorite = (queryData, districtData) => {
+    
+    let districtId;
+    let userId;
+
+    if (districtData && queryData) {
+      let districtId = districtData
+      let userId = queryData
+      console.log('districtData: ', districtData.data.attributes[0].lea_id)
+    }
+    
+    const [addFavorites, { error, loading, data }] = useMutation(FAVORITE_DISTRICT, {
+      variables: {
+        userId: userId,
+        districtId: districtId
+      }
+    })
+  //   return {
+  //     addFavorites,
+  //     error,
+  //     data,
+  //     loading
+  //   }
+  // }
 
   const submitLogin = (userEmail) => {
     setUserLoginEmail(userEmail)
@@ -23,19 +62,6 @@ const App = () => {
 
   const signOut = () => {
     navigate("/")
-
-  const [userID, setUserID] = useState("")
-
-  const submitLogin = (userEmail) => {
-    setUserLoginEmail(userEmail)
-    }
-
-  const signedInUser = (data) => {
-    setUserID(data.user.id)
-  }
-
-  const signedOutUser = () => {
-    setUserID("")
     setUserLoginEmail("")
   }
 
@@ -51,59 +77,44 @@ const App = () => {
       },
       body: JSON.stringify(addressObject)
     })
-    .then(response => response.json())
-    .then(result => {
-      setDistrictData(result)
-      navigate('/district-info')
-    })
-    .catch(function (error) {
-      console.log(error);
-    });
+      .then(response => response.json())
+      .then(result => {
+        setDistrictData(result)
+        navigate('/district-info')
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
   }
 
   return (
     <div className="App">
       <NavBar
-      signOut={signOut}
-      data={data}
+        signOut={signOut}
+        data={queryData}
       />
-        signedInUser={signedInUser}
-        signedOutUser={signedOutUser}
-        userLoginEmail={userLoginEmail}
-      />
-
-
       <Routes>
         <Route exact path='/' element={
           <Overview />
         } />
         <Route path='/login' element={
-        <UserLoginPage submitLogin={submitLogin} />
+          <UserLoginPage submitLogin={submitLogin} />
         } />
         <Route path='/home' element={
           <SearchPage searchForAddress={searchForAddress} />
         }
         />
         <Route path='/district-info' element={
-          <DistrictInfoPage districtData={districtData} />
+          < DistrictInfoPage 
+            userData={queryData}
+            currentDistrictData={districtData}
+            addFavorites={addFavorites}
+            />
         } />
         <Route path='/favorite-districts' element={
           <FavoriteDistrictsPage
-          userData={data}
-          currentDistrictData={districtData}
-        <Route exact path='/login' element={
-          <UserLoginPage submitLogin={submitLogin} />
-        } />
-        <Route exact path='/home' element={
-          <SearchPage searchForAddress={searchForAddress} />
-        }
-        />
-        <Route exact path='/district-info' element={
-          <DistrictInfoPage districtData={districtData} />
-        } />
-        <Route exact path='/favorite-districts' element={
-          <FavoriteDistrictsPage
-          userID={userID}
+            userData={queryData}
+            currentDistrictData={districtData}
           />
         } />
         <Route path='*' element={
@@ -116,4 +127,5 @@ const App = () => {
     </div>
   );
 }
+
 export default App;

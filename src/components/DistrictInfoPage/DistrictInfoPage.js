@@ -4,17 +4,15 @@ import './DistrictInfoPage.scss';
 import PropTypes from 'prop-types'
 import {v4 as uuidV4} from "uuid"
 import {  useNavigate } from 'react-router-dom';
+import { useAddFavorite } from '../../hooks/useAddFavorite';
 
-const DistrictInfoPage = ({ districtData }) => {
+const DistrictInfoPage = ({ addFavorites, currentDistrictData, userData }) => {
     const navigate = useNavigate()
-
-    // console.log('DISTRICT DATA', districtData)
-
-    const newReportCard = districtData.data.attributes.map(attribute => {
-        // console.log("attribute", attribute)
+   
+    const newReportCard = currentDistrictData.data.attributes.map(attribute => {
         return (
             <ReportCard 
-                id = {districtData.lea_id}
+                id = {currentDistrictData.lea_id}
                 key = {uuidV4()}
                 studentTeacherRatio = {attribute.student_teacher_ratio}
                 perStudentExpenditure={attribute.per_student_expenditure}
@@ -27,7 +25,8 @@ const DistrictInfoPage = ({ districtData }) => {
         <div className='district-info-container'>
             <p><button className='back-to-search' onClick={ () => navigate('/home') }>Back to Search</button></p>
             {newReportCard}
-            <p><button className='add-district-to-favorites' onClick={ () => navigate('/home') }>Add to Favorites!</button></p>
+            <p><button className='add-district-to-favorites' onClick={() => addFavorites() 
+}>Add to Favorites!</button></p>
         </div>
     )
 }
