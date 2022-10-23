@@ -22,16 +22,16 @@ const App = () => {
   // console.log(addFavorites)
 
   const FAVORITE_DISTRICT = gql`
-mutation createUserDistrict($userId: Int!, $districtId: Int! ){
-createUserDistrict(input: {
-    userId: $userId,
-    districtId: $districtId
-}) {
-    userdistrict {
-        id
+    mutation createUserDistrict($userId: Int!, $districtId: Int! ){
+      createUserDistrict(input: {
+        userId: $userId,
+        districtId: $districtId
+       }) {
+        userdistrict {
+            id
+        }
+      }
     }
-}
-}
 `;
 
   // const useAddFavorite = (queryData, districtData) => {
