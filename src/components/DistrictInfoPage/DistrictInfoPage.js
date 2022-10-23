@@ -5,9 +5,6 @@ import PropTypes from 'prop-types'
 import {v4 as uuidV4} from "uuid"
 import {  useNavigate } from 'react-router-dom';
 
-
-
-
 const DistrictInfoPage = ({ districtData }) => {
     const navigate = useNavigate()
 

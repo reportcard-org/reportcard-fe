@@ -7,12 +7,13 @@ import SearchPage from '../SearchPage/SearchPage';
 import UserLoginPage from '../UserLoginPage/UserLoginPage';
 import FavoriteDistrictsPage from '../FavoriteDistrictsPage/FavoriteDistrictsPage';
 import { Routes, Route, useNavigate } from 'react-router-dom';
+import { useGetUsers } from '../../hooks/useGetUsers';
 
 const App = () => {
   const navigate = useNavigate()
   const [districtData, setDistrictData] = useState({})
   const [userLoginEmail, setUserLoginEmail] = useState("")
-  const [userID, setUserID] = useState("")
+  const {error, loading, data } = useGetUsers(userLoginEmail)
 
   const submitLogin = (userEmail) => {
     setUserLoginEmail(userEmail)
@@ -49,7 +50,7 @@ const App = () => {
     <div className="App">
       <NavBar
       signOut={signOut}
-      userLoginEmail={userLoginEmail}
+      data={data}
       />
       <Routes>
         <Route exact path='/' element={
@@ -67,7 +68,8 @@ const App = () => {
         } />
         <Route path='/favorite-districts' element={
           <FavoriteDistrictsPage
-          userID={userID}
+          userData={data}
+          currentDistrictData={districtData}
           />
         } />
         <Route path='*' element={
