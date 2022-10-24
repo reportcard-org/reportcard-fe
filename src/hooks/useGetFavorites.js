@@ -5,6 +5,7 @@ const USER_FAV_QUERY = gql`
         userdistricts(userId: $userId){
             id
             district {
+                leaId
                 name
                 studentTeacherRatio
                 instructionSalaryPercentOfTotal
