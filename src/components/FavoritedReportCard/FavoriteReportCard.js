@@ -4,14 +4,14 @@ import PropTypes from 'prop-types'
 
 //pass in function to delete a favorited report card
 
-const FavoriteReportCard = (data) => {
-    const { studentTeacherRatio, perStudentExpenditure, teacherSalaryInfo, studentPopulationSize, numberOfSchoolsInDistrict } = data
+const FavoriteReportCard = () => {
+    // const { studentTeacherRatio, perStudentExpenditure, teacherSalaryInfo, studentPopulationSize, numberOfSchoolsInDistrict } = data
    
     return (
         <div className='report-card'>
-        <p className='card-bubble'>{studentTeacherRatio}</p>
+        {/* <p className='card-bubble'>{studentTeacherRatio}</p>
         <p className='card-bubble'>{perStudentExpenditure}</p>
-        <p className='card-bubble'>{numberOfSchoolsInDistrict}</p>
+        <p className='card-bubble'>{numberOfSchoolsInDistrict}</p> */}
     </div>
     )
 }
