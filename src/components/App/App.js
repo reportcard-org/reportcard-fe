@@ -121,6 +121,7 @@ const App = () => {
             userData={queryData}
             currentDistrictData={districtData}
             addFavorites={addFavorites}
+            favData={favData}
             />
         } />
         <Route path='/favorite-districts' element={

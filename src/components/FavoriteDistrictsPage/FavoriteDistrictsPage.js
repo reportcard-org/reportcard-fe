@@ -13,6 +13,7 @@ const FavoriteDistrictsPage = ({ favData}) => {
     const favReportCard = favData.userdistricts.map(district => {
         // console.log(district.district.name)
         return (
+            <>
             <FavoriteReportCard
             id = {district.district.leaId}
             key={uuidV4()}
@@ -25,15 +26,15 @@ const FavoriteDistrictsPage = ({ favData}) => {
             studentGuidanceCounselorRatio={district.district.studentGuidanceCounselorRatio}
             perStudentExpenditure={district.district.perStudentExpenditure}
             />            
-
-
+            <h1>❤️</h1>
+            </>
         )
     })
 
     return (
         <div className='favorites-container'>
-            {favReportCard}
            <button className='search-page' onClick={ () => navigate('/home') }>Back to Search Page</button>
+            {favReportCard}
         </div>
     )
 }

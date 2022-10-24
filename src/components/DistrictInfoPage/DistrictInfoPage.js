@@ -5,8 +5,9 @@ import PropTypes from 'prop-types'
 import {v4 as uuidV4} from "uuid"
 import {  useNavigate } from 'react-router-dom';
 
-const DistrictInfoPage = ({ addFavorites, currentDistrictData, userData }) => {
-    console.log(currentDistrictData)
+const DistrictInfoPage = ({ addFavorites, currentDistrictData, favData}) => {
+    // console.log("didstrctinforpage",favData)
+    // console.log(currentDistrictData)
     const navigate = useNavigate()
    
     const newReportCard = currentDistrictData.data.attributes.map(attribute => {
@@ -14,6 +15,7 @@ const DistrictInfoPage = ({ addFavorites, currentDistrictData, userData }) => {
             <ReportCard 
                 id = {currentDistrictData.lea_id}
                 key = {uuidV4()}
+                districtName={attribute.district_name}
                 studentTeacherRatio = {attribute.student_teacher_ratio}
                 perStudentExpenditure={attribute.per_student_expenditure}
                 numberOfSchoolsInDistrict={attribute.number_of_schools_in_district}
