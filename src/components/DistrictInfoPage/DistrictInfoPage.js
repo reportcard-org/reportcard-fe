@@ -17,6 +17,8 @@ const DistrictInfoPage = ({ addFavorites, currentDistrictData, userData }) => {
                 studentTeacherRatio = {attribute.student_teacher_ratio}
                 perStudentExpenditure={attribute.per_student_expenditure}
                 numberOfSchoolsInDistrict={attribute.number_of_schools_in_district}
+                latitude = {attribute.latitude}
+                longitude = {attribute.longitude}
             />
         )
     })
