@@ -7,7 +7,7 @@ import {v4 as uuidV4} from "uuid"
 
 
 const FavoriteDistrictsPage = ({ favData}) => {
-    console.log('favData: ', favData)
+    // console.log('favData: ', favData)
     const navigate = useNavigate()
 
     const favReportCard = favData.userdistricts.map(district => {

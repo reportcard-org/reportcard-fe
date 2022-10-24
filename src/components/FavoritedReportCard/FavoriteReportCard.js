@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 
 //pass in function to delete a favorited report card
 
-const FavoriteReportCard = ({name, studentTeacherRatio, instructionSalaryPercentOfTotal, perTeacherSalaryExpenses, enrollment, numberOfSchoolsInDistrict, studentGuidanceCounselorRatio, perStudentExpenditure}) => {
+const FavoriteReportCard = ({ name, studentTeacherRatio, instructionSalaryPercentOfTotal, perTeacherSalaryExpenses, enrollment, numberOfSchoolsInDistrict, studentGuidanceCounselorRatio, perStudentExpenditure}) => {
     // const { studentTeacherRatio, perStudentExpenditure, teacherSalaryInfo, studentPopulationSize, numberOfSchoolsInDistrict } = data
    
     return (
