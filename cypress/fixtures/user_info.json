@@ -1,0 +1,33 @@
+{
+    "data": {
+        "user": {
+            "name": "Marcos Hane",
+            "email": "test_email0@email.test",
+            "id": "1",
+            "__typename": "User"
+        },
+        {
+            "name": "Bunny Christiansen",
+            "email": "test_email1@email.test",
+            "id": "2",
+            "__typename": "User"
+        },
+        {
+            "name": "Tosha Daniel IV",
+            "email": "test_email2@email.test",
+            "id": "3",
+            "__typename": "User"
+        },
+        {
+            "name": "Julian Moore",
+            "email": "test_email3@email.test",
+            "id": "4",
+            "__typename": "User"
+        },
+        {
+            "name": "Inger Pagac",
+            "email": "test_email4@email.test",
+            "id": "5",
+            "__typename": "User"
+        }
+}
