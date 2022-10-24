@@ -4,9 +4,9 @@ import './DistrictInfoPage.scss';
 import PropTypes from 'prop-types'
 import {v4 as uuidV4} from "uuid"
 import {  useNavigate } from 'react-router-dom';
-import { useAddFavorite } from '../../hooks/useAddFavorite';
 
 const DistrictInfoPage = ({ addFavorites, currentDistrictData, userData }) => {
+    console.log(currentDistrictData)
     const navigate = useNavigate()
    
     const newReportCard = currentDistrictData.data.attributes.map(attribute => {
