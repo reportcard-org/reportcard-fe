@@ -3,21 +3,36 @@ import './FavoriteDistrictsPage.scss';
 // import PropTypes from 'prop-types'
 import FavoriteReportCard from '../FavoritedReportCard/FavoriteReportCard';
 import {  useNavigate } from 'react-router-dom';
-// import { useAddFavorite } from '../../hooks/useAddFavorite';
+import {v4 as uuidV4} from "uuid"
+
 
 const FavoriteDistrictsPage = ({ favData}) => {
     console.log('favData: ', favData)
     const navigate = useNavigate()
 
-    // let districtId = currentDistrictData.data.attributes[0].lea_id
-    // let userId = userData.user.id
-    // const { error, loading, data } = useAddFavorite(userId, districtId )
+    const favReportCard = favData.userdistricts.map(district => {
+        // console.log(district.district.name)
+        return (
+            <FavoriteReportCard
+            id = {district.district.leaId}
+            key={uuidV4()}
+            name={district.district.name}
+            studentTeacherRatio={district.district.studentTeacherRatio}
+            instructionSalaryPercentOfTotal={district.district.instructionSalaryPercentOfTotal}
+            perTeacherSalaryExpenses={district.district.perTeacherSalaryExpenses}
+            enrollment={district.district.enrollment}
+            numberOfSchoolsInDistrict={district.district.numberOfSchoolsInDistrict}
+            studentGuidanceCounselorRatio={district.district.studentGuidanceCounselorRatio}
+            perStudentExpenditure={district.district.perStudentExpenditure}
+            />            
+
+
+        )
+    })
 
     return (
         <div className='favorites-container'>
-            <FavoriteReportCard
-                // data={data}
-            />            
+            {favReportCard}
            <button className='search-page' onClick={ () => navigate('/home') }>Back to Search Page</button>
         </div>
     )
