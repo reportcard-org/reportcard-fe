@@ -17,6 +17,8 @@ const App = () => {
   const [districtData, setDistrictData] = useState({})
   const [userLoginEmail, setUserLoginEmail] = useState("")
   const { queryError, queryLoading, queryData } = useGetUsers(userLoginEmail)
+
+  console.log(queryError, queryLoading)
   
   // const { addFavorites, error, loading, data } = useAddFavorite(queryData, districtData)
   // console.log(addFavorites)
@@ -49,13 +51,15 @@ createUserDistrict(input: {
     
   const { favError, favLoading, favData } = useGetFavorites(userId)
 
+  console.log(favError, favLoading)
+
     const [addFavorites, { error, loading, data }] = useMutation(FAVORITE_DISTRICT, {
       variables: {
         userId: Number(userId),
         districtId: Number(districtId?.charAt(1) === "0" ? districtId.substring(1) : districtId)
       }
     })
-    console.log('54 Data: ', data)
+    console.log('54 Data: ', data, loading, error)
   //   return {
   //     addFavorites,
   //     error,
