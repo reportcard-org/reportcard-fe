@@ -6,6 +6,7 @@ const NavBar = ({ signOut, data}) => {
     const navigate = useNavigate()
     
     if (data) {
+        console.log('data: ', data)
         return(
             <div className='nav-bar'>
                 <div className='logo-and-buttons'>
