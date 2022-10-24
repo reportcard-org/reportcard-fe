@@ -7,12 +7,13 @@ import {v4 as uuidV4} from "uuid"
 
 
 const FavoriteDistrictsPage = ({ favData}) => {
-    console.log('favData: ', favData)
+    // console.log('favData: ', favData)
     const navigate = useNavigate()
 
     const favReportCard = favData.userdistricts.map(district => {
         // console.log(district.district.name)
         return (
+            <>
             <FavoriteReportCard
             id = {district.district.leaId}
             key={uuidV4()}
@@ -25,15 +26,15 @@ const FavoriteDistrictsPage = ({ favData}) => {
             studentGuidanceCounselorRatio={district.district.studentGuidanceCounselorRatio}
             perStudentExpenditure={district.district.perStudentExpenditure}
             />            
-
-
+            <h1>❤️</h1>
+            </>
         )
     })
 
     return (
         <div className='favorites-container'>
-            {favReportCard}
            <button className='search-page' onClick={ () => navigate('/home') }>Back to Search Page</button>
+            {favReportCard}
         </div>
     )
 }

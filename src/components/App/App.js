@@ -20,9 +20,6 @@ const App = () => {
 
   console.log(queryError, queryLoading)
   
-  // const { addFavorites, error, loading, data } = useAddFavorite(queryData, districtData)
-  // console.log(addFavorites)
-
   const FAVORITE_DISTRICT = gql`
     mutation createUserDistrict($userId: Int!, $districtId: Int! ){
       createUserDistrict(input: {
@@ -36,17 +33,12 @@ const App = () => {
   }
   `;
 
-  // const useAddFavorite = (queryData, districtData) => {
-    
     let districtId;
     let userId;
 
     if (districtData && queryData) {
       districtId = districtData?.data?.attributes?.[0].lea_id
       userId = queryData?.user?.id
-      console.log('districtId: ',  districtId)
-      console.log('userId: ',  userId)
-      console.log('districtData: ', districtData)
     }
     
   const { favError, favLoading, favData } = useGetFavorites(userId)
@@ -59,15 +51,8 @@ const App = () => {
         districtId: Number(districtId?.charAt(1) === "0" ? districtId.substring(1) : districtId)
       }
     })
-    console.log('54 Data: ', data, loading, error)
-  //   return {
-  //     addFavorites,
-  //     error,
-  //     data,
-  //     loading
-  //   }
-  // }
-
+    console.log( data, loading, error)
+  
   const submitLogin = (userEmail) => {
     setUserLoginEmail(userEmail)
   }
@@ -118,9 +103,10 @@ const App = () => {
         />
         <Route path='/district-info' element={
           < DistrictInfoPage 
-            userData={queryData}
             currentDistrictData={districtData}
             addFavorites={addFavorites}
+            favData={favData}
+
             />
         } />
         <Route path='/favorite-districts' element={
