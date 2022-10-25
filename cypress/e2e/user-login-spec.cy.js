@@ -64,13 +64,13 @@ describe('ReportCard login page', () => {
   });
 
   it('user can return to login in from search page with the sign in button', () => {
-    cy.get('.nav-button-container >  .return-to-login-page-button').click()
+    cy.get('.nav-button-container > .return-to-login-page-button').click()
       .url().should('eq', 'http://localhost:3000/login')
       .get('input').type('test_email0@email.test');
           const userData = {
                     "data": {
                           "user": {
-                          "name": "Marcos Hane",
+                          "name": "Arlen Wisoky",
                           "email": "test_email0@email.test",
                           "id": "1",
                           "__typename": "User"
@@ -84,6 +84,6 @@ describe('ReportCard login page', () => {
               );
     cy.get('.login-button').click()
     .url().should('eq', 'http://localhost:3000/home')
-    .get('h3').contains('Marcos Hane')
+    .get('h3').contains('Arlen Wisoky')
   });
 });
