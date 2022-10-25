@@ -17,8 +17,8 @@ import { useMutation, gql } from "@apollo/client";
 
 const App = () => {
   const navigate = useNavigate()
-  const [ districtData, setDistrictData ] = useState({})
-  const [ userLoginEmail, setUserLoginEmail ] = useState("")
+  const [districtData, setDistrictData] = useState({})
+  const [userLoginEmail, setUserLoginEmail] = useState("")
   const { queryError, queryLoading, queryData } = useGetUsers(userLoginEmail)
 
   console.log(queryError, queryLoading)
@@ -40,7 +40,7 @@ const App = () => {
   let userId;
 
   if (districtData && queryData) {
-    districtId = districtData?.data?.attributes?.[ 0 ].lea_id
+    districtId = districtData?.data?.attributes?.[0].lea_id
     userId = queryData?.user?.id
   }
 
@@ -48,7 +48,7 @@ const App = () => {
 
   console.log(favError, favLoading)
 
-  const [ addFavorites, { error, loading, data } ] = useMutation(FAVORITE_DISTRICT, {
+  const [addFavorites, { error, loading, data }] = useMutation(FAVORITE_DISTRICT, {
     refetchQueries: [
       { query: USER_FAV_QUERY },
       'userdistricts'
@@ -82,9 +82,7 @@ const App = () => {
       <Routes>
         <Route exact path='/' element={
           <>
-            <NavBar
-              signOut={signOut}
-              data={queryData}
+            <SignInNavBar
             />
             <Overview />
           </>
