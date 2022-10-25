@@ -1,8 +1,53 @@
+import data from '../fixtures/user_info.json';
+
 describe('ReportCard login page', () => {
 
+  Cypress.on('uncaught:exception', (err, runnable) => {
+    return false
+  })
+
+  Cypress.Commands.add(
+    "interceptGQL",
+    (
+      uri,
+      operation,
+      data,
+      alias
+    ) => {
+      
+      const previous = Cypress.config("interceptions");
+      const alreadyRegistered = uri in previous;
+
+      const next = {
+        ...(previous[uri] || {}),
+        [operation]: { alias, data },
+      };
+
+      Cypress.config("interceptions", {
+        ...previous,
+        [uri]: next,
+      });
+
+      if (alreadyRegistered) {
+        return;
+      }
+
+      cy.intercept("POST", uri, (req) => {
+        const interceptions = Cypress.config("interceptions");
+        const match = interceptions[uri]?.[req.body.operationName];
+
+        if (match) {
+          req.alias = match.alias;
+          req.reply({ body: match.data });
+        }
+      });
+    }
+  );
+
   beforeEach(() => {
+    Cypress.config("interceptions", {});
     cy.visit('http://localhost:3000/')
-    //gql stub??  
+    cy.interceptGQL("https://reportcard-rails.herokuapp.com/graphql", "user", data)
   })
 
   it('loads the main page', () => {
@@ -18,8 +63,27 @@ describe('ReportCard login page', () => {
       .location('pathname').should('eq', '/home')
   });
 
-
-  // it('can login', () => {
-
-  // });
+  it('user can return to login in from search page with the sign in button', () => {
+    cy.get('.nav-button-container >  .return-to-login-page-button').click()
+      .url().should('eq', 'http://localhost:3000/login')
+      .get('input').type('test_email0@email.test');
+          const userData = {
+                    "data": {
+                          "user": {
+                          "name": "Marcos Hane",
+                          "email": "test_email0@email.test",
+                          "id": "1",
+                          "__typename": "User"
+                        }          
+                    }
+              };
+              cy.interceptGQL(
+                        'https://reportcard-rails.herokuapp.com/graphql',
+                        'user',
+                         userData
+              );
+    cy.get('.login-button').click()
+    .url().should('eq', 'http://localhost:3000/home')
+    .get('h3').contains('Marcos Hane')
+  });
 });
