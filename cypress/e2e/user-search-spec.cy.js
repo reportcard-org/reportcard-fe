@@ -91,10 +91,14 @@ describe('ReportCard search page', () => {
       .get('.search-button').should('not.be.disabled')
       .get('.search-button').contains('Search').click()
       .url().should('eq', 'http://localhost:3000/district-info')
-      .get('.district-info-container').should('exist')
-      .get('.card-bubble').first().contains(18.07)
-      .get('.card-bubble').eq(1).contains(12100.68)
-      .get('.card-bubble').eq(2).contains(165)
+
+      .get('.district-info-container > .report-card > .card-bubble').first().contains('Student to teacher')
+      .get('.card-bubble').eq(1).contains(59.39)
+      .get('.card-bubble').eq(2).contains('Teacher salary')
+      .get('.card-bubble').eq(3).contains('Enrollment')
+      .get('.card-bubble').eq(4).contains('# of Schools in District')
+      .get('.card-bubble').eq(5).contains('Guidance counselor ratio')
+      .get('.card-bubble').eq(6).contains('$ per student')
   });
 
 });
