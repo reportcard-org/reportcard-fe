@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types'
-// import './SearchForm.scss';
+import './SearchForm.scss';
 
-const SearchForm = ({ searchForAddress }) => {
+const SearchForm = ({ searchForAddress}) => {
 
     const [city, setCity] = useState('');
     const [street, setStreet] = useState('');

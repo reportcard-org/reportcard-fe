@@ -3,6 +3,8 @@ import './App.scss';
 import DistrictInfoPage from '../DistrictInfoPage/DistrictInfoPage';
 import { getDistrict } from '../../apiCalls';
 import NavBar from '../NavBar/NavBar';
+import SignInNavBar from '../SignInNavBar/SignInNavBar'
+import GuestDistrictInfoPage from '../../GuestDistrictInfoPage/GuestDistrictInfoPage';
 import Overview from '../Overview/Overview';
 import SearchPage from '../SearchPage/SearchPage';
 import UserLoginPage from '../UserLoginPage/UserLoginPage';
@@ -47,13 +49,13 @@ const App = () => {
   console.log(favError, favLoading)
 
   const [ addFavorites, { error, loading, data } ] = useMutation(FAVORITE_DISTRICT, {
-    refetchQueries:[
-      {query: USER_FAV_QUERY},
+    refetchQueries: [
+      { query: USER_FAV_QUERY },
       'userdistricts'
     ],
   })
 
-  console.log("MUTATION", {data, loading, error})
+  console.log("MUTATION", { data, loading, error })
 
   const submitLogin = (userEmail) => {
     setUserLoginEmail(userEmail)
@@ -66,45 +68,82 @@ const App = () => {
 
   const searchForAddress = (newAddressQuery) => {
     getDistrict(newAddressQuery)
-    .then(result => {
-      setDistrictData(result)
-      navigate('/district-info')
-    })
-    .catch(function (error) {
-      console.log(error);
-    });
+      .then(result => {
+        setDistrictData(result)
+        userId ? navigate('/district-info') : navigate('/district-info-guest')
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
   }
 
   return (
     <div className="App">
-      <NavBar
-        signOut={signOut}
-        data={queryData}
-      />
       <Routes>
         <Route exact path='/' element={
-          <Overview />
+          <>
+            <NavBar
+              signOut={signOut}
+              data={queryData}
+            />
+            <Overview />
+          </>
         } />
         <Route path='/login' element={
-          <UserLoginPage submitLogin={submitLogin} />
+          <>
+            <SignInNavBar
+            />
+            <UserLoginPage submitLogin={submitLogin} />
+          </>
         } />
         <Route path='/home' element={
-          <SearchPage searchForAddress={searchForAddress} />
+          <>
+            <NavBar
+              signOut={signOut}
+              data={queryData}
+            />
+            <SearchPage
+              searchForAddress={searchForAddress}
+            />
+          </>
         }
         />
         <Route path='/district-info' element={
-          < DistrictInfoPage
-            currentDistrictData={districtData}
-            addFavorites={addFavorites}
-            favData={favData}
-            userId={userId}
-            districtId={districtId}
-          />
+          <>
+            <NavBar
+              signOut={signOut}
+              data={queryData}
+            />
+            < DistrictInfoPage
+              currentDistrictData={districtData}
+              addFavorites={addFavorites}
+              favData={favData}
+              userId={userId}
+              districtId={districtId}
+            />
+          </>
+        } />
+        <Route path='/district-info-guest' element={
+          <>
+            <NavBar
+              signOut={signOut}
+              data={queryData}
+            />
+            < GuestDistrictInfoPage
+              currentDistrictData={districtData}
+            />
+          </>
         } />
         <Route path='/favorite-districts' element={
-          <FavoriteDistrictsPage
-            favData={favData}
-          />
+          <>
+            <NavBar
+              signOut={signOut}
+              data={queryData}
+            />
+            <FavoriteDistrictsPage
+              favData={favData}
+            />
+          </>
         } />
         <Route path='*' element={
           <div>
