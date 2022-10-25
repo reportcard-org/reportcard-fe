@@ -14,8 +14,8 @@ const FavoriteDistrictsPage = ({ favData }) => {
         return (
             <>
                 <FavoriteReportCard
-                    id={district.district.leaId}
                     key={uuidV4()}
+                    id={district.district.leaId}
                     name={district.district.name}
                     studentTeacherRatio={district.district.studentTeacherRatio}
                     instructionSalaryPercentOfTotal={district.district.instructionSalaryPercentOfTotal}
