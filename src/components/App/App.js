@@ -1,16 +1,17 @@
 import React, { useState } from 'react';
 import './App.scss';
 import DistrictInfoPage from '../DistrictInfoPage/DistrictInfoPage';
+import { getDistrict } from '../../apiCalls';
 import NavBar from '../NavBar/NavBar';
 import Overview from '../Overview/Overview';
 import SearchPage from '../SearchPage/SearchPage';
 import UserLoginPage from '../UserLoginPage/UserLoginPage';
+import { USER_FAV_QUERY } from '../../hooks/useGetFavorites';
 import FavoriteDistrictsPage from '../FavoriteDistrictsPage/FavoriteDistrictsPage';
 import { useGetFavorites } from '../../hooks/useGetFavorites';
 import { Routes, Route, useNavigate } from 'react-router-dom';
 import { useGetUsers } from '../../hooks/useGetUsers';
 import { useMutation, gql } from "@apollo/client";
-
 
 const App = () => {
   const navigate = useNavigate()
@@ -46,12 +47,13 @@ const App = () => {
   console.log(favError, favLoading)
 
   const [ addFavorites, { error, loading, data } ] = useMutation(FAVORITE_DISTRICT, {
-    variables: {
-      userId: Number(userId),
-      districtId: Number(districtId?.charAt(1) === "0" ? districtId.substring(1) : districtId)
-    }
+    refetchQueries:[
+      {query: USER_FAV_QUERY},
+      'userdistricts'
+    ],
   })
-  console.log(data, loading, error)
+
+  console.log("MUTATION", {data, loading, error})
 
   const submitLogin = (userEmail) => {
     setUserLoginEmail(userEmail)
@@ -64,24 +66,13 @@ const App = () => {
 
   const searchForAddress = (newAddressQuery) => {
     getDistrict(newAddressQuery)
-  }
-
-  const getDistrict = (addressObject) => {
-    return fetch(`https://reportcard-rails.herokuapp.com/api/v1/district_data`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify(addressObject)
+    .then(result => {
+      setDistrictData(result)
+      navigate('/district-info')
     })
-      .then(response => response.json())
-      .then(result => {
-        setDistrictData(result)
-        navigate('/district-info')
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
+    .catch(function (error) {
+      console.log(error);
+    });
   }
 
   return (
@@ -106,7 +97,8 @@ const App = () => {
             currentDistrictData={districtData}
             addFavorites={addFavorites}
             favData={favData}
-
+            userId={userId}
+            districtId={districtId}
           />
         } />
         <Route path='/favorite-districts' element={

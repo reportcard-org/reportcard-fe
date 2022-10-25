@@ -6,11 +6,9 @@ import { useNavigate } from 'react-router-dom';
 import { v4 as uuidV4 } from "uuid"
 
 const FavoriteDistrictsPage = ({ favData }) => {
-    // console.log('favData: ', favData)
     const navigate = useNavigate()
 
     const favReportCard = favData.userdistricts.map(district => {
-        // console.log(district.district.name)
         return (
             <>
                 <FavoriteReportCard
