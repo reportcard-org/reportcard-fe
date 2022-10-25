@@ -31,7 +31,7 @@ const DistrictInfoPage = ({ addFavorites, currentDistrictData, favData }) => {
     const newReportCard = currentDistrictData.data.attributes.map(attribute => {
         return (
             <ReportCard
-            key={uuidV4()}
+                key={uuidV4()}
                 id={currentDistrictData.lea_id}
                 districtName={attribute.district_name}
                 studentTeacherRatio={attribute.student_teacher_ratio}
@@ -58,8 +58,7 @@ const DistrictInfoPage = ({ addFavorites, currentDistrictData, favData }) => {
             <div className='district-info-container'>
                 <p><button className='back-to-search' onClick={() => navigate('/home')}>Back to Search</button></p>
                 {newReportCard}
-                <p><button className='add-district-to-favorites' onClick={() => addFavorites()
-                }>Add to Favorites!</button></p>
+                <p><button className='add-district-to-favorites' onClick={() => addFavorites()}>Add to Favorites!</button></p>
             </div>
         )
     }

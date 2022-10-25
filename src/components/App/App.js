@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './App.scss';
 import DistrictInfoPage from '../DistrictInfoPage/DistrictInfoPage';
+import { getDistrict } from '../../apiCalls';
 import NavBar from '../NavBar/NavBar';
 import Overview from '../Overview/Overview';
 import SearchPage from '../SearchPage/SearchPage';
@@ -64,25 +65,15 @@ const App = () => {
 
   const searchForAddress = (newAddressQuery) => {
     getDistrict(newAddressQuery)
+    .then(result => {
+      setDistrictData(result)
+      navigate('/district-info')
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
   }
 
-  const getDistrict = (addressObject) => {
-    return fetch(`https://reportcard-rails.herokuapp.com/api/v1/district_data`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify(addressObject)
-    })
-      .then(response => response.json())
-      .then(result => {
-        setDistrictData(result)
-        navigate('/district-info')
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
-  }
 
   return (
     <div className="App">
