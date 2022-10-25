@@ -1,8 +1,14 @@
 .report-card {
-    display: flex;
+    display: grid;
     justify-content: center;
     align-items: center;
     margin-top: 12em;
+    grid-template-columns: repeat(8, 1fr);
+    grid-gap: 0.15em;
+}
+
+.district-name {
+    margin-bottom: 10em;
 }
 
 .card-bubble {
@@ -15,4 +21,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.info-title {
+    text-align: center;
 }

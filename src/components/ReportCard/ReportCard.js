@@ -2,17 +2,36 @@ import React from 'react';
 import './ReportCard.scss';
 import PropTypes from 'prop-types'
 
-const ReportCard = ({ districtName, studentTeacherRatio, instructionSalaryPercentOfTotal, perTeacherSalaryExpenses, enrollment, numberOfSchoolsInDistrict, studentGuidanceCounselorRatio, perStudentExpenditure }) => {
+const ReportCard = ({ districtName, studentTeacherRatio, perTeacherSalaryExpenses, enrollment, numberOfSchoolsInDistrict, studentGuidanceCounselorRatio, perStudentExpenditure }) => {
     return (
         <div className='report-card'>
-            <h1>{districtName}</h1>
-            <p className='card-bubble'>Student to teacher {studentTeacherRatio}</p>
-            <p className='card-bubble'> {instructionSalaryPercentOfTotal}</p>
-            <p className='card-bubble'>Teacher salary{perTeacherSalaryExpenses}</p>
-            <p className='card-bubble'>Enrollment{enrollment}</p>
-            <p className='card-bubble'># of Schools in District{numberOfSchoolsInDistrict}</p>
-            <p className='card-bubble'>Guidance counselor ratio{studentGuidanceCounselorRatio}</p>
-            <p className='card-bubble'>$ per student{perStudentExpenditure}</p>
+            <div className='district-name'>
+                <h1>{districtName}</h1>
+            </div>
+            <div className='title-and-info-container'>
+                <p className='info-title'>Student to Teacher Ratio: </p>
+                <p className='card-bubble'>{studentTeacherRatio}</p>
+            </div>
+            <div className='title-and-info-container'>
+                <p className='info-title'>Teacher salary: </p>
+                <p className='card-bubble'>{perTeacherSalaryExpenses}</p>
+            </div>
+            <div className='title-and-info-container'>
+                <p className='info-title'>Enrollment: </p>
+                <p className='card-bubble'>{enrollment}</p>
+            </div>
+            <div className='title-and-info-container'>
+                <p className='info-title'>Number of Schools: </p>
+                <p className='card-bubble'>{numberOfSchoolsInDistrict}</p>
+            </div>
+            <div className='title-and-info-container'>
+                <p className='info-title'>Guidance Counselor Ratio: </p>
+                <p className='card-bubble'>{studentGuidanceCounselorRatio}</p>
+            </div>
+            <div className='title-and-info-container'>
+                <p className='info-title'>Expenditure Per Student: </p>
+                <p className='card-bubble'>{perStudentExpenditure}</p>
+            </div>
         </div>
     )
 }
