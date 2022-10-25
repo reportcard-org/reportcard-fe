@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import ReportCard from '../ReportCard/ReportCard'
 import './DistrictInfoPage.scss';
 import PropTypes from 'prop-types'
@@ -6,35 +6,30 @@ import { v4 as uuidV4 } from "uuid"
 import { useNavigate } from 'react-router-dom';
 
 const DistrictInfoPage = ({ addFavorites, currentDistrictData, favData }) => {
-    // console.log("SAVED", alreadySaved)
     const [ alreadySaved, setAlreadySaved ] = useState(false)
     const navigate = useNavigate()
 
-    let currentDistrictName;
+    const checkIfSaved = useCallback(
+        (currentDistrictData, favData) => {
+            let currentDistrictName;
+            currentDistrictName = currentDistrictData?.data.attributes.map(attribute => {
+                return attribute.district_name
+            })
+          return (
+            favData?.userdistricts.some(district => {
+                return district.district.name === currentDistrictName[ 0 ]
+            })
+          );
+        },
+        []
+      );
 
     useEffect(() => {
+        
         setAlreadySaved(checkIfSaved(currentDistrictData, favData))
-
-
-
-
-    }, [ currentDistrictData, favData ])
-
-    const checkIfSaved = (currentDistrictData, favData) => {
-
-        // console.log(favData.userdistricts)
-
-        currentDistrictName = currentDistrictData?.data.attributes.map(attribute => {
-            return attribute.district_name
-        })
-
-        return !!favData?.userdistricts.find(district => {
-
-            return district.district.name === currentDistrictName[ 0 ]
-        })
-    }
-
-    console.log(alreadySaved)
+        
+    }, [ checkIfSaved, currentDistrictData, favData  ] )
+    
 
     const newReportCard = currentDistrictData.data.attributes.map(attribute => {
         return (
@@ -49,7 +44,6 @@ const DistrictInfoPage = ({ addFavorites, currentDistrictData, favData }) => {
         )
     })
 
-
     if (alreadySaved) {
         return (
             <div className='district-info-container'>
@@ -58,7 +52,6 @@ const DistrictInfoPage = ({ addFavorites, currentDistrictData, favData }) => {
                 <h1 className='add-district-to-favorites'>❤️ Already saved to faves ❤️</h1>
             </div>
         )
-
     } else {
         return (
             <div className='district-info-container'>
@@ -68,13 +61,7 @@ const DistrictInfoPage = ({ addFavorites, currentDistrictData, favData }) => {
                 }>Add to Favorites!</button></p>
             </div>
         )
-
     }
-
-
-
-
-
 }
 
 export default DistrictInfoPage;
