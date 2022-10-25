@@ -2,7 +2,7 @@ import React from 'react';
 import './ReportCard.scss';
 import PropTypes from 'prop-types'
 
-const ReportCard = ({ districtName, studentTeacherRatio, perTeacherSalaryExpenses, enrollment, numberOfSchoolsInDistrict, studentGuidanceCounselorRatio, perStudentExpenditure }) => {
+const ReportCard = ({ districtName, studentTeacherRatio, perTeacherSalaryExpenses, instructionSalaryPercentOfTotal, enrollment, numberOfSchoolsInDistrict, studentGuidanceCounselorRatio, perStudentExpenditure }) => {
     return (
         <div className='report-card'>
             <div className='district-name'>
@@ -16,6 +16,10 @@ const ReportCard = ({ districtName, studentTeacherRatio, perTeacherSalaryExpense
             <div className='title-and-info'>
                 <p className='info-title'>Teacher salary: </p>
                 <p className='card-bubble'>{perTeacherSalaryExpenses}</p>
+            </div>
+            <div className='title-and-info'>
+                <p className='info-title'>Instruction Salary Percentage of Total: </p>
+                <p className='card-bubble'>{instructionSalaryPercentOfTotal}</p>
             </div>
             <div className='title-and-info'>
                 <p className='info-title'>Enrollment: </p>
