@@ -20,9 +20,7 @@ const DistrictInfoPage = ({ addFavorites, currentDistrictData, favData, userId, 
                     return district.district.name === currentDistrictName[ 0 ]
                 })
             );
-        },
-        []
-    );
+        }, []);
 
     useEffect(() => {
         setAlreadySaved(checkIfSaved(currentDistrictData, favData))
@@ -31,7 +29,7 @@ const DistrictInfoPage = ({ addFavorites, currentDistrictData, favData, userId, 
     const newReportCard = currentDistrictData.data.attributes.map(attribute => {
         return (
             <ReportCard
-            key={uuidV4()}
+                key={uuidV4()}
                 id={currentDistrictData.lea_id}
                 districtName={attribute.district_name}
                 studentTeacherRatio={attribute.student_teacher_ratio}
@@ -45,9 +43,9 @@ const DistrictInfoPage = ({ addFavorites, currentDistrictData, favData, userId, 
         )
     })
 
-    
 
-    if (alreadySaved) {
+
+    if (alreadySaved && userId) {
         return (
             <div className='district-info-container'>
                 <p><button className='back-to-search' onClick={() => navigate('/home')}>Back to Search</button></p>
@@ -55,12 +53,12 @@ const DistrictInfoPage = ({ addFavorites, currentDistrictData, favData, userId, 
                 <h1 className='add-district-to-favorites'>❤️ Already saved to faves ❤️</h1>
             </div>
         )
-    } else {
+    } else if (!alreadySaved && userId) {
         return (
             <div className='district-info-container'>
                 <p><button className='back-to-search' onClick={() => navigate('/home')}>Back to Search</button></p>
                 {newReportCard}
-                <p><button className='add-district-to-favorites' onClick={() => addFavorites({variables: {userId: Number(userId), districtId: Number(districtId?.charAt(1) === "0" ? districtId.substring(1) : districtId)} })}>Add to Favorites!</button></p>
+                <p><button className='add-district-to-favorites' onClick={() => addFavorites({ variables: { userId: Number(userId), districtId: Number(districtId?.charAt(1) === "0" ? districtId.substring(1) : districtId) } })}>Add to Favorites!</button></p>
             </div>
         )
     }
