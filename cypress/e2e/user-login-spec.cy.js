@@ -46,12 +46,12 @@ describe('ReportCard login page', () => {
 
   beforeEach(() => {
     Cypress.config("interceptions", {});
-    cy.visit('http://localhost:3000/')
     cy.interceptGQL("https://reportcard-rails.herokuapp.com/graphql", "user", data)
   })
 
   it('loads the main page', () => {
-    cy.get('.nav-bar').contains('ReportCard')
+     cy.visit('http://localhost:3000/')  
+      .get('.nav-bar').contains('ReportCard')
       .get('.logo').contains('✅')
       .location('pathname').should('eq', '/')
   });
@@ -64,7 +64,8 @@ describe('ReportCard login page', () => {
   });
 
   it('user can return to login in from search page with the sign in button', () => {
-    cy.get('.nav-button-container > .return-to-login-page-button').click()
+    cy.interceptGQL("https://reportcard-rails.herokuapp.com/graphql", "user", data)
+      .get('.nav-button-container > .return-to-login-page-button').click()
       .url().should('eq', 'http://localhost:3000/login')
       .get('input').type('test_email0@email.test');
           const userData = {
