@@ -6,6 +6,7 @@ import NavBar from '../NavBar/NavBar';
 import Overview from '../Overview/Overview';
 import SearchPage from '../SearchPage/SearchPage';
 import UserLoginPage from '../UserLoginPage/UserLoginPage';
+import { USER_FAV_QUERY } from '../../hooks/useGetFavorites';
 import FavoriteDistrictsPage from '../FavoriteDistrictsPage/FavoriteDistrictsPage';
 import { useGetFavorites } from '../../hooks/useGetFavorites';
 import { Routes, Route, useNavigate } from 'react-router-dom';
@@ -46,11 +47,12 @@ const App = () => {
   console.log(favError, favLoading)
 
   const [ addFavorites, { error, loading, data } ] = useMutation(FAVORITE_DISTRICT, {
-    variables: {
-      userId: Number(userId),
-      districtId: Number(districtId?.charAt(1) === "0" ? districtId.substring(1) : districtId)
-    }
+    refetchQueries:[
+      {query: USER_FAV_QUERY},
+      'userdistricts'
+    ],
   })
+
   console.log("MUTATION", {data, loading, error})
 
   const submitLogin = (userEmail) => {
@@ -94,8 +96,9 @@ const App = () => {
           < DistrictInfoPage
             currentDistrictData={districtData}
             addFavorites={addFavorites}
+            favData={favData}
             userId={userId}
-
+            districtId={districtId}
           />
         } />
         <Route path='/favorite-districts' element={

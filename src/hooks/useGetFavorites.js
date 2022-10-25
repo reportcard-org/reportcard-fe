@@ -1,6 +1,6 @@
 import { useQuery, gql } from '@apollo/client';
 
-const USER_FAV_QUERY = gql`
+export const USER_FAV_QUERY = gql`
     query userdistricts($userId: Int!){  
         userdistricts(userId: $userId){
             id

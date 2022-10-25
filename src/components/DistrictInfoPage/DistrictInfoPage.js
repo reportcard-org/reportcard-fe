@@ -4,14 +4,10 @@ import './DistrictInfoPage.scss';
 import PropTypes from 'prop-types'
 import { v4 as uuidV4 } from "uuid"
 import { useNavigate } from 'react-router-dom';
-import { useGetFavorites } from '../../hooks/useGetFavorites';
 
-const DistrictInfoPage = ({ addFavorites, currentDistrictData, userId }) => {
+const DistrictInfoPage = ({ addFavorites, currentDistrictData, favData, userId, districtId }) => {
     const [ alreadySaved, setAlreadySaved ] = useState(false)
     const navigate = useNavigate()
-    const { favData } = useGetFavorites(userId)
-
-    console.log(favData)
 
     const checkIfSaved = useCallback(
         (currentDistrictData, favData) => {
@@ -35,7 +31,7 @@ const DistrictInfoPage = ({ addFavorites, currentDistrictData, userId }) => {
     const newReportCard = currentDistrictData.data.attributes.map(attribute => {
         return (
             <ReportCard
-                key={uuidV4()}
+            key={uuidV4()}
                 id={currentDistrictData.lea_id}
                 districtName={attribute.district_name}
                 studentTeacherRatio={attribute.student_teacher_ratio}
@@ -48,6 +44,8 @@ const DistrictInfoPage = ({ addFavorites, currentDistrictData, userId }) => {
             />
         )
     })
+
+    
 
     if (alreadySaved) {
         return (
@@ -62,7 +60,7 @@ const DistrictInfoPage = ({ addFavorites, currentDistrictData, userId }) => {
             <div className='district-info-container'>
                 <p><button className='back-to-search' onClick={() => navigate('/home')}>Back to Search</button></p>
                 {newReportCard}
-                <p><button className='add-district-to-favorites' onClick={() => addFavorites()}>Add to Favorites!</button></p>
+                <p><button className='add-district-to-favorites' onClick={() => addFavorites({variables: {userId: Number(userId), districtId: Number(districtId?.charAt(1) === "0" ? districtId.substring(1) : districtId)} })}>Add to Favorites!</button></p>
             </div>
         )
     }
