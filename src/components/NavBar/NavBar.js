@@ -9,7 +9,7 @@ const NavBar = ({ signOut, data}) => {
         return(
             <div className='nav-bar'>
                 <div className='logo-and-buttons'>
-                    <button onClick={ () => navigate('/home') }className='logo'>
+                    <button onClick={ () => navigate('/') }className='logo'>
                         ReportCard ✅
                 </button>
             <div className='nav-button-container'>
@@ -24,7 +24,7 @@ const NavBar = ({ signOut, data}) => {
             return(
                 <div className='nav-bar'>
                 <div className='logo-and-buttons'>
-                    <button onClick={ () => navigate('/home') } className='logo'>
+                    <button onClick={ () => navigate('/') } className='logo'>
                         ReportCard ✅
                 </button>
                     <div className='nav-button-container'>
@@ -37,11 +37,9 @@ const NavBar = ({ signOut, data}) => {
             return(
                 <div className='nav-bar'>
                     <div className='logo-and-buttons'>
-                        <button onClick={ () => navigate('/home') }className='logo'>
+                        <button onClick={ () => navigate('/') }className='logo'>
                             ReportCard ✅
                          </button>
-                    <div className='nav-button-container'>
-                    </div>
                     </div>
                 </div>
             )

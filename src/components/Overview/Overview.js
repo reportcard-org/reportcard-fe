@@ -1,7 +1,9 @@
 import './Overview.scss';
-import { NavLink } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const Overview = () => {
+    const navigate = useNavigate()
+
     return (
         <article className='overview'>
             <p>
@@ -11,11 +13,9 @@ const Overview = () => {
             <p>
                 Login with an email and then provide an address to search for the nearest school district. Your report Card will provide you with *insert info*. You can save this district to your Favorites for later review. If you don't want to save any info or enter an email, you can continue as a guest. Thank you for using our application and for helping create a better future for our children. Welcome to Report Card!
             </p>
-            <NavLink to='/login'>
-                <div className='nav-container'>
-                    <label>Continue To Report Card</label>
-                </div>
-            </NavLink>
+            <div className='nav-button-container'>
+                <button className='return-to-login-page-button' onClick={ () => navigate('/login') }>Continue to ReportCard</button>
+            </div>
         </article>
     );
 };
