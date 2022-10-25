@@ -31,8 +31,8 @@ const DistrictInfoPage = ({ addFavorites, currentDistrictData, favData }) => {
     const newReportCard = currentDistrictData.data.attributes.map(attribute => {
         return (
             <ReportCard
+            key={uuidV4()}
                 id={currentDistrictData.lea_id}
-                key={uuidV4()}
                 districtName={attribute.district_name}
                 studentTeacherRatio={attribute.student_teacher_ratio}
                 instructionSalaryPercentOfTotal={attribute.instruction_salary_percentOfTotal}
