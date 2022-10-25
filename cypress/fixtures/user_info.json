@@ -1,7 +1,7 @@
 {
     "data": {
         "user": {
-            "name": "Marcos Hane",
+            "name": "Arlen Wisoky",
             "email": "test_email0@email.test",
             "id": "1",
             "__typename": "User"
