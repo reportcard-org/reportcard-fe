@@ -27,9 +27,6 @@ const NavBar = ({ signOut, data}) => {
                     <button onClick={ () => navigate('/home') } className='logo'>
                         ReportCard ✅
                 </button>
-                    <div className='nav-button-container'>
-                    <button className='return-to-login-page-button' onClick={ () => navigate('/login') }>Sign in</button>
-                    </div>
                 </div>
             </div>
             )
