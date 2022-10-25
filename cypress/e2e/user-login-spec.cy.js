@@ -57,7 +57,7 @@ describe('ReportCard login page', () => {
   });
 
   it('user can continue as guest without logging in', () => {
-    cy.get('.overview > a > .nav-container').click()
+    cy.get('.return-to-login-page-button').click()
       .url().should('eq', 'http://localhost:3000/login')
       .get('.guest-button').contains("Continue as Guest").click()
       .location('pathname').should('eq', '/home')
