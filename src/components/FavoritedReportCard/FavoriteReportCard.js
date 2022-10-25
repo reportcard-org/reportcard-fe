@@ -5,7 +5,7 @@ import PropTypes from 'prop-types'
 const FavoriteReportCard = ({ name, studentTeacherRatio, perTeacherSalaryExpenses, enrollment, numberOfSchoolsInDistrict, studentGuidanceCounselorRatio, perStudentExpenditure }) => {
 
     return (
-        <div className='report-card'>
+        <div className='favorite-report-card'>
             <div className='district-name'>
                 <h1>{name}</h1>
             </div>

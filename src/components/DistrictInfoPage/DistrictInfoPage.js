@@ -50,7 +50,7 @@ const DistrictInfoPage = ({ addFavorites, currentDistrictData, favData, userId, 
             <div className='district-info-container'>
                 <p><button className='back-to-search' onClick={() => navigate('/home')}>Back to Search</button></p>
                 {newReportCard}
-                <h1 className='add-district-to-favorites'>❤️ Already saved to faves ❤️</h1>
+                <h1 className='saved-message'>❤️ Already saved to faves ❤️</h1>
             </div>
         )
     } else if (!alreadySaved && userId) {
