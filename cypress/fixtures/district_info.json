@@ -1,0 +1,38 @@
+{
+    "data": {
+        "attributes": [
+            {
+                "0": {
+                    "district_expense_total": "1024274000",
+                    "district_name": "Jefferson County School District No. R-1",
+                    "elementary_teachers": "2176",
+                    "enrollment": "84646",
+                    "expenses_for_instruction": "492227000",
+                    "guidance_counselors": "283",
+                    "instruction_salary_percent_of_total": "59.39",
+                    "instructional_aides": "1662",
+                    "kindergarten_teachers": "294",
+                    "latitude": "+39.5875372",
+                    "lea_id": "0804800",
+                    "librarian_total": "122",
+                    "longitude": "-105.2499612",
+                    "number_of_schools_in_district": "165",
+                    "per_student_expenditure": "12100.68",
+                    "per_teacher_salary_expenses": "73400.51",
+                    "pre_k_teachers": "50",
+                    "salaries_instruction": "343808000",
+                    "salaries_total": "578940000",
+                    "secondary_teachers": "2162",
+                    "student_guidance_counselor_ratio": "299.1",
+                    "student_librarian_ratio": "693.82",
+                    "student_teacher_ratio": "18.07",
+                    "total_staff": "10622",
+                    "total_teachers": "4684",
+                    "urban_centric_locale": "Large Suburb"
+                },
+                "id": null,
+                "type": "school district"
+            }
+        ]
+    }
+}

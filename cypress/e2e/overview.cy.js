@@ -1,4 +1,7 @@
+import data from '../fixtures/user_info.json';
+
 describe('overview', () => {
+
     it('should have correct navbar', () => {
         cy.visit('http://localhost:3000/')
         cy.get('.nav-bar > .logo-and-buttons').contains('ReportCard')
