@@ -1,19 +1,20 @@
 .district-info-container {
     padding: 20px;
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    grid-gap: 0.15em;
+    display: flex;
+    flex-direction: column;
     margin-top: 2em;
     margin-bottom: 10em;
     margin-left: 10em;
     margin-right: 10em;
-    border: 2px solid black;
-    height: 20em;
-    width: 45em;
+    border: 2em solid black;
 }
 
-.add-district-to-favorites, .back-to-search {
+.add-district-to-favorites, .back-to-search, .saved-message {
     height: 6em;
     width: 6em;
     margin: 2em;
+}
+
+.saved-message {
+    font-size: medium;
 }
