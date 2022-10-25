@@ -92,7 +92,7 @@ describe('ReportCard search page', () => {
       .get('.search-button').contains('Search').click()
       .url().should('eq', 'http://localhost:3000/district-info')
 
-      .get('.App > .district-info-container > .report-card > .card-bubble').first().contains('Student to teacher')
+      .get('.district-info-container > .report-card > .card-bubble').first().contains('Student to teacher')
       .get('.card-bubble').eq(1).contains(59.39)
       .get('.card-bubble').eq(2).contains('Teacher salary')
       .get('.card-bubble').eq(3).contains('Enrollment')
