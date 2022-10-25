@@ -15,21 +15,18 @@ const DistrictInfoPage = ({ addFavorites, currentDistrictData, favData }) => {
             currentDistrictName = currentDistrictData?.data.attributes.map(attribute => {
                 return attribute.district_name
             })
-          return (
-            favData?.userdistricts.some(district => {
-                return district.district.name === currentDistrictName[ 0 ]
-            })
-          );
+            return (
+                favData.userdistricts.some(district => {
+                    return district.district.name === currentDistrictName[ 0 ]
+                })
+            );
         },
         []
-      );
+    );
 
     useEffect(() => {
-        
         setAlreadySaved(checkIfSaved(currentDistrictData, favData))
-        
-    }, [ checkIfSaved, currentDistrictData, favData  ] )
-    
+    }, [ checkIfSaved, currentDistrictData, favData ])
 
     const newReportCard = currentDistrictData.data.attributes.map(attribute => {
         return (
@@ -38,8 +35,12 @@ const DistrictInfoPage = ({ addFavorites, currentDistrictData, favData }) => {
                 key={uuidV4()}
                 districtName={attribute.district_name}
                 studentTeacherRatio={attribute.student_teacher_ratio}
-                perStudentExpenditure={attribute.per_student_expenditure}
+                instructionSalaryPercentOfTotal={attribute.instruction_salary_percentOfTotal}
+                perTeacherSalaryExpenses={attribute.per_teacher_salary_expenses}
+                enrollment={attribute.enrollment}
                 numberOfSchoolsInDistrict={attribute.number_of_schools_in_district}
+                studentGuidanceCounselorRatio={attribute.student_guidance_counselor_ratio}
+                perStudentExpenditure={attribute.per_student_expenditure}
             />
         )
     })
