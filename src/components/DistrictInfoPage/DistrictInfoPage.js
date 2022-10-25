@@ -4,10 +4,14 @@ import './DistrictInfoPage.scss';
 import PropTypes from 'prop-types'
 import { v4 as uuidV4 } from "uuid"
 import { useNavigate } from 'react-router-dom';
+import { useGetFavorites } from '../../hooks/useGetFavorites';
 
-const DistrictInfoPage = ({ addFavorites, currentDistrictData, favData }) => {
+const DistrictInfoPage = ({ addFavorites, currentDistrictData, userId }) => {
     const [ alreadySaved, setAlreadySaved ] = useState(false)
     const navigate = useNavigate()
+    const { favData } = useGetFavorites(userId)
+
+    console.log(favData)
 
     const checkIfSaved = useCallback(
         (currentDistrictData, favData) => {

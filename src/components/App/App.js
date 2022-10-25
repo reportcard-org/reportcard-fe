@@ -12,7 +12,6 @@ import { Routes, Route, useNavigate } from 'react-router-dom';
 import { useGetUsers } from '../../hooks/useGetUsers';
 import { useMutation, gql } from "@apollo/client";
 
-
 const App = () => {
   const navigate = useNavigate()
   const [ districtData, setDistrictData ] = useState({})
@@ -52,7 +51,7 @@ const App = () => {
       districtId: Number(districtId?.charAt(1) === "0" ? districtId.substring(1) : districtId)
     }
   })
-  console.log(data, loading, error)
+  console.log("MUTATION", {data, loading, error})
 
   const submitLogin = (userEmail) => {
     setUserLoginEmail(userEmail)
@@ -73,7 +72,6 @@ const App = () => {
       console.log(error);
     });
   }
-
 
   return (
     <div className="App">
@@ -96,7 +94,7 @@ const App = () => {
           < DistrictInfoPage
             currentDistrictData={districtData}
             addFavorites={addFavorites}
-            favData={favData}
+            userId={userId}
 
           />
         } />
