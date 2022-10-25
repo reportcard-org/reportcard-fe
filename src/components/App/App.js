@@ -14,12 +14,12 @@ import { useMutation, gql } from "@apollo/client";
 
 const App = () => {
   const navigate = useNavigate()
-  const [districtData, setDistrictData] = useState({})
-  const [userLoginEmail, setUserLoginEmail] = useState("")
+  const [ districtData, setDistrictData ] = useState({})
+  const [ userLoginEmail, setUserLoginEmail ] = useState("")
   const { queryError, queryLoading, queryData } = useGetUsers(userLoginEmail)
 
   console.log(queryError, queryLoading)
-  
+
   const FAVORITE_DISTRICT = gql`
     mutation createUserDistrict($userId: Int!, $districtId: Int! ){
       createUserDistrict(input: {
@@ -33,26 +33,26 @@ const App = () => {
   }
   `;
 
-    let districtId;
-    let userId;
+  let districtId;
+  let userId;
 
-    if (districtData && queryData) {
-      districtId = districtData?.data?.attributes?.[0].lea_id
-      userId = queryData?.user?.id
-    }
-    
+  if (districtData && queryData) {
+    districtId = districtData?.data?.attributes?.[ 0 ].lea_id
+    userId = queryData?.user?.id
+  }
+
   const { favError, favLoading, favData } = useGetFavorites(userId)
 
   console.log(favError, favLoading)
 
-    const [addFavorites, { error, loading, data }] = useMutation(FAVORITE_DISTRICT, {
-      variables: {
-        userId: Number(userId),
-        districtId: Number(districtId?.charAt(1) === "0" ? districtId.substring(1) : districtId)
-      }
-    })
-    console.log( data, loading, error)
-  
+  const [ addFavorites, { error, loading, data } ] = useMutation(FAVORITE_DISTRICT, {
+    variables: {
+      userId: Number(userId),
+      districtId: Number(districtId?.charAt(1) === "0" ? districtId.substring(1) : districtId)
+    }
+  })
+  console.log(data, loading, error)
+
   const submitLogin = (userEmail) => {
     setUserLoginEmail(userEmail)
   }
@@ -102,12 +102,12 @@ const App = () => {
         }
         />
         <Route path='/district-info' element={
-          < DistrictInfoPage 
+          < DistrictInfoPage
             currentDistrictData={districtData}
             addFavorites={addFavorites}
             favData={favData}
 
-            />
+          />
         } />
         <Route path='/favorite-districts' element={
           <FavoriteDistrictsPage
