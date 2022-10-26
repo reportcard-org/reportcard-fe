@@ -9,7 +9,6 @@ const UserLoginForm = ({ submitLogin, queryError }) => {
 
     const handleSubmit = (event) => {
         event.preventDefault()
-        submitLogin(userCredentials)
         navigate("/home")
         clearInputs()
         submitLogin(userCredentials, userPassword)

@@ -19,6 +19,7 @@ import { useLazyQuery, useMutation, gql } from "@apollo/client";
 const App = () => {
   const navigate = useNavigate()
   const [ districtData, setDistrictData ] = useState({})
+  const [ error, setError ] = useState(false)
   const [ findUser, { error: queryError, loading: queryLoading, data: queryData } ] = useLazyQuery(USER_LOGIN_QUERY)
 
   const FAVORITE_DISTRICT = gql`
@@ -64,9 +65,10 @@ const App = () => {
       .then(result => {
         setDistrictData(result)
         userId ? navigate('/district-info') : navigate('/district-info-guest')
+        setError(false)
       })
-      .catch(function (error) {
-        console.log(error);
+      .catch((error) =>  {
+        setError(true)
       });
   }
 
@@ -104,6 +106,7 @@ const App = () => {
               searchForAddress={searchForAddress}
               queryError={queryError}
             />
+            {error && <p>Could not find address.  Try again</p>}
           </>
         }
         />
