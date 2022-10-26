@@ -1,9 +1,11 @@
 import React from 'react';
 import './FavNavBar.scss';
+import PropTypes from 'prop-types'
 import { useNavigate } from 'react-router-dom';
 
 const FavNavBar = ({ signOut }) => {
     const navigate = useNavigate()
+
     return (
         <div className='nav-bar'>
             <div className='logo-and-buttons'>
@@ -20,3 +22,7 @@ const FavNavBar = ({ signOut }) => {
 }
 
 export default FavNavBar;
+
+FavNavBar.propTypes = {
+    signOut: PropTypes.func,
+}
