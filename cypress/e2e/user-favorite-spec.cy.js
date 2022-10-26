@@ -43,7 +43,7 @@ describe('User Favorites page', () => {
     beforeEach(() => {
         Cypress.config("interceptions", {});
         cy.interceptGQL("https://reportcard-rails.herokuapp.com/graphql", "user", data)
-    })
+    });
 
     it('loads the main page', () => {
         cy.visit('http://localhost:3000/')
@@ -56,7 +56,7 @@ describe('User Favorites page', () => {
     it('user can return to login in from search page with the sign in button', () => {
         cy.visit('http://localhost:3000/login')
         .url().should('eq', 'http://localhost:3000/login')
-        .get('input').type('test_email0@email.test')
+        .get('input').first().type('test_email0@email.test')
         const userData = {
             "data": {
                 "user": {
@@ -86,18 +86,24 @@ describe('User Favorites page', () => {
             .get('.search-button').should('not.be.disabled')
             .get('.search-button').contains('Search').click()
             .url().should('eq', 'http://localhost:3000/district-info')
-            .get('.report-card').should('exist')
-            .get('.card-bubble').first().contains('Student to teacher')
-            .get('.card-bubble').eq(1).contains(59.39)
-            .get('.card-bubble').eq(2).contains('Teacher salary')
-            .get('.card-bubble').eq(3).contains('Enrollment')
-            .get('.card-bubble').eq(4).contains('# of Schools in District')
-            .get('.card-bubble').eq(5).contains('Guidance counselor ratio')
-            .get('.card-bubble').eq(6).contains('$ per student')
+            .get('.title-and-info-container')
+            .get('p').first().contains('Back to Search')
+            .get('p').eq(2).contains(18.07)
+            .get('p').eq(3).contains('Teacher salary: ')
+            .get('p').eq(4).contains(73400.51)
+            .get('p').eq(5).contains('Instruction Salary Percentage of Total: ')
+            .get('p').eq(7).contains('Enrollment: ')
+            .get('p').eq(8).contains(84646)
+            .get('p').eq(9).contains('Number of Schools: ')
+            .get('p').eq(10).contains(165)
+            .get('p').eq(11).contains('Guidance Counselor Ratio: ')
+            .get('p').eq(12).contains(299.1)
+            .get('p').eq(13).contains('Expenditure Per Student: ')
+            .get('p').eq(14).contains(12100.68)
     });
 
     it('should not be able to save a favorite twice and should see all favorited districts on the favorites page', () => {
-        cy.get('.add-district-to-favorites').contains('❤️ Already saved to faves ❤️')
+        cy.get('.saved-message').contains('❤️ Already saved to faves ❤️')
           .get('.go-to-favorites-page').click()
           .url().should('eq', 'http://localhost:3000/favorite-districts')
           .get('h1').first().contains('Clinch County')
@@ -114,14 +120,21 @@ describe('User Favorites page', () => {
             .get('.search-button').should('not.be.disabled')
             .get('.search-button').contains('Search').click()
             .url().should('eq', 'http://localhost:3000/district-info')
-            .get('.report-card').should('exist')
-            .get('.card-bubble').first().contains('Student to teacher')
-            .get('.card-bubble').eq(1).contains(50.4)
-            .get('.card-bubble').eq(2).contains('Teacher salary')
-            .get('.card-bubble').eq(3).contains('Enrollment')
-            .get('.card-bubble').eq(4).contains('# of Schools in District')
-            .get('.card-bubble').eq(5).contains('Guidance counselor ratio')
-            .get('.card-bubble').eq(6).contains('$ per student')
+            .get('.title-and-info-container')
+            .get('p').first().contains('Back to Search')
+            .get('p').eq(2).contains(14.95)
+            .get('p').eq(3).contains('Teacher salary: ')
+            .get('p').eq(4).contains(65475.06)
+            .get('p').eq(5).contains('Instruction Salary Percentage of Total: ')
+            .get('p').eq(6).contains(50.40)
+            .get('p').eq(7).contains('Enrollment: ')
+            .get('p').eq(8).contains(92039)
+            .get('p').eq(9).contains('Number of Schools: ')
+            .get('p').eq(10).contains(206)
+            .get('p').eq(11).contains('Guidance Counselor Ratio: ')
+            .get('p').eq(12).contains(484.42)
+            .get('p').eq(13).contains('Expenditure Per Student: ')
+            .get('p').eq(14).contains(16752.85)
     })
 
     it('should allow a user to logout and return them to the overview/login page', () => {

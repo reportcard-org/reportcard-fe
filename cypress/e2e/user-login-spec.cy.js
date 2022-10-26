@@ -67,7 +67,7 @@ describe('ReportCard login page', () => {
     cy.interceptGQL("https://reportcard-rails.herokuapp.com/graphql", "user", data)
       .get('.nav-button-container > .return-to-login-page-button').click()
       .url().should('eq', 'http://localhost:3000/login')
-      .get('input').type('test_email0@email.test');
+      .get('input').first().type('test_email0@email.test');
           const userData = {
                     "data": {
                           "user": {

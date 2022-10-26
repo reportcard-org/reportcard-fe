@@ -43,8 +43,6 @@ const DistrictInfoPage = ({ addFavorites, currentDistrictData, favData, userId, 
         )
     })
 
-
-
     if (alreadySaved && userId) {
         return (
             <div className='district-info-container'>

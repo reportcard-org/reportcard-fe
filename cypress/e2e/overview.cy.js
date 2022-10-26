@@ -13,7 +13,7 @@ describe('overview', () => {
     })
 
     it('should have button to continue to login page', () => {
-        cy.get('.overview > a > .nav-container').click()
+        cy.get('.nav-button-container > .return-to-login-page-button').click()
         cy.url().should('eq', 'http://localhost:3000/login')
     })
 })
