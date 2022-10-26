@@ -2,11 +2,9 @@ import React from 'react';
 import './FavoriteDistrictsPage.scss';
 // import PropTypes from 'prop-types'
 import FavoriteReportCard from '../FavoritedReportCard/FavoriteReportCard';
-import { useNavigate } from 'react-router-dom';
 import { v4 as uuidV4 } from "uuid"
 
 const FavoriteDistrictsPage = ({ favData }) => {
-    const navigate = useNavigate()
 
     const favReportCard = favData.userdistricts.map(district => {
         return (
@@ -30,7 +28,6 @@ const FavoriteDistrictsPage = ({ favData }) => {
 
     return (
         <div className='favorites-container'>
-            <button className='search-page' onClick={() => navigate('/home')}>Back to Search Page</button>
             {favReportCard}
         </div>
     )
