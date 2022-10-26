@@ -33,17 +33,18 @@ const NavBar = ({ signOut, data }) => {
                 </div>
             </div>
         )
-    } else {
-        return (
-            <div className='nav-bar'>
-                <div className='logo-and-buttons'>
-                    <button onClick={() => navigate('/home')} className='logo'>
-                        ReportCard ✅
-                    </button>
-                </div>
-            </div>
-        )
-    }
+    } 
+    // else {
+    //     return (
+    //         <div className='nav-bar'>
+    //             <div className='logo-and-buttons'>
+    //                 <button onClick={() => navigate('/home')} className='logo'>
+    //                     ReportCard ✅
+    //                 </button>
+    //             </div>
+    //         </div>
+    //     )
+    // }
 }
 
 export default NavBar;

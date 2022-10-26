@@ -30,7 +30,6 @@ const FavoriteDistrictsPage = ({ favData }) => {
 
     return (
         <div className='favorites-container'>
-            <button className='search-page' onClick={() => navigate('/home')}>Back to Search Page</button>
             {favReportCard}
         </div>
     )

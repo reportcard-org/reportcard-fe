@@ -4,6 +4,7 @@ import DistrictInfoPage from '../DistrictInfoPage/DistrictInfoPage';
 import { getDistrict } from '../../apiCalls';
 import NavBar from '../NavBar/NavBar';
 import SignInNavBar from '../SignInNavBar/SignInNavBar'
+import FavNavBar from '../../FavNavBar/FavNavBar';
 import GuestDistrictInfoPage from '../../GuestDistrictInfoPage/GuestDistrictInfoPage';
 import Overview from '../Overview/Overview';
 import SearchPage from '../SearchPage/SearchPage';
@@ -134,9 +135,9 @@ const App = () => {
         } />
         <Route path='/favorite-districts' element={
           <>
-            <NavBar
+            <FavNavBar
               signOut={signOut}
-              data={queryData}
+              
             />
             <FavoriteDistrictsPage
               favData={favData}
