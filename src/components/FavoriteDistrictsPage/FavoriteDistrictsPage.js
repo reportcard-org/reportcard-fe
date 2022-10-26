@@ -21,7 +21,7 @@ const FavoriteDistrictsPage = ({ favData }) => {
                     studentGuidanceCounselorRatio={district.district.studentGuidanceCounselorRatio}
                     perStudentExpenditure={district.district.perStudentExpenditure}
                 />
-                <h1>❤️</h1>
+                <h1 key={uuidV4()}>❤️</h1>
             </>
         )
     })

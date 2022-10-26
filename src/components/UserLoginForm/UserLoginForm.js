@@ -2,24 +2,21 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import './UserLoginForm.scss'
 
-const UserLoginForm = ({ submitLogin }) => {
+const UserLoginForm = ({ submitLogin, queryError }) => {
     const navigate = useNavigate()
-
     const [ userCredentials, setUserCredentials ] = useState("")
-    // const [userPassword, setUserPassword] = useState("")
+    const [userPassword, setUserPassword] = useState("")
 
     const handleSubmit = (event) => {
         event.preventDefault()
-        submitLogin(userCredentials)
-
-        // submitLogin(userCredentials, userPassword)
         navigate("/home")
         clearInputs()
+        submitLogin(userCredentials, userPassword)
     }
 
     const clearInputs = () => {
         setUserCredentials('')
-        // setUserPassword("")
+        setUserPassword("")
     }
 
     return (
@@ -35,18 +32,16 @@ const UserLoginForm = ({ submitLogin }) => {
                 value={userCredentials}
                 onChange={(event) => setUserCredentials(event.target.value)}
             />
-            {/* <input
+            <input
                 className='password-input'
                 type="text"
                 name="userPassword"
                 placeholder="Enter your password"
                 value={userPassword}
                 onChange={() => setUserPassword("welcome2022")}
-            /> */}
-
-            <button className='login-button' type='submit' disabled={!userCredentials}>Login</button>
-            {/* <button className='login-button' type='submit' disabled={!userCredentials && !userPassword}>Login</button> */}
-
+            />
+            {queryError && <p>User not found. Check the email and try again</p>}
+            <button className='login-button' type='submit' disabled={!userCredentials && !userPassword}>Login</button>
         </form>
     )
 }

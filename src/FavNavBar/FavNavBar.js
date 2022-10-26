@@ -2,7 +2,7 @@ import React from 'react';
 import './FavNavBar.scss';
 import { useNavigate } from 'react-router-dom';
 
-const FavNavBar = ({signOut}) => {
+const FavNavBar = ({ signOut }) => {
     const navigate = useNavigate()
     return (
         <div className='nav-bar'>
@@ -11,9 +11,8 @@ const FavNavBar = ({signOut}) => {
                     ReportCard ✅
                 </button>
                 <div className='nav-button-container'>
-                <button className='search-page' onClick={() => navigate('/home')}>Back to Search Page</button>
-
-                <button className='return-to-login-page-button' onClick={() => signOut()}>Logout</button>
+                    <button className='search-page' onClick={() => navigate('/home')}>Back to Search Page</button>
+                    <button className='return-to-login-page-button' onClick={() => signOut()}>Logout</button>
                 </div>
             </div>
         </div>

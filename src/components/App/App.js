@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import './App.scss';
 import DistrictInfoPage from '../DistrictInfoPage/DistrictInfoPage';
-import { getDistrict } from '../../apiCalls';
 import NavBar from '../NavBar/NavBar';
 import SignInNavBar from '../SignInNavBar/SignInNavBar'
 import FavNavBar from '../../FavNavBar/FavNavBar';
@@ -9,20 +8,19 @@ import GuestDistrictInfoPage from '../../GuestDistrictInfoPage/GuestDistrictInfo
 import Overview from '../Overview/Overview';
 import SearchPage from '../SearchPage/SearchPage';
 import UserLoginPage from '../UserLoginPage/UserLoginPage';
-import { USER_FAV_QUERY } from '../../hooks/useGetFavorites';
 import FavoriteDistrictsPage from '../FavoriteDistrictsPage/FavoriteDistrictsPage';
+import { getDistrict } from '../../apiCalls';
+import { USER_FAV_QUERY } from '../../hooks/useGetFavorites';
+import { USER_LOGIN_QUERY } from '../../hooks/useGetUsers';
 import { useGetFavorites } from '../../hooks/useGetFavorites';
 import { Routes, Route, useNavigate } from 'react-router-dom';
-import { useGetUsers } from '../../hooks/useGetUsers';
-import { useMutation, gql } from "@apollo/client";
+import { useLazyQuery, useMutation, gql } from "@apollo/client";
 
 const App = () => {
   const navigate = useNavigate()
-  const [districtData, setDistrictData] = useState({})
-  const [userLoginEmail, setUserLoginEmail] = useState("")
-  const { queryError, queryLoading, queryData } = useGetUsers(userLoginEmail)
-
-  console.log(queryError, queryLoading)
+  const [ districtData, setDistrictData ] = useState({})
+  const [ error, setError ] = useState(false)
+  const [ findUser, { error: queryError, loading: queryLoading, data: queryData } ] = useLazyQuery(USER_LOGIN_QUERY)
 
   const FAVORITE_DISTRICT = gql`
     mutation createUserDistrict($userId: Int!, $districtId: Int! ){
@@ -41,30 +39,25 @@ const App = () => {
   let userId;
 
   if (districtData && queryData) {
-    districtId = districtData?.data?.attributes?.[0].lea_id
+    districtId = districtData?.data?.attributes?.[ 0 ].lea_id
     userId = queryData?.user?.id
   }
 
-  const { favError, favLoading, favData } = useGetFavorites(userId)
-
-  console.log(favError, favLoading)
-
-  const [addFavorites, { error, loading, data }] = useMutation(FAVORITE_DISTRICT, {
+  const { favLoading, favData } = useGetFavorites(userId)
+  const [ addFavorites, { loading } ] = useMutation(FAVORITE_DISTRICT, {
     refetchQueries: [
       { query: USER_FAV_QUERY },
       'userdistricts'
     ],
   })
 
-  console.log("MUTATION", { data, loading, error })
-
   const submitLogin = (userEmail) => {
-    setUserLoginEmail(userEmail)
+    findUser({ variables: { email: userEmail } })
   }
 
   const signOut = () => {
     navigate("/")
-    setUserLoginEmail("")
+    window.location.reload(false)
   }
 
   const searchForAddress = (newAddressQuery) => {
@@ -72,11 +65,16 @@ const App = () => {
       .then(result => {
         setDistrictData(result)
         userId ? navigate('/district-info') : navigate('/district-info-guest')
+        setError(false)
       })
-      .catch(function (error) {
-        console.log(error);
+      .catch((error) =>  {
+        setError(true)
       });
   }
+
+  if (queryLoading) return <h1>Loading...</h1>
+  if (loading) return <h1>Loading...</h1>
+  if (favLoading) return <h1>Loading...</h1>
 
   return (
     <div className="App">
@@ -92,7 +90,10 @@ const App = () => {
           <>
             <SignInNavBar
             />
-            <UserLoginPage submitLogin={submitLogin} />
+            <UserLoginPage
+              submitLogin={submitLogin}
+              queryError={queryError}
+            />
           </>
         } />
         <Route path='/home' element={
@@ -103,7 +104,9 @@ const App = () => {
             />
             <SearchPage
               searchForAddress={searchForAddress}
+              queryError={queryError}
             />
+            {error && <p>Could not find address.  Try again</p>}
           </>
         }
         />
@@ -137,7 +140,7 @@ const App = () => {
           <>
             <FavNavBar
               signOut={signOut}
-              
+
             />
             <FavoriteDistrictsPage
               favData={favData}
