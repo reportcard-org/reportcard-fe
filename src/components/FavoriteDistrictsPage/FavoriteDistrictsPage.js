@@ -10,7 +10,6 @@ const FavoriteDistrictsPage = ({ favData }) => {
 
     const favReportCard = favData.userdistricts.map(district => {
         return (
-            <>
                 <FavoriteReportCard
                     key={uuidV4()}
                     id={district.district.leaId}
@@ -23,8 +22,6 @@ const FavoriteDistrictsPage = ({ favData }) => {
                     studentGuidanceCounselorRatio={district.district.studentGuidanceCounselorRatio}
                     perStudentExpenditure={district.district.perStudentExpenditure}
                 />
-                <h1>❤️</h1>
-            </>
         )
     })
 

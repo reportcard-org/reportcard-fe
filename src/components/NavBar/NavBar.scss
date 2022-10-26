@@ -2,19 +2,31 @@
     display: flex;
     flex-direction: row;
     justify-content: center;
+    height: 4.75em;
+    color: whitesmoke;
 }
 
 .logo {
     display: flex;
     align-items: flex-end;
     font-weight: bolder;
-    border: solid black;
+    border: none;
+    background: none;
     border-radius: 0.5em;
-    margin-top: 0.5em;
     margin-left: 0.5em;
+    height: 1.5em;
     width: 8em;
     font-size: 35pt;
-    padding: 0.1em;
+    color: whitesmoke;
+    -webkit-text-stroke: 2px rgb(160, 160, 248);
+}
+
+h3 {
+    font-size: 1.2em;
+    color: seagreen;
+}
+.nav-bar {
+    background-color: whitesmoke;
 }
 
 .nav-button-container {
@@ -24,4 +36,6 @@
     align-self: flex-end;
     justify-content: space-evenly;
     padding: 0.5em;
+    color: whitesmoke;
+    z-index: 1;
 }
