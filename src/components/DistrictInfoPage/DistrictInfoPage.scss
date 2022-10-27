@@ -12,11 +12,22 @@
 .add-district-to-favorites, .back-to-search, .saved-message {
     height: 4em;
     width: 6em;
-    margin: 7em;
     color: whitesmoke;
     background-color: rgb(160, 160, 248);
 }
 
+.back-to-search {
+    margin-top: 5em;
+    margin-left: 18em;
+}
+
+.add-district-to-favorites  {
+     margin-top: 5em;
+     margin-right: 18em;
+ }
+
 .saved-message {
     font-size: medium;
+    margin-top: 5em;
+    margin-right: 18em;
 }

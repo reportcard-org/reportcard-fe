@@ -6,13 +6,12 @@
     color: whitesmoke;
 }
 
-.logo {
+.sign-in-logo {
     display: flex;
     align-items: flex-end;
     font-weight: bolder;
     border: none;
     background: none;
-    border-radius: 0.5em;
     margin-left: 0.5em;
     height: 1.5em;
     width: 9em;
@@ -22,7 +21,8 @@
 }
 
 .sign-in-nav-bar {
-    background-color: whitesmoke;
+    background-color: rgb(246, 243, 243);
+    box-shadow: 0 1rem 2rem rgba(black, .2);
 }
 
 .sign-in-nav-button-container {

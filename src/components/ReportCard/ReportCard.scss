@@ -1,9 +1,12 @@
 .report-card {
     display: flex;
     flex-direction: column;
+    margin: 1em;
 }
 
-h1 {
+.school-name {
+    font-size: 2em;
+    font-weight: bold;
     color: rgb(160, 160, 248);
     margin-left: 2em;
 }
@@ -18,13 +21,16 @@ h1 {
 }
 
 .card-bubble {
+    display: flex;
+    justify-content: center;
+    text-align: center;
     box-sizing: border-box;
     border: 5px solid seagreen;
     background-color: seagreen;
     color: whitesmoke;
     border-radius: 6em;
     margin-left: 1.25em;
-    padding: 1em;
+    padding: 1.5em;
     height: 5em;
     width: 5em;
 }
@@ -37,5 +43,4 @@ h1 {
     height: 3em;
     color: seagreen;
     font-weight: bolder;
-    overflow-wrap: break-word;
 }

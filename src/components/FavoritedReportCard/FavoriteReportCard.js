@@ -6,7 +6,7 @@ const FavoriteReportCard = ({ name, studentTeacherRatio, perTeacherSalaryExpense
 
     return (
         <div className='fav-report-card'>
-                <p>{name}</p>
+                <p className='fav-school-name'>{name}</p>
             <div className='fav-title-and-info-container'>
                 <p className='fav-info-title'>Student to Teacher Ratio: </p>
                 <p className='fav-card-bubble'>{studentTeacherRatio}</p>

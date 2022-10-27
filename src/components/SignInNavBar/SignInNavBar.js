@@ -7,7 +7,7 @@ const SignInNavBar = () => {
     return (
         <div className='sign-in-nav-bar'>
             <div className='sign-in-logo-and-buttons'>
-                <button onClick={() => navigate('/home')} className='logo'>
+                <button onClick={() => navigate('/home')} className='sign-in-logo'>
                     ReportCard ✅
                 </button>
                 <div className='sign-in-nav-button-container'>

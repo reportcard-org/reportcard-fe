@@ -1,27 +1,36 @@
-.logo-and-buttons {
+.fav-logo-and-buttons {
     display: flex;
     flex-direction: row;
     justify-content: center;
+    height: 5em;
+    color: whitesmoke;
 }
 
-.logo {
+.fav-logo {
     display: flex;
     align-items: flex-end;
     font-weight: bolder;
-    border: solid black;
-    border-radius: 0.5em;
-    margin-top: 0.5em;
+    border: none;
+    background: none;
     margin-left: 0.5em;
-    width: 8em;
+    height: 1.5em;
+    width: 9em;
     font-size: 35pt;
-    padding: 0.1em;
+    color: whitesmoke;
+    -webkit-text-stroke: 2px rgb(160, 160, 248);
 }
 
-.nav-button-container {
+.fav-nav-bar {
+    background-color: rgb(246, 243, 243);
+    box-shadow: 0 1rem 2rem rgba(black, .2);
+}
+
+.fav-nav-button-container {
     display: flex;
     height: 2em;
     width: 75em;
     align-self: flex-end;
     justify-content: space-evenly;
     padding: 0.5em;
+    color: whitesmoke;
 }
