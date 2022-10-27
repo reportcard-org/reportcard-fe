@@ -1,10 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
+
 .user-login-form {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    border-radius: 9.14px;
+    border: none;
     height: 25em;
+    font-family: 'Indie Flower', cursive;
+    color: whitesmoke;
 }
 
 input {
@@ -13,6 +17,15 @@ input {
     height: 1.5em;
     width: 18em;
     border-radius: 9.14px;
+    border-color: whitesmoke;
+}
+
+.user-name-input  {
+    background: none;
+}
+
+.password-input {
+    background: none;
 }
 
 .welcome-message {

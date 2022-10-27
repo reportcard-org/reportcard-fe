@@ -28,20 +28,20 @@ const SearchForm = ({ searchForAddress}) => {
     return (
         <form className='search-form' method="post" onSubmit={(event) => handleSubmit(event)}>
             <input
-                className='search-input-city'
-                type='text'
-                name='city'
-                placeholder='City'
-                value={city}
-                onChange={(event) => setCity(event.target.value)}
-            />
-            <input
                 className='search-input-street'
                 type='text'
                 name='street'
                 placeholder='Street'
                 value={street}
                 onChange={(event) => setStreet(event.target.value)}
+            />
+            <input
+                className='search-input-city'
+                type='text'
+                name='city'
+                placeholder='City'
+                value={city}
+                onChange={(event) => setCity(event.target.value)}
             />
             <input
                 className='search-input-state-address'

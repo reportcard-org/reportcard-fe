@@ -1,15 +1,30 @@
-.overview {
+@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
+
+.overview-container {
+    font-family: 'Indie Flower', cursive;
     display: grid;
     place-items: center;
-    border: solid;
-    background-color: #33cb9b;
-    padding: 1rem;
-    color: #FFFFF9;
+}
+
+.overview {
+    background-image: url("../../assets/images/chalkboard.png");
+    background-position: top center;
+    background-repeat: no-repeat;
+    height: 625px;
+    width: 999px;
+    border: none;
+    padding: 5rem;
     margin-top: 1rem;
+    margin-right: 1em;
 }
 
 .overview>p {
-    margin: 0;
-    padding: 1rem;
-    font-size: 1.1rem;
+    color: whitesmoke;
+    margin: 3em;
+    font-size: 1.2rem;
+}
+
+.return-to-login-page-button {
+    margin-right: 18em;
+    box-shadow: 0 1rem 2rem rgba(black, .2);;
 }

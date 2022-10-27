@@ -19,7 +19,7 @@ const ReportCard = ({ districtName, studentTeacherRatio, perTeacherSalaryExpense
                     <p className='card-bubble'>{perTeacherSalaryExpenses}</p>
                 </div>
                 <div className='title-and-info'>
-                    <p className='info-title'>Instruction Salary Percentage of Total: </p>
+                    <p className='info-title'>Instruction Salary % of Total: </p>
                     <p className='card-bubble'>{instructionSalaryPercentOfTotal}</p>
                 </div>
                 <div className='title-and-info'>

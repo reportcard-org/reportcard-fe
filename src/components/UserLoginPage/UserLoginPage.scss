@@ -1,6 +1,12 @@
+
 .user-login-form-container {
+    background-image: url("../../assets/images/chalkboard.png");
+    background-position: top center;
+    background-repeat: no-repeat;
     display: flex;
     flex-direction: column;
+    margin-top: 1em;
+    margin-right: 1em;
     padding: 1em;
     align-items: center;
     height: 39em;
