@@ -103,14 +103,14 @@ describe('User Favorites page', () => {
     });
 
     it('should not be able to save a favorite twice and should see all favorited districts on the favorites page', () => {
-        cy.get('.saved-message').contains('❤️ Already saved to faves ❤️')
+        cy.get('.saved-message').contains('❤️ Already saved to Fav\'s ❤️')
           .get('.go-to-favorites-page').click()
           .url().should('eq', 'http://localhost:3000/favorite-districts')
           .get('.fav-school-name').first().contains('Clinch County')
     })
 
     it('should allow users to return to the search page and look for a different address', () => {
-        cy.get('.search-page').click()
+        cy.get('.fav-search-page').click()
            .url().should('eq', 'http://localhost:3000/home')
             .get('.search-input-city').type('Denver').should('have.value', 'Denver')
             .get('.search-input-street').type('2523 Emerson Street').should('have.value', '2523 Emerson Street')
