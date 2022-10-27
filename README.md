@@ -51,8 +51,6 @@ You can view the deployed webpage [here](https://reportcard-8xtook7k8-report-car
 ## Future Additions and Improvements
 - Authentication for true login ability
 - Map of location included on the District Info page
-- 
-- Star my favorite quotes and categorize by date
 
 ## Project Spec
 Click [here](https://mod4.turing.edu/projects/capstone/index.html) for project specs, provided by [Turing School of Software and Design](https://turing.edu/).
