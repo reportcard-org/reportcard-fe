@@ -1,19 +1,18 @@
 .guest-district-info-container {
-    padding: 20px;
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    grid-gap: 0.15em;
-    margin-top: 2em;
-    margin-bottom: 10em;
-    margin-left: 10em;
-    margin-right: 10em;
-    border: 2px solid black;
-    height: 20em;
-    width: 45em;
+    background-image: url("../assets/images/monitor-screen.png");
+    background-position: top center;
+    background-repeat: no-repeat;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding: 3em;
 }
 
 .login-to-save-button, .guest-back-to-search {
     height: 6em;
     width: 6em;
     margin: 2em;
+    color: whitesmoke;
+    background-color: rgb(160, 160, 248);
 }
