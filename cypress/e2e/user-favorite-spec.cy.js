@@ -47,8 +47,8 @@ describe('User Favorites page', () => {
 
     it('loads the main page', () => {
         cy.visit('http://localhost:3000/')
-            .get('.nav-bar').contains('ReportCard')
-            .get('.logo').contains('✅')
+            .get('.sign-in-nav-bar').contains('ReportCard')
+            .get('.sign-in-logo').contains('✅')
             .location('pathname').should('eq', '/')
     });
 
@@ -57,6 +57,7 @@ describe('User Favorites page', () => {
         cy.visit('http://localhost:3000/login')
         .url().should('eq', 'http://localhost:3000/login')
         .get('input').first().type('test_email0@email.test')
+        .get('input').eq(1).type('Welcome2022')
         const userData = {
             "data": {
                 "user": {
@@ -78,11 +79,10 @@ describe('User Favorites page', () => {
     });
 
     it('can search for a district if user inputs a city, street, and state', () => {
-        cy.visit('http://localhost:3000/home')
-            .get('.search-form-container').should('exist')
+        cy.get('.search-form-container').should('exist')
             .get('.search-input-city').type('Littleton').should('have.value', 'Littleton')
             .get('.search-input-street').type('6805 S Webster Street').should('have.value', '6805 S Webster Street')
-            .get('.search-input-state-address').type('Colorado').should('have.value', 'Colorado')
+            .get('.search-input-state-address').type('CO').should('have.value', 'CO')
             .get('.search-button').should('not.be.disabled')
             .get('.search-button').contains('Search').click()
             .url().should('eq', 'http://localhost:3000/district-info')
@@ -91,7 +91,7 @@ describe('User Favorites page', () => {
             .get('p').eq(2).contains(18.07)
             .get('p').eq(3).contains('Teacher salary: ')
             .get('p').eq(4).contains(73400.51)
-            .get('p').eq(5).contains('Instruction Salary Percentage of Total: ')
+            .get('p').eq(5).contains('Instruction Salary % of Total: ')
             .get('p').eq(7).contains('Enrollment: ')
             .get('p').eq(8).contains(84646)
             .get('p').eq(9).contains('Number of Schools: ')
@@ -106,9 +106,7 @@ describe('User Favorites page', () => {
         cy.get('.saved-message').contains('❤️ Already saved to faves ❤️')
           .get('.go-to-favorites-page').click()
           .url().should('eq', 'http://localhost:3000/favorite-districts')
-          .get('h1').first().contains('Clinch County')
-          .get('h1').next().contains('Paradise Valley Unified District (4241)')
-          .get('h1').next().contains('Jefferson County School District No. R-1')
+          .get('.fav-school-name').first().contains('Clinch County')
     })
 
     it('should allow users to return to the search page and look for a different address', () => {
@@ -125,7 +123,7 @@ describe('User Favorites page', () => {
             .get('p').eq(2).contains(14.95)
             .get('p').eq(3).contains('Teacher salary: ')
             .get('p').eq(4).contains(65475.06)
-            .get('p').eq(5).contains('Instruction Salary Percentage of Total: ')
+            .get('p').eq(5).contains('Instruction Salary % of Total: ')
             .get('p').eq(6).contains(50.40)
             .get('p').eq(7).contains('Enrollment: ')
             .get('p').eq(8).contains(92039)

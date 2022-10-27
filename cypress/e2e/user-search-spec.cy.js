@@ -96,7 +96,7 @@ describe('ReportCard search page', () => {
       .get('p').eq(2).contains(18.07)
       .get('p').eq(3).contains('Teacher salary: ')
       .get('p').eq(4).contains(73400.51)
-      .get('p').eq(5).contains('Instruction Salary Percentage of Total: ')
+      .get('p').eq(5).contains('Instruction Salary % of Total: ')
       .get('p').eq(7).contains('Enrollment: ')
       .get('p').eq(8).contains(84646)
       .get('p').eq(9).contains('Number of Schools: ')
