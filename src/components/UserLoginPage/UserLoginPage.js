@@ -1,11 +1,11 @@
 import React from 'react';
 import './UserLoginPage.scss';
 import UserLoginForm from '../UserLoginForm/UserLoginForm';
+import PropTypes from 'prop-types'
 import { useNavigate } from 'react-router-dom';
 
 const UserLoginPage = ({ submitLogin, queryError }) => {
     const navigate = useNavigate()
-
     const handleClick = () => {
         navigate('/home')
         window.location.reload(false)
@@ -24,3 +24,8 @@ const UserLoginPage = ({ submitLogin, queryError }) => {
 }
 
 export default UserLoginPage;
+
+UserLoginPage.propTypes = {
+    submitLogin: PropTypes.func,
+    queryError: PropTypes.object,
+} 

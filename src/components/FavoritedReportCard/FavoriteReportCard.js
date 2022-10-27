@@ -35,6 +35,7 @@ const FavoriteReportCard = ({ name, studentTeacherRatio, perTeacherSalaryExpense
                 <p className='fav-info-title'>Expenditure Per Student: </p>
                 <p className='fav-card-bubble'>{perStudentExpenditure}</p>
             </div>
+            <h1>❤️</h1>
         </div>
     )
 }
@@ -42,10 +43,12 @@ const FavoriteReportCard = ({ name, studentTeacherRatio, perTeacherSalaryExpense
 export default FavoriteReportCard;
 
 FavoriteReportCard.propTypes = {
+    name: PropTypes.string,
     studentTeacherRatio: PropTypes.number,
+    perTeacherSalaryExpenses: PropTypes.number,
+    instructionSalaryPercentOfTotal: PropTypes.number,
+    enrollment: PropTypes.number,
+    numberOfSchoolsInDistrict: PropTypes.number,
+    studentGuidanceCounselorRatio: PropTypes.number,
     perStudentExpenditure: PropTypes.number,
-    teacherSalaryInfo: PropTypes.number,
-    studentPopulationSize: PropTypes.number,
-    numberOfSchoolsInDistrict: PropTypes.number
-    //function to delete will be a proptype of function
 } 

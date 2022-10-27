@@ -65,5 +65,10 @@ const DistrictInfoPage = ({ addFavorites, currentDistrictData, favData, userId, 
 export default DistrictInfoPage;
 
 DistrictInfoPage.propTypes = {
-    districtData: PropTypes.object
+    districtData: PropTypes.object,
+    addFavorites: PropTypes.func,
+    favData: PropTypes.object,
+    userId: PropTypes.string,
+    districtId: PropTypes.string
+
 }

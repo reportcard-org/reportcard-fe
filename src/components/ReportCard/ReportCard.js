@@ -3,6 +3,7 @@ import './ReportCard.scss';
 import PropTypes from 'prop-types'
 
 const ReportCard = ({ districtName, studentTeacherRatio, perTeacherSalaryExpenses, instructionSalaryPercentOfTotal, enrollment, numberOfSchoolsInDistrict, studentGuidanceCounselorRatio, perStudentExpenditure }) => {
+
     return (
         <div className='report-card'>
             <p className="school-name">{districtName}</p>
@@ -43,9 +44,12 @@ const ReportCard = ({ districtName, studentTeacherRatio, perTeacherSalaryExpense
 export default ReportCard;
 
 ReportCard.propTypes = {
+    districtName: PropTypes.string,
     studentTeacherRatio: PropTypes.number,
+    perTeacherSalaryExpenses: PropTypes.number,
+    instructionSalaryPercentOfTotal: PropTypes.number,
+    enrollment: PropTypes.number,
+    numberOfSchoolsInDistrict: PropTypes.number,
+    studentGuidanceCounselorRatio: PropTypes.number,
     perStudentExpenditure: PropTypes.number,
-    teacherSalaryInfo: PropTypes.number,
-    studentPopulationSize: PropTypes.number,
-    numberOfSchoolsInDistrict: PropTypes.number
 } 
