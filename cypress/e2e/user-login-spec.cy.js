@@ -51,8 +51,8 @@ describe('ReportCard login page', () => {
 
   it('loads the main page', () => {
      cy.visit('http://localhost:3000/')  
-      .get('.nav-bar').contains('ReportCard')
-      .get('.logo').contains('✅')
+      .get('.sign-in-nav-bar').contains('ReportCard')
+      .get('.sign-in-logo').contains('✅')
       .location('pathname').should('eq', '/')
   });
 
