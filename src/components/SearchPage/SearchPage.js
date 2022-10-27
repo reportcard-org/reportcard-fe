@@ -23,5 +23,6 @@ const SearchPage = ({ searchForAddress, queryError }) => {
 export default SearchPage;
 
 SearchPage.propTypes = {
-    searchForAddress: PropTypes.func
+    searchForAddress: PropTypes.func.isRequired,
+    queryError: PropTypes.object
 }

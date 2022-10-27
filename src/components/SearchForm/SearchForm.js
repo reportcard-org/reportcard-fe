@@ -3,7 +3,6 @@ import PropTypes from 'prop-types'
 import './SearchForm.scss';
 
 const SearchForm = ({ searchForAddress}) => {
-
     const [city, setCity] = useState('');
     const [street, setStreet] = useState('');
     const [stateAddress, setStateAddress] = useState('');
@@ -52,7 +51,6 @@ const SearchForm = ({ searchForAddress}) => {
                 value={stateAddress}
                 onChange={(event) => setStateAddress(event.target.value)}
             />
-
             <button className='search-button' type='submit' disabled={!city || !street || !stateAddress}>Search</button>
         </form>
     );

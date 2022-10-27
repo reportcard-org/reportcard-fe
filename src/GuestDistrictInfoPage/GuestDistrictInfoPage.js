@@ -37,7 +37,7 @@ const GuestDistrictInfoPage = ({ currentDistrictData }) => {
 export default GuestDistrictInfoPage;
 
 GuestDistrictInfoPage.propTypes = {
-    districtData: PropTypes.object
+    currentDistrictData: PropTypes.object
 }
 
 

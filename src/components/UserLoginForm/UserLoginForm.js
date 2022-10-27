@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import PropTypes from 'prop-types'
 import './UserLoginForm.scss'
 
 const UserLoginForm = ({ submitLogin, queryError }) => {
     const navigate = useNavigate()
     const [ userCredentials, setUserCredentials ] = useState("")
-    const [userPassword, setUserPassword] = useState("")
+    const [ userPassword, setUserPassword ] = useState("")
 
     const handleSubmit = (event) => {
         event.preventDefault()
@@ -47,3 +48,8 @@ const UserLoginForm = ({ submitLogin, queryError }) => {
 }
 
 export default UserLoginForm;
+
+UserLoginForm.propTypes = {
+    submitLogin: PropTypes.func,
+    queryError: PropTypes.object,
+} 

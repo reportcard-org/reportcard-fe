@@ -1,5 +1,6 @@
 import React from 'react';
 import './NavBar.scss';
+import PropTypes from 'prop-types'
 import { useNavigate } from 'react-router-dom';
 
 const NavBar = ({ signOut, data }) => {
@@ -33,7 +34,12 @@ const NavBar = ({ signOut, data }) => {
                 </div>
             </div>
         )
-    } 
+    }
 }
 
 export default NavBar;
+
+NavBar.propTypes = {
+    signOut: PropTypes.func,
+    data: PropTypes.object
+} 
