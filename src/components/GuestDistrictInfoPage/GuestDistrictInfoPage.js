@@ -1,5 +1,5 @@
 import React from 'react';
-import ReportCard from '../components/ReportCard/ReportCard';
+import ReportCard from '../ReportCard/ReportCard';
 import './GuestDistrictInfoPage.scss';
 import PropTypes from 'prop-types';
 import { v4 as uuidV4 } from "uuid";

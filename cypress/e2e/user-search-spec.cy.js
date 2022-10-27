@@ -95,15 +95,15 @@ describe('ReportCard search page', () => {
       .get('p').first().contains('Back to Search')
       .get('p').eq(2).contains('Student to Teacher Ratio: ')
       .get('p').eq(4).contains('Teacher salary: ')
-      .get('p').eq(5).contains(73400.51)
+      .get('p').eq(5).contains('$73,400.51')
       .get('p').eq(8).contains('Enrollment: ')
-      .get('p').eq(9).contains(84646)
+      .get('p').eq(9).contains('84,646')
       .get('p').eq(10).contains('Number of Schools: ')
       .get('p').eq(11).contains(165)
       .get('p').eq(12).contains('Guidance Counselor Ratio: ')
       .get('p').eq(13).contains(299.1)
       .get('p').eq(14).contains('Expenditure Per Student: ')
-      .get('p').eq(15).contains(12100.68)
+      .get('p').eq(15).contains('$12,100.68')
   });
 
 });
