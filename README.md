@@ -6,6 +6,7 @@
   - [Contributors](#contributors)
   - [Deployed Webpage](#deployed-page)
   - [Illustrations](#illustrations)
+  - [Planning](#planning)
   - [Future Additions and Improvements](#future-additions-and-improvements)
   - [Project Spec](#project-spec)
   - [Set Up](#set-up)
@@ -40,6 +41,9 @@ You can view the deployed webpage [here](https://reportcard-8xtook7k8-report-car
 
 ## Demo
 [DEMO WILL GO HERE]
+
+## Planning
+You can view our wireframe and planning process [here](https://www.figma.com/file/pBWCRc3bERq8ELucFixT3l/ReportCard-Wireframe).
 
 ## Set Up
 1. Go to [this](https://github.com/camianderson/chefYeezy) repository and clone it. 
