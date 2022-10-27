@@ -4,35 +4,36 @@
     background-image: url("../../assets/images/notebook-paper.jpeg");
     background-repeat: no-repeat;
     background-position: top center;
-    height: 50vh;
+    height: 80vh;
     width: 50vw;
-    padding: 3em;
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-    align-content: space-between;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
-    margin-bottom: 5em;
+    margin-top: 2em;
+    margin-bottom: 3em;
 }
 
 .fav-school-name {
+    width: 10em;
     font-family: 'Indie Flower', cursive;
-    font-size: 1.2em;
-    font-weight: bold;
-    color: rgb(160, 160, 248);
-    padding-bottom: 3em;
+    font-size: 1.5em;
+    font-weight: bolder;
+    color: rgb(105, 105, 246);
+    overflow-wrap: normal;
 }
 
 .fav-title-and-info-container {
     display: grid;
-    grid-template-columns: repeat(4, 2fr);
-    align-self: start;
+    grid-template-rows: repeat(4, 2em);
     grid-gap: 0.5em;
-    grid-auto-rows: 90px;
 }
 
 .fav-card-bubble {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     box-sizing: border-box;
     border: 5px solid seagreen;
     background-color: seagreen;

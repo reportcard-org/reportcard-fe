@@ -35,7 +35,6 @@ const FavoriteReportCard = ({ name, studentTeacherRatio, perTeacherSalaryExpense
                 <p className='fav-info-title'>Expenditure Per Student: </p>
                 <p className='fav-card-bubble'>{perStudentExpenditure}</p>
             </div>
-            <h1>❤️</h1>
         </div>
     )
 }

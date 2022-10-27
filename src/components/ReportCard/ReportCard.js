@@ -6,9 +6,7 @@ const ReportCard = ({ districtName, studentTeacherRatio, perTeacherSalaryExpense
 
     return (
         <div className='report-card'>
-            <div className='district-name'>
-                <h1>{districtName}</h1>
-            </div>
+                <p className='district-name'>{districtName}</p>
             <div className='title-and-info-container'>
                 <div className='title-and-info'>
                     <p className='info-title'>Student to Teacher Ratio: </p>
