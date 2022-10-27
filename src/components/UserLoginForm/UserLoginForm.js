@@ -2,17 +2,16 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import './UserLoginForm.scss'
 
-const UserLoginForm = ({ submitLogin }) => {
+const UserLoginForm = ({ submitLogin, queryError }) => {
     const navigate = useNavigate()
-
-    const [userCredentials, setUserCredentials] = useState("")
+    const [ userCredentials, setUserCredentials ] = useState("")
     const [userPassword, setUserPassword] = useState("")
-  
+
     const handleSubmit = (event) => {
-            event.preventDefault()
-            submitLogin(userCredentials, userPassword)
-            navigate("/home")
-            clearInputs()
+        event.preventDefault()
+        navigate("/home")
+        clearInputs()
+        submitLogin(userCredentials, userPassword)
     }
 
     const clearInputs = () => {
@@ -20,12 +19,12 @@ const UserLoginForm = ({ submitLogin }) => {
         setUserPassword("")
     }
 
-    return(
-        <form className= 'user-login-form' onSubmit={(event) => handleSubmit(event)}>
+    return (
+        <form className='user-login-form' onSubmit={(event) => handleSubmit(event)}>
             <div className="welcome-message">
                 Welcome to ReportCard!
             </div>
-            <input 
+            <input
                 className='user-name-input'
                 type="text"
                 name="userCredentials"
@@ -41,9 +40,8 @@ const UserLoginForm = ({ submitLogin }) => {
                 value={userPassword}
                 onChange={() => setUserPassword("welcome2022")}
             />
-
+            {queryError && <p>User not found. Check the email and try again</p>}
             <button className='login-button' type='submit' disabled={!userCredentials && !userPassword}>Login</button>
-
         </form>
     )
 }
