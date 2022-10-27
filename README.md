@@ -12,13 +12,13 @@
   - [Set Up](#set-up)
 
 ## Overview
-  The effect that a classroom teacher has on a student is second only to a parent.
- 
-  Nationwide, teachers salaries and work conditions should better reflect the value they provide to our lives. This application is designed to assist teachers in their search for school districts that might better meet their needs.
-  
-  Login with an email and then provide an address to search for the nearest school district. Your report Card will provide you with *insert info*. You can save this district to your Favorites for later review. If you don't want to save any info or enter an email, you can continue as a guest. Thank you for using our application and for helping create a better future for our children. 
-  
-  Welcome to Report Card!
+
+The effect that a classroom teacher has on a student is sometimes second only to a parent.
+Nationwide, teachers salaries and work conditions should better reflect the value they provide to our lives. This application is designed to assist teachers in their search for school districts that might better meet their financial needs and provide better work conditions.
+
+Login with a  test email and password (use your numbers 0-4, test_email0@email.test, Welcome2022 ), then provide an address to search for the nearest school district. Your report Card will provide you with up-to-date, relevant information for educators about the district. You can save this district to your Favorites for later review. If you don't want to save any info or enter an email, you can continue as a guest. Thank you for using our application and for helping create a better future for our children.
+
+Welcome to Report Card!
 
 ## Technologies
 ![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
@@ -40,11 +40,16 @@
 You can view the deployed webpage [here](https://reportcard-8xtook7k8-report-card.vercel.app/)!
 
 ## Demo
-[DEMO WILL GO HERE]
+
+https://youtu.be/Ysel43sO-P4
 
 ## Planning
 You can view our wireframe and planning process [here](https://www.figma.com/file/pBWCRc3bERq8ELucFixT3l/ReportCard-Wireframe).
 
+## Lessons Learned
+GraphQL was the most relevant piece of technology in the tech stack of our application. This was our team’s first experience building an application utilizing GraphQL. It was used to make queries and mutations to our back end GraphQL server. Our Back End team had four members. They hand crafted our GraphQL server leveraging various different RESTful APIs including National Center for Educational Statistics and a Python based Custom User database. Our team communicated consistently throughout the project about the different queries and mutations we needed from the Back End server to make for the Front End of the application. We leveraged the Apollo Client state management library for JavaScript in order to enable and manage both local and remote data with GraphQL. We also made use of built-in React Hooks from the Apollo Client library including the useQuery(), useLazyQuery(), and useMutation() hooks in order to manage the state of our application.
+
+Mutations were by far the most challenging aspect of building this application. The first time that we made use of this was for adding a user’s favorite school districts for later viewing. Although this seems simple, certain aspects of it posed a challenge for my collaborators and I, such as getting the syntax correct for the mutation itself, setting up the useMutation() hook properly, and getting it connected to our Add to Favorites component. However, we were able to successfully get this functionality fully operational after some research and practice. 
 ## Set Up
 1. Go to [this](https://github.com/camianderson/chefYeezy) repository and clone it. 
 2. `cd` into the directory.
