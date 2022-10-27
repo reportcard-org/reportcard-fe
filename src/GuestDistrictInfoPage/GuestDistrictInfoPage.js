@@ -26,10 +26,10 @@ const GuestDistrictInfoPage = ({ currentDistrictData }) => {
     })
 
     return (
-        <div className='district-info-container'>
-            <p><button className='back-to-search' onClick={() => navigate('/home')}>Back to Search</button></p>
+        <div className='guest-district-info-container'>
+            <p><button className='guest-back-to-search' onClick={() => navigate('/home')}>Back to Search</button></p>
             {newReportCard}
-            <p><button className='add-district-to-favorites' onClick={() => navigate('/login')}>Sign in to Save</button></p>
+            <p><button className='login-to-save-button' onClick={() => navigate('/login')}>Sign in to Save</button></p>
         </div>
     )
 }

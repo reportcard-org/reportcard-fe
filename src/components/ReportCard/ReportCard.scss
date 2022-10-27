@@ -1,26 +1,29 @@
 .report-card {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
 }
 
-.district-name {
-    margin-bottom: 2em;
+h1 {
+    color: rgb(160, 160, 248);
+    margin-left: 2em;
 }
 
 .title-and-info-container {
     display: grid;
-    justify-content: center;
-    align-items: center;
-    grid-template-columns: repeat(8, 1fr);
-    grid-gap: 0.15em;
+    align-self: start;
+    grid-template-columns: repeat(4, 2fr);
+    grid-gap: 0.5em;
+    grid-auto-rows: 150px;
+    align-items: start;
 }
 
 .card-bubble {
     box-sizing: border-box;
-    border: 3px solid black;
+    border: 5px solid seagreen;
+    background-color: seagreen;
+    color: whitesmoke;
     border-radius: 6em;
+    margin-left: 1.25em;
     padding: 1em;
     height: 5em;
     width: 5em;
@@ -28,5 +31,11 @@
 
 .info-title {
     display: flex;
+    justify-content: center;
     text-align: center;
+    width: 7em;
+    height: 3em;
+    color: seagreen;
+    font-weight: bolder;
+    overflow-wrap: break-word;
 }

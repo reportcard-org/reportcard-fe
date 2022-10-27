@@ -1,28 +1,56 @@
-.favorite-report-card {
-    display: grid;
+@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
+
+.fav-report-card {
+    background-image: url("../../assets/images/notebook-paper.jpeg");
+    background-repeat: no-repeat;
+    background-position: top center;
+    height: 50vh;
+    width: 50vw;
+    padding: 3em;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: space-between;
     justify-content: center;
     align-items: center;
-    margin-top: 12em;
-    grid-template-columns: repeat(8, 1fr);
-    grid-gap: 0.15em;
+    margin-bottom: 5em;
 }
 
-.district-name {
-    margin-bottom: 10em;
+p {
+    font-family: 'Indie Flower', cursive;
+    font-size: 1.2em;
+    font-weight: bold;
+    color: rgb(160, 160, 248);
+    padding-bottom: 3em;
 }
 
-.card-bubble {
+.fav-title-and-info-container {
+    display: grid;
+    grid-template-columns: repeat(4, 2fr);
+    align-self: start;
+    grid-gap: 0.5em;
+    grid-auto-rows: 90px;
+}
+
+.fav-card-bubble {
     box-sizing: border-box;
-    border: 3px solid black;
+    border: 5px solid seagreen;
+    background-color: seagreen;
+    color: whitesmoke;
     border-radius: 6em;
+    margin-left: 1.25em;
     padding: 1em;
     height: 5em;
     width: 5em;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
-.info-title {
+.fav-info-title {
+    display: flex;
+    justify-content: center;
     text-align: center;
+    width: 7em;
+    height: 3em;
+    color: seagreen;
+    font-weight: bolder;
+    overflow-wrap: break-word;
 }

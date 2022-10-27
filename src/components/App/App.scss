@@ -1,7 +1,14 @@
+.App {
+    background-image: url("../../assets/images/classroom-illustration.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    width: 100vw;
+}
+
 input, select, button {
     margin: 5px;
     width: 30%;
-    border: 1px solid black;
     font-size: 18px;
 }
 

@@ -5,12 +5,12 @@ import { useNavigate } from 'react-router-dom';
 const SignInNavBar = () => {
     const navigate = useNavigate()
     return (
-        <div className='nav-bar'>
-            <div className='logo-and-buttons'>
+        <div className='sign-in-nav-bar'>
+            <div className='sign-in-logo-and-buttons'>
                 <button onClick={() => navigate('/home')} className='logo'>
                     ReportCard ✅
                 </button>
-                <div className='nav-button-container'>
+                <div className='sign-in-nav-button-container'>
                 </div>
             </div>
         </div>

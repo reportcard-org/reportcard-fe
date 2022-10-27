@@ -1,4 +1,4 @@
-.district-info-container {
+.guest-district-info-container {
     padding: 20px;
     display: grid;
     grid-template-columns: repeat(7, 1fr);
@@ -12,7 +12,7 @@
     width: 45em;
 }
 
-.add-district-to-favorites, .back-to-search {
+.login-to-save-button, .guest-back-to-search {
     height: 6em;
     width: 6em;
     margin: 2em;

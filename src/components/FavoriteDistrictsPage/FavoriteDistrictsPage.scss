@@ -1,0 +1,9 @@
+.favorites-container {
+    display: grid;
+    grid-template-columns: (10, 1fr);
+    align-items: center;
+    }
+
+.saved-message {
+    font-size: medium;
+}
