@@ -32,8 +32,8 @@
 ![Heroku](https://img.shields.io/badge/heroku-%23430098.svg?style=for-the-badge&logo=heroku&logoColor=white)
 
 ## Contributors
-- [Maia Cochran](https://github.com/Maia-Cochran) | [LinkedIn](https://www.linkedin.com/in/maiaecochran/)
 - [Patrick Becker](https://github.com/PatrickGBecker) | [LinkedIn](https://www.linkedin.com/in/patrickgarrettbecker/)
+- [Maia Cochran](https://github.com/Maia-Cochran) | [LinkedIn](https://www.linkedin.com/in/maiaecochran/)
 - [Eddie Rodriguez](https://github.com/edjrodriguez) | [LinkedIn](https://www.linkedin.com/in/edward-rodriguez-1b497423b/)
 
 ## Deployed Page
