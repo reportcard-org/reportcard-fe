@@ -1,14 +1,14 @@
-.logo-and-buttons {
+.fav-logo-and-buttons {
     display: flex;
     flex-direction: row;
     justify-content: center;
 }
 
-.logo {
+.fav-logo {
     display: flex;
     align-items: flex-end;
     font-weight: bolder;
-    border: solid black;
+    border: none;
     border-radius: 0.5em;
     margin-top: 0.5em;
     margin-left: 0.5em;
@@ -17,7 +17,10 @@
     padding: 0.1em;
 }
 
-.nav-button-container {
+.fav-nav-bar {
+    background-color: whitesmoke;
+}
+.fav-nav-button-container {
     display: flex;
     height: 2em;
     width: 75em;

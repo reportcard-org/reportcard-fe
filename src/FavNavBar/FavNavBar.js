@@ -7,14 +7,14 @@ const FavNavBar = ({ signOut }) => {
     const navigate = useNavigate()
 
     return (
-        <div className='nav-bar'>
-            <div className='logo-and-buttons'>
+        <div className='fav-nav-bar'>
+            <div className='fav-logo-and-buttons'>
                 <button onClick={() => navigate('/home')} className='logo'>
                     ReportCard ✅
                 </button>
-                <div className='nav-button-container'>
-                    <button className='search-page' onClick={() => navigate('/home')}>Back to Search Page</button>
-                    <button className='return-to-login-page-button' onClick={() => signOut()}>Logout</button>
+                <div className='fav-nav-button-container'>
+                    <button className='fav-search-page' onClick={() => navigate('/home')}>Back to Search Page</button>
+                    <button className='fav-return-to-login-page-button' onClick={() => signOut()}>Logout</button>
                 </div>
             </div>
         </div>

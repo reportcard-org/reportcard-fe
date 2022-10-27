@@ -3,21 +3,24 @@
     flex-direction: column;
 }
 
-h1 {
+.district-name {
     color: rgb(160, 160, 248);
-    margin-left: 2em;
+    margin-left: 8em;
 }
 
 .title-and-info-container {
     display: grid;
-    align-self: start;
+    align-self: center;
     grid-template-columns: repeat(4, 2fr);
     grid-gap: 0.5em;
     grid-auto-rows: 150px;
-    align-items: start;
+    align-items: center;
 }
 
 .card-bubble {
+    display: flex;
+    justify-content: center;
+    align-content: center;
     box-sizing: border-box;
     border: 5px solid seagreen;
     background-color: seagreen;
