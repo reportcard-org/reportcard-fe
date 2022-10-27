@@ -39,7 +39,7 @@
 You can view the deployed webpage [here](https://reportcard-8xtook7k8-report-card.vercel.app/)!
 
 ## Demo
-https://user-images.githubusercontent.com/101746747/192404983-6e6b4d89-56c0-419a-9d73-5479ba038970.mov
+[DEMO WILL GO HERE]
 
 ## Set Up
 1. Go to [this](https://github.com/camianderson/chefYeezy) repository and clone it. 
