@@ -16,7 +16,7 @@
 The effect that a classroom teacher has on a student is sometimes second only to a parent.
 Nationwide, teachers salaries and work conditions should better reflect the value they provide to our lives. This application is designed to assist teachers in their search for school districts that might better meet their financial needs and provide better work conditions.
 
-Login with a  test email and password (use your numbers 0-4, test_email0@email.test, Welcome2022 ), then provide an address to search for the nearest school district. Your report Card will provide you with up-to-date, relevant information for educators about the district. You can save this district to your Favorites for later review. If you don't want to save any info or enter an email, you can continue as a guest. Thank you for using our application and for helping create a better future for our children.
+Login with a test email and password ( use your numbers 0-4, test_email0@email.test, Welcome2022 ), then provide an address to search for the nearest school district. Your Report Card will provide you with up-to-date, relevant information for educators about the district. You can save this district to your Favorites for later review. If you don't want to save any info or enter an email, you can continue as a guest. Thank you for using our application and for helping create a better future for our children.
 
 Welcome to Report Card!
 
