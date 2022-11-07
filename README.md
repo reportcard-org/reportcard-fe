@@ -41,7 +41,7 @@ You can view the deployed webpage [here](https://reportcard-8xtook7k8-report-car
 
 ## Demo
 
-https://youtu.be/Ysel43sO-P4
+View our demo [here](https://youtu.be/Ysel43sO-P4)!
 
 ## Planning
 You can view our wireframe and planning process [here](https://www.figma.com/file/pBWCRc3bERq8ELucFixT3l/ReportCard-Wireframe).
