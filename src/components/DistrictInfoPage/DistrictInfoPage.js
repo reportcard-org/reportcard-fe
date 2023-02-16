@@ -28,18 +28,20 @@ const DistrictInfoPage = ({ addFavorites, currentDistrictData, favData, userId, 
 
     const newReportCard = currentDistrictData.data.attributes.map(attribute => {
         return (
-            <ReportCard
-                key={uuidV4()}
-                id={currentDistrictData.lea_id}
-                districtName={attribute.district_name}
-                studentTeacherRatio={attribute.student_teacher_ratio}
-                instructionSalaryPercentOfTotal={attribute.instruction_salary_percent_of_total}
-                perTeacherSalaryExpenses={attribute.per_teacher_salary_expenses}
-                enrollment={attribute.enrollment}
-                numberOfSchoolsInDistrict={attribute.number_of_schools_in_district}
-                studentGuidanceCounselorRatio={attribute.student_guidance_counselor_ratio}
-                perStudentExpenditure={attribute.per_student_expenditure}
-            />
+            <div>
+                <ReportCard
+                    key={uuidV4()}
+                    id={currentDistrictData.lea_id}
+                    districtName={attribute.district_name}
+                    studentTeacherRatio={attribute.student_teacher_ratio}
+                    instructionSalaryPercentOfTotal={attribute.instruction_salary_percent_of_total}
+                    perTeacherSalaryExpenses={attribute.per_teacher_salary_expenses}
+                    enrollment={attribute.enrollment}
+                    numberOfSchoolsInDistrict={attribute.number_of_schools_in_district}
+                    studentGuidanceCounselorRatio={attribute.student_guidance_counselor_ratio}
+                    perStudentExpenditure={attribute.per_student_expenditure}
+                />
+            </div>
         )
     })
 

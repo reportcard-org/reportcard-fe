@@ -4,12 +4,11 @@
     background-image: url("../../assets/images/notebook-paper.jpeg");
     background-repeat: no-repeat;
     background-position: top center;
-    height: 80vh;
+    height: 84vh;
     width: 50vw;
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-    justify-content: flex-start;
     align-items: center;
     margin-top: 2em;
     margin-bottom: 3em;
@@ -21,14 +20,18 @@
     font-size: 1.5em;
     font-weight: bolder;
     color: rgb(105, 105, 246);
+    padding-left: 5em;
     overflow-wrap: normal;
 }
 
 .fav-title-and-info-container {
     display: grid;
-    grid-template-rows: repeat(4, 2em);
-    grid-gap: 0.5em;
+    grid-template-columns: repeat(3);
+    padding-right: 3em;
+    padding-top: 1em;
+    padding-bottom: 0.5em;
 }
+
 
 .fav-card-bubble {
     display: flex;
@@ -46,11 +49,11 @@
 }
 
 .fav-info-title {
-    display: flex;
-    justify-content: center;
     text-align: center;
     width: 7em;
-    height: 3em;
+    height: 2em;
+    margin-right: 1em;
+    padding-top: 0.25em;
     color: seagreen;
     font-weight: bolder;
     overflow-wrap: break-word;

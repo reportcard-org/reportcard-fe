@@ -13,10 +13,10 @@ const FavoriteReportCard = ({ name, studentTeacherRatio, perTeacherSalaryExpense
             </div>
             <div className='fav-title-and-info-container'>
                 <p className='fav-info-title'>Teacher salary: </p>
-                <p className='fav-card-bubble'>{perTeacherSalaryExpenses}</p>
+                <p className='fav-card-bubble'>`${perTeacherSalaryExpenses}`</p>
             </div>
             <div className='fav-title-and-info-container'>
-                <p className='fav-info-title'>Instruction Salary Percentage of Total: </p>
+                <p className='fav-info-title'>Teachers Salary % of Total: </p>
                 <p className='fav-card-bubble'>{instructionSalaryPercentOfTotal}</p>
             </div>
             <div className='fav-title-and-info-container'>

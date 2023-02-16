@@ -9,10 +9,20 @@
     padding: 3em;
 }
 
-.add-district-to-favorites, .back-to-search, .saved-message {
+.add-district-to-favorites, .saved-message {
     height: 4em;
     width: 6em;
     margin: 7em;
+    padding: 1em;
+    color: whitesmoke;
+    background-color: rgb(160, 160, 248);
+}
+
+.back-to-search {
+    height: 4em;
+    width: 6em;
+    margin: 7em;
+    padding: 1em;
     color: whitesmoke;
     background-color: rgb(160, 160, 248);
 }
