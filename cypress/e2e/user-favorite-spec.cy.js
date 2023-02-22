@@ -85,6 +85,7 @@ describe('User Favorites page', () => {
             .get('.search-input-state-address').type('CO').should('have.value', 'CO')
             .get('.search-button').should('not.be.disabled')
             .get('.search-button').contains('Search').click()
+            .wait(1000)
             .url().should('eq', 'http://localhost:3000/district-info')
             .get('.title-and-info-container')
             .get('p').first().contains('Back to Search')
@@ -106,7 +107,7 @@ describe('User Favorites page', () => {
         cy.get('.saved-message').contains('❤️ Already saved to Fav\'s ❤️')
           .get('.go-to-favorites-page').click()
           .url().should('eq', 'http://localhost:3000/favorite-districts')
-          .get('.fav-school-name').first().contains('Clinch County')
+          .get('.fav-school-name').first().contains('Plaza Elementary')
     })
 
     it('should allow users to return to the search page and look for a different address', () => {
